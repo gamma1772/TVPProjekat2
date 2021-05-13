@@ -1,0 +1,10 @@
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.csproj.AssemblyReference.cache
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormProgram.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Properties.Resources.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.csproj.GenerateResource.cache
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.csproj.CoreCompileInputs.cache
+C:\source\TVPProjekat2\TVPProjekat2\bin\Debug\TVPProjekat2.exe.config
+C:\source\TVPProjekat2\TVPProjekat2\bin\Debug\TVPProjekat2.exe
+C:\source\TVPProjekat2\TVPProjekat2\bin\Debug\TVPProjekat2.pdb
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.exe
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.pdb
