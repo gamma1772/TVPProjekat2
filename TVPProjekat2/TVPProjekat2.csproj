@@ -59,6 +59,7 @@
       <DependentUpon>FormProgram.cs</DependentUpon>
     </Compile>
     <Compile Include="Kategorija.cs" />
+    <Compile Include="Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Proizvod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
