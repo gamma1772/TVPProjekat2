@@ -30,23 +30,22 @@ namespace TVPProjekat2
         private void InitializeComponent()
         {
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.prikažiStatistikuProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.formaYaPovratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.odjaviSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izađiIzProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formaYaPovratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.računToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNoviRačunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajRačuneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajListuProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izmeniListuKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uputstvoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProjektuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.prikažiStatistikuProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar1 = new System.Windows.Forms.ToolStripProgressBar();
-            this.izmeniListuKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,13 +53,18 @@ namespace TVPProjekat2
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel1,
-            this.toolStripProgressBar1});
+            this.toolStripStatusLabel1});
             this.statusStrip1.Location = new System.Drawing.Point(0, 529);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(602, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(1034, 22);
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(110, 17);
+            this.toolStripStatusLabel1.Text = "statusLabelRacunID";
             // 
             // menuStrip1
             // 
@@ -71,7 +75,7 @@ namespace TVPProjekat2
             this.pomoćToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(602, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -85,6 +89,22 @@ namespace TVPProjekat2
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
             this.programToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.programToolStripMenuItem.Text = "Program";
+            // 
+            // prikažiStatistikuProdajeToolStripMenuItem
+            // 
+            this.prikažiStatistikuProdajeToolStripMenuItem.Name = "prikažiStatistikuProdajeToolStripMenuItem";
+            this.prikažiStatistikuProdajeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.S)));
+            this.prikažiStatistikuProdajeToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.prikažiStatistikuProdajeToolStripMenuItem.Text = "Prikaži statistiku prodaje";
+            // 
+            // formaYaPovratToolStripMenuItem
+            // 
+            this.formaYaPovratToolStripMenuItem.Name = "formaYaPovratToolStripMenuItem";
+            this.formaYaPovratToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.F)));
+            this.formaYaPovratToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
+            this.formaYaPovratToolStripMenuItem.Text = "Forma za povrat";
             // 
             // odjaviSeToolStripMenuItem
             // 
@@ -100,14 +120,6 @@ namespace TVPProjekat2
             this.izađiIzProgramaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
             this.izađiIzProgramaToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.izađiIzProgramaToolStripMenuItem.Text = "Izađi iz programa";
-            // 
-            // formaYaPovratToolStripMenuItem
-            // 
-            this.formaYaPovratToolStripMenuItem.Name = "formaYaPovratToolStripMenuItem";
-            this.formaYaPovratToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.F)));
-            this.formaYaPovratToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.formaYaPovratToolStripMenuItem.Text = "Forma za povrat";
             // 
             // računToolStripMenuItem
             // 
@@ -146,8 +158,14 @@ namespace TVPProjekat2
             // pogledajListuProizvodaToolStripMenuItem
             // 
             this.pogledajListuProizvodaToolStripMenuItem.Name = "pogledajListuProizvodaToolStripMenuItem";
-            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.pogledajListuProizvodaToolStripMenuItem.Text = "Lista proizvoda";
+            // 
+            // izmeniListuKategorijaToolStripMenuItem
+            // 
+            this.izmeniListuKategorijaToolStripMenuItem.Name = "izmeniListuKategorijaToolStripMenuItem";
+            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             // 
             // pomoćToolStripMenuItem
             // 
@@ -162,53 +180,26 @@ namespace TVPProjekat2
             // 
             this.uputstvoToolStripMenuItem.Name = "uputstvoToolStripMenuItem";
             this.uputstvoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.uputstvoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.uputstvoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.uputstvoToolStripMenuItem.Text = "Uputstvo";
             // 
             // oProjektuToolStripMenuItem
             // 
             this.oProjektuToolStripMenuItem.Name = "oProjektuToolStripMenuItem";
             this.oProjektuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.oProjektuToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.oProjektuToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
             this.oProjektuToolStripMenuItem.Text = "O Projektu";
-            // 
-            // prikažiStatistikuProdajeToolStripMenuItem
-            // 
-            this.prikažiStatistikuProdajeToolStripMenuItem.Name = "prikažiStatistikuProdajeToolStripMenuItem";
-            this.prikažiStatistikuProdajeToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.S)));
-            this.prikažiStatistikuProdajeToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.prikažiStatistikuProdajeToolStripMenuItem.Text = "Prikaži statistiku prodaje";
-            // 
-            // toolStripStatusLabel1
-            // 
-            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(110, 17);
-            this.toolStripStatusLabel1.Text = "statusLabelRacunID";
-            // 
-            // toolStripProgressBar1
-            // 
-            this.toolStripProgressBar1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripProgressBar1.Name = "toolStripProgressBar1";
-            this.toolStripProgressBar1.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar1.Style = System.Windows.Forms.ProgressBarStyle.Marquee;
-            // 
-            // izmeniListuKategorijaToolStripMenuItem
-            // 
-            this.izmeniListuKategorijaToolStripMenuItem.Name = "izmeniListuKategorijaToolStripMenuItem";
-            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             // 
             // FormProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(602, 551);
+            this.ClientSize = new System.Drawing.Size(1034, 551);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximumSize = new System.Drawing.Size(618, 590);
-            this.MinimumSize = new System.Drawing.Size(618, 590);
+            this.MaximumSize = new System.Drawing.Size(1050, 590);
+            this.MinimumSize = new System.Drawing.Size(1050, 590);
             this.Name = "FormProgram";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Drugi projekat (markonrt8519)";
@@ -239,7 +230,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.ToolStripMenuItem oProjektuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikažiStatistikuProdajeToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar1;
         private System.Windows.Forms.ToolStripMenuItem izmeniListuKategorijaToolStripMenuItem;
     }
 }

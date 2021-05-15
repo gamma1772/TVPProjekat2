@@ -19,14 +19,5 @@ namespace TVPProjekat2
             this.IdKategorije = idKategorije;
             this.ImeKategorije = imeKategorije;
         }
-
-        public Kategorija(string imeKategorije)
-        {
-            ImeKategorije = imeKategorije;
-        }
-
-        public Kategorija()
-        {
-        }
     }
 }
