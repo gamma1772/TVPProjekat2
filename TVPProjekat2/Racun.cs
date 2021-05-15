@@ -15,7 +15,7 @@ namespace TVPProjekat2
         private List<Proizvod> proizvodi;
         private double cena;
 
-        public string ID { get => ID; set => ID = value; }
+        public string ID { get => iD; set => iD = value; }
         public DateTime DateTime { get => dateTime; set => dateTime = value; }
         internal List<Proizvod> Proizvodi { get => proizvodi; set => proizvodi = value; }
         public double Cena { get => cena; set => cena = value; }
