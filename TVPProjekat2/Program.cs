@@ -18,7 +18,7 @@ namespace TVPProjekat2
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormProgram());
+            Application.Run(new FormLogin());
         }
     }
 }

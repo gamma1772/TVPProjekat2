@@ -12,9 +12,17 @@ namespace TVPProjekat2
 {
     public partial class FormProgram : Form
     {
-        public FormProgram()
+        private Korisnik prijavljenKorisnik;
+        projekatDataSet pds;
+        public FormProgram(projekatDataSet pds)
         {
             InitializeComponent();
+            this.pds = pds;
+        }
+
+        internal void recieveUser(Korisnik korisnik)
+        {
+            this.prijavljenKorisnik = korisnik;
         }
     }
 }
