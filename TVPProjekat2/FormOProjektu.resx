@@ -117,4 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label10.Text" xml:space="preserve">
+    <value>Projekat predstavalja jedan sistem za kreiranje racuna i promenu baze
+podataka jedne prodavnice. U bazi podataka se nalaze informacije o 
+tipu, kolicini, kategoriji i ceni proizvoda, 
+
+Baza takodje sadrzi informacije o kategorijama, racunima, i korisnicima
+koji mogu da koriste program.</value>
+  </data>
 </root>
