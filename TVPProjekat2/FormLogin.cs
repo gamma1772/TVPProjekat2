@@ -59,7 +59,7 @@ namespace TVPProjekat2
                 k.Adresa = korisnikLinq.ElementAt(0).adresa;
                 k.BrojTelefona = korisnikLinq.ElementAt(0).broj_telefona;
 
-                FormProgram frm = new FormProgram(pds);
+                FormProgram frm = new FormProgram(pds, this);
                 sendUser del = new sendUser(frm.recieveUser);
 
                 frm.Show();
