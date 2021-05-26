@@ -42,14 +42,25 @@ namespace TVPProjekat2
 
         public Racun()
         {
-            this.ID = "";
+            this.ID = this.generateID();
             this.DateTime = new DateTime();
             this.Proizvodi = new List<Proizvod>();
             this.Cena = 0.0D;
             this.KreatorRacuna = new Korisnik();
         }
-
-        private String generateID()
+        /// <summary>
+        /// Generise jedinstveni identifikator za racun na osnovu danasnjeg datuma i nasumicnog broja izmedju 1000 i 7000.<br></br>
+        /// Generator nasumicnog broja koristi seed koji se sastoji od trenutnog sata, minuta, sekunde i 10000-og dela sekunde
+        /// </summary>
+        /// <returns>
+        /// Tekstualni jedinstveni identifikator u formatu: HHmmssffXXXX<br></br>
+        ///     - HH: sat<br></br>
+        ///     - mm: minut<br></br>
+        ///     - ss: sekund<br></br>
+        ///     - ff: stoti deo sekunde<br></br>
+        ///     - XXXX: Nasumican broj od 1000 do 7000
+        /// </returns>
+        private string generateID()
         {
             Random random = new Random(int.Parse(DateTime.Now.ToString("HHmmssffff")));
             return DateTime.Now.ToString("HHmmssff") + random.Next(1000, 7000).ToString();

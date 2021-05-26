@@ -55,7 +55,18 @@ namespace TVPProjekat2
             this.Adresa = "";
             this.BrojTelefona = "";
         }
-
+        /// <summary>
+        /// Generise jedinstveni identifikator za korisnika na osnovu danasnjeg datuma i nasumicnog broja izmedju 1000 i 9999.
+        /// </summary>
+        /// <returns>
+        /// Tekstualni jedinstveni identifikator u formatu: ddMMyyyyHHmmXXXX<br></br>
+        ///     - dd: dan<br></br>
+        ///     - MM: mesec<br></br>
+        ///     - yyyy: godina<br></br>
+        ///     - HH: sat<br></br>
+        ///     - mm: minut<br></br>
+        ///     - XXXX: Nasumican broj od 1000 do 9999
+        /// </returns>
         private string generateUUID()
         {
             return DateTime.Now.ToString("ddMMyyyyHHmm") + new Random().Next(1000, 9999).ToString();

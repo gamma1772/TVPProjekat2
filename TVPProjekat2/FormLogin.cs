@@ -37,6 +37,11 @@ namespace TVPProjekat2
             }
         }
 
+        ///<summary>
+        ///Pokrece proces prijavljivanja, vrsi proveru podataka tako sto poziva linq upit iz baze
+        ///i uporedjuje podatke unete u formu sa podacima iz baze. Ako su podaci tacni, prijavljuje 
+        ///korisnika i prosledjuje ga na glavni program, u suprotnom izbacuje gresku da podaci nisu tacni.
+        ///</summary>
         private void login()
         {
             Korisnik k = new Korisnik();
@@ -66,6 +71,13 @@ namespace TVPProjekat2
             }
         }
 
+
+        ///<summary>
+        ///Proverava da li forma sadrzi nepravilne karaktere;
+        ///</summary>
+        ///<returns>
+        ///true ako forma ne sadrzi nepravilne znakove iz 'kolekcija' liste karaktera, u suprotnom false.
+        ///</returns>
         private bool proveraForme()
         {
             char[] kolekcija = { '@', '#', '%', '&', '*', '=', '+', '|', '/', '\\', ' '};
