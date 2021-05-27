@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.OleDb;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TVPProjekat2
@@ -25,6 +19,8 @@ namespace TVPProjekat2
             InitializeComponent();
             this.pds = pds;
             this.frmLogin = formLogin;
+
+            toolStripStatusLabel1.Text = prijavljenKorisnik.UUID;
 
             kategorijaDB = new projekatDataSetTableAdapters.KategorijaTableAdapter();
             proizvodDB = new projekatDataSetTableAdapters.ProizvodTableAdapter();
@@ -64,7 +60,7 @@ namespace TVPProjekat2
 
         private void noviRacun(object sender, EventArgs e)
         {
-
+            FormNoviRacun noviRacun = new FormNoviRacun();
         }
 
         private void pogledajSveRacune(object sender, EventArgs e)
@@ -122,11 +118,18 @@ namespace TVPProjekat2
             var linq = from racun in pds.Racun 
                        where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") 
                        select racun;
+            var storniraniLinq = from racun in pds.Racun
+                                 where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") && racun.storniran
+                                 select racun;
             if (linq.Any())
             {
                 dataRacuni.DataSource = linq.CopyToDataTable();
                 dataRacuni.Columns["korisnik"].Visible = false;
                 dataRacuni.Columns["storniran"].Visible = false;
+            }
+            if (storniraniLinq.Any())
+            {
+                dataStornirani.DataSource = storniraniLinq.CopyToDataTable();
             }
         }
 

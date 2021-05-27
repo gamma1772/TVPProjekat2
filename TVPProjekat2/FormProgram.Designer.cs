@@ -90,8 +90,8 @@ namespace TVPProjekat2
             // toolStripStatusLabel1
             // 
             this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            this.toolStripStatusLabel1.Size = new System.Drawing.Size(110, 17);
-            this.toolStripStatusLabel1.Text = "statusLabelRacunID";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(113, 17);
+            this.toolStripStatusLabel1.Text = "statusLabelRadnikID";
             // 
             // menuStrip1
             // 
@@ -201,14 +201,18 @@ namespace TVPProjekat2
             // pogledajListuProizvodaToolStripMenuItem
             // 
             this.pogledajListuProizvodaToolStripMenuItem.Name = "pogledajListuProizvodaToolStripMenuItem";
-            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.pogledajListuProizvodaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.P)));
+            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.pogledajListuProizvodaToolStripMenuItem.Text = "Lista proizvoda";
             this.pogledajListuProizvodaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuProizvoda);
             // 
             // izmeniListuKategorijaToolStripMenuItem
             // 
             this.izmeniListuKategorijaToolStripMenuItem.Name = "izmeniListuKategorijaToolStripMenuItem";
-            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.izmeniListuKategorijaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.K)));
+            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             this.izmeniListuKategorijaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuKategorija);
             // 

@@ -159,6 +159,9 @@
     <EmbeddedResource Include="FormTrebovanje.resx">
       <DependentUpon>FormTrebovanje.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormUputstvo.resx">
+      <DependentUpon>FormUputstvo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
