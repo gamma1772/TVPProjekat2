@@ -1383,6 +1383,8 @@ namespace TVPProjekat2 {
             
             private global::System.Data.DataColumn columncena;
             
+            private global::System.Data.DataColumn columnstorniran;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public RacunDataTable() {
@@ -1458,6 +1460,14 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn storniranColumn {
+                get {
+                    return this.columnstorniran;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1493,14 +1503,15 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public RacunRow AddRacunRow(string ID, KorisnikRow parentKorisnikRowByKorisnikRacun, System.DateTime datum_izdavanja, string proizvodi, string cena) {
+            public RacunRow AddRacunRow(string ID, KorisnikRow parentKorisnikRowByKorisnikRacun, System.DateTime datum_izdavanja, string proizvodi, string cena, bool storniran) {
                 RacunRow rowRacunRow = ((RacunRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
                         null,
                         datum_izdavanja,
                         proizvodi,
-                        cena};
+                        cena,
+                        storniran};
                 if ((parentKorisnikRowByKorisnikRacun != null)) {
                     columnValuesArray[1] = parentKorisnikRowByKorisnikRacun[0];
                 }
@@ -1538,6 +1549,7 @@ namespace TVPProjekat2 {
                 this.columndatum_izdavanja = base.Columns["datum_izdavanja"];
                 this.columnproizvodi = base.Columns["proizvodi"];
                 this.columncena = base.Columns["cena"];
+                this.columnstorniran = base.Columns["storniran"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1553,6 +1565,8 @@ namespace TVPProjekat2 {
                 base.Columns.Add(this.columnproizvodi);
                 this.columncena = new global::System.Data.DataColumn("cena", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncena);
+                this.columnstorniran = new global::System.Data.DataColumn("storniran", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnstorniran);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -2253,6 +2267,22 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool storniran {
+                get {
+                    try {
+                        return ((bool)(this[this.tableRacun.storniranColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'storniran\' in table \'Racun\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableRacun.storniranColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public KorisnikRow KorisnikRow {
                 get {
                     return ((KorisnikRow)(this.GetParentRow(this.Table.ParentRelations["KorisnikRacun"])));
@@ -2308,6 +2338,18 @@ namespace TVPProjekat2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcenaNull() {
                 this[this.tableRacun.cenaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsstorniranNull() {
+                return this.IsNull(this.tableRacun.storniranColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetstorniranNull() {
+                this[this.tableRacun.storniranColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3828,12 +3870,11 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("datum_izdavanja", "datum_izdavanja");
             tableMapping.ColumnMappings.Add("proizvodi", "proizvodi");
             tableMapping.ColumnMappings.Add("cena", "cena");
+            tableMapping.ColumnMappings.Add("storniran", "storniran");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `Racun` WHERE ((`ID` = ?) AND ((? = 1 AND `korisnik` IS NULL) OR (`ko" +
-                "risnik` = ?)) AND ((? = 1 AND `datum_izdavanja` IS NULL) OR (`datum_izdavanja` =" +
-                " ?)) AND ((? = 1 AND `cena` IS NULL) OR (`cena` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `Racun` WHERE ((`ID` = ?) AND ((? = 1 AND `korisnik` IS NULL) OR (`korisnik` = ?)) AND ((? = 1 AND `datum_izdavanja` IS NULL) OR (`datum_izdavanja` = ?)) AND ((? = 1 AND `cena` IS NULL) OR (`cena` = ?)) AND ((? = 1 AND `storniran` IS NULL) OR (`storniran` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_korisnik", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "korisnik", global::System.Data.DataRowVersion.Original, true, null));
@@ -3842,25 +3883,29 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_datum_izdavanja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_izdavanja", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_cena", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_cena", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_storniran", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_storniran", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `Racun` (`ID`, `korisnik`, `datum_izdavanja`, `proizvodi`, `cena`) VA" +
-                "LUES (?, ?, ?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `Racun` (`ID`, `korisnik`, `datum_izdavanja`, `proizvodi`, `cena`, `s" +
+                "torniran`) VALUES (?, ?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("korisnik", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "korisnik", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("datum_izdavanja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_izdavanja", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("proizvodi", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "proizvodi", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("cena", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("storniran", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `Racun` SET `ID` = ?, `korisnik` = ?, `datum_izdavanja` = ?, `proizvodi` = ?, `cena` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `korisnik` IS NULL) OR (`korisnik` = ?)) AND ((? = 1 AND `datum_izdavanja` IS NULL) OR (`datum_izdavanja` = ?)) AND ((? = 1 AND `cena` IS NULL) OR (`cena` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `Racun` SET `ID` = ?, `korisnik` = ?, `datum_izdavanja` = ?, `proizvodi` = ?, `cena` = ?, `storniran` = ? WHERE ((`ID` = ?) AND ((? = 1 AND `korisnik` IS NULL) OR (`korisnik` = ?)) AND ((? = 1 AND `datum_izdavanja` IS NULL) OR (`datum_izdavanja` = ?)) AND ((? = 1 AND `cena` IS NULL) OR (`cena` = ?)) AND ((? = 1 AND `storniran` IS NULL) OR (`storniran` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("korisnik", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "korisnik", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("datum_izdavanja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_izdavanja", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("proizvodi", global::System.Data.OleDb.OleDbType.LongVarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "proizvodi", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("cena", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("storniran", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_korisnik", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "korisnik", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_korisnik", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "korisnik", global::System.Data.DataRowVersion.Original, false, null));
@@ -3868,6 +3913,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_datum_izdavanja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_izdavanja", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_cena", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_cena", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "cena", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_storniran", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_storniran", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "storniran", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3883,7 +3930,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT ID, korisnik, datum_izdavanja, proizvodi, cena FROM Racun";
+            this._commandCollection[0].CommandText = "SELECT ID, korisnik, datum_izdavanja, proizvodi, cena, storniran FROM Racun";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -3944,7 +3991,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena) {
+        public virtual int Delete(string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena, bool Original_storniran) {
             if ((Original_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_ID");
             }
@@ -3975,6 +4022,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[6].Value = ((string)(Original_cena));
             }
+            this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[8].Value = ((bool)(Original_storniran));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -3995,7 +4044,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string ID, string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena) {
+        public virtual int Insert(string ID, string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena, bool storniran) {
             if ((ID == null)) {
                 throw new global::System.ArgumentNullException("ID");
             }
@@ -4026,6 +4075,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[4].Value = ((string)(cena));
             }
+            this.Adapter.InsertCommand.Parameters[5].Value = ((bool)(storniran));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4046,7 +4096,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ID, string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena, string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena) {
+        public virtual int Update(string ID, string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena, bool storniran, string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena, bool Original_storniran) {
             if ((ID == null)) {
                 throw new global::System.ArgumentNullException("ID");
             }
@@ -4077,36 +4127,39 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(cena));
             }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((bool)(storniran));
             if ((Original_ID == null)) {
                 throw new global::System.ArgumentNullException("Original_ID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(Original_ID));
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_ID));
             }
             if ((Original_korisnik == null)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_korisnik));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_korisnik));
             }
             if ((Original_datum_izdavanja.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((System.DateTime)(Original_datum_izdavanja.Value));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((System.DateTime)(Original_datum_izdavanja.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
             }
             if ((Original_cena == null)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_cena));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_cena));
             }
+            this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((bool)(Original_storniran));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4127,8 +4180,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena, string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena) {
-            return this.Update(Original_ID, korisnik, datum_izdavanja, proizvodi, cena, Original_ID, Original_korisnik, Original_datum_izdavanja, Original_cena);
+        public virtual int Update(string korisnik, global::System.Nullable<global::System.DateTime> datum_izdavanja, string proizvodi, string cena, bool storniran, string Original_ID, string Original_korisnik, global::System.Nullable<global::System.DateTime> Original_datum_izdavanja, string Original_cena, bool Original_storniran) {
+            return this.Update(Original_ID, korisnik, datum_izdavanja, proizvodi, cena, storniran, Original_ID, Original_korisnik, Original_datum_izdavanja, Original_cena, Original_storniran);
         }
     }
     
