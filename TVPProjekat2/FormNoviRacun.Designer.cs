@@ -48,7 +48,6 @@ namespace TVPProjekat2
             this.label3 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
@@ -135,7 +134,6 @@ namespace TVPProjekat2
             // 
             // textBox4
             // 
-            this.textBox4.Enabled = false;
             this.textBox4.Location = new System.Drawing.Point(328, 32);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(457, 20);
@@ -212,7 +210,6 @@ namespace TVPProjekat2
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(52, 17);
             this.radioButton1.TabIndex = 33;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Naziv";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
@@ -223,35 +220,23 @@ namespace TVPProjekat2
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(79, 17);
             this.radioButton2.TabIndex = 34;
-            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Proizvođač";
             this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(471, 12);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(79, 17);
-            this.radioButton3.TabIndex = 35;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Proizvođač";
-            this.radioButton3.UseVisualStyleBackColor = true;
             // 
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(556, 12);
+            this.radioButton4.Location = new System.Drawing.Point(471, 12);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(72, 17);
             this.radioButton4.TabIndex = 36;
-            this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Kategorija";
             this.radioButton4.UseVisualStyleBackColor = true;
             // 
             // radioButton5
             // 
             this.radioButton5.AutoSize = true;
+            this.radioButton5.Checked = true;
             this.radioButton5.Location = new System.Drawing.Point(723, 12);
             this.radioButton5.Name = "radioButton5";
             this.radioButton5.Size = new System.Drawing.Size(62, 17);
@@ -277,7 +262,6 @@ namespace TVPProjekat2
             this.Controls.Add(this.label5);
             this.Controls.Add(this.radioButton5);
             this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton3);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label3);
@@ -325,7 +309,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton3;
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.RadioButton radioButton5;
         private System.Windows.Forms.Label label5;

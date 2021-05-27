@@ -61,6 +61,7 @@ namespace TVPProjekat2
 
                 FormProgram frm = new FormProgram(pds, this);
                 sendUser del = new sendUser(frm.recieveUser);
+                del(k);
 
                 frm.Show();
                 this.Hide();

@@ -400,6 +400,7 @@ namespace TVPProjekat2
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Drugi projekat (markonrt8519)";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.izlazIzProgramaForm);
+            this.Load += new System.EventHandler(this.formLoadEvent);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
