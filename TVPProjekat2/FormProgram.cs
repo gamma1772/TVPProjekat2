@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,23 +16,30 @@ namespace TVPProjekat2
         private Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
         projekatDataSet pds;
+        projekatDataSetTableAdapters.KategorijaTableAdapter kategorijaDB;
+        projekatDataSetTableAdapters.ProizvodTableAdapter proizvodDB;
+        projekatDataSetTableAdapters.RacunTableAdapter racunDB;
+
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
             InitializeComponent();
             this.pds = pds;
             this.frmLogin = formLogin;
+
+            kategorijaDB = new projekatDataSetTableAdapters.KategorijaTableAdapter();
+            proizvodDB = new projekatDataSetTableAdapters.ProizvodTableAdapter();
+            racunDB = new projekatDataSetTableAdapters.RacunTableAdapter();
+
+            kategorijaDB.Fill(pds.Kategorija);
+            proizvodDB.Fill(pds.Proizvod);
+            racunDB.Fill(pds.Racun);
+
+            azurirajTabele();
         }
 
         internal void recieveUser(Korisnik korisnik)
         {
             this.prijavljenKorisnik = korisnik;
-        }
-
-        private void FormProgram_Load(object sender, EventArgs e)
-        {
-            // TODO: This line of code loads data into the 'projekatDataSet.Racun' table. You can move, or remove it, as needed.
-            this.racunTableAdapter.Fill(this.projekatDataSet.Racun);
-
         }
 
         private void izlazIzPrograma(object sender, EventArgs e)
@@ -48,14 +56,10 @@ namespace TVPProjekat2
             this.frmLogin.Show();
         }
 
-        private void povrat(object sender, EventArgs e)
-        {
-
-        }
-
         private void statistikaProdaje(object sender, EventArgs e)
         {
-
+            FormStatistika frmStatistika = new FormStatistika();
+            frmStatistika.Show();
         }
 
         private void noviRacun(object sender, EventArgs e)
@@ -100,7 +104,6 @@ namespace TVPProjekat2
 
         private void stornirajSelektovano(object sender, EventArgs e)
         {
-
         }
 
         private void obrisiSelektovano(object sender, EventArgs e)
@@ -109,6 +112,30 @@ namespace TVPProjekat2
         }
 
         private void pretraga(object sender, EventArgs e)
+        {
+            FormPretraga pretraga = new FormPretraga();
+            pretraga.Show();
+        }
+
+        private void azurirajTabele()
+        {
+            var linq = from racun in pds.Racun 
+                       where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") 
+                       select racun;
+            if (linq.Any())
+            {
+                dataRacuni.DataSource = linq.CopyToDataTable();
+                dataRacuni.Columns["korisnik"].Visible = false;
+                dataRacuni.Columns["storniran"].Visible = false;
+            }
+        }
+
+        private void izlazIzProgramaForm(object sender, FormClosedEventArgs e)
+        {
+            izlazIzPrograma(sender, e);
+        }
+
+        private void trebovanje(object sender, EventArgs e)
         {
 
         }

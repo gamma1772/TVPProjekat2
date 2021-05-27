@@ -10,3 +10,4 @@ C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.exe
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.pdb
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormLogin.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormOProjektu.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormListaKategorija.resources

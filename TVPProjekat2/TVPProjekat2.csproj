@@ -76,11 +76,11 @@
     <Compile Include="FormOProjektu.Designer.cs">
       <DependentUpon>FormOProjektu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPovrat.cs">
+    <Compile Include="FormTrebovanje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPovrat.Designer.cs">
-      <DependentUpon>FormPovrat.cs</DependentUpon>
+    <Compile Include="FormTrebovanje.Designer.cs">
+      <DependentUpon>FormTrebovanje.cs</DependentUpon>
     </Compile>
     <Compile Include="FormPretraga.cs">
       <SubType>Form</SubType>
@@ -132,14 +132,32 @@
     <EmbeddedResource Include="FormListaKategorija.resx">
       <DependentUpon>FormListaKategorija.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormListaProizvoda.resx">
+      <DependentUpon>FormListaProizvoda.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormNoviRacun.resx">
+      <DependentUpon>FormNoviRacun.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormOProjektu.resx">
       <DependentUpon>FormOProjektu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormPretraga.resx">
+      <DependentUpon>FormPretraga.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormProgram.resx">
       <DependentUpon>FormProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormRacuni.resx">
+      <DependentUpon>FormRacuni.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormStatistika.resx">
+      <DependentUpon>FormStatistika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormTrebovanje.resx">
+      <DependentUpon>FormTrebovanje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
