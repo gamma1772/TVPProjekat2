@@ -20,7 +20,7 @@ namespace TVPProjekat2
         private void FormTrebovanje_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'projekatDataSet.Proizvod' table. You can move, or remove it, as needed.
-            this.proizvodTableAdapter.Fill(this.projekatDataSet.Proizvod);
+            this.proizvodTableAdapter.Fill(this.projekatDataSet.proizvod);
 
         }
     }

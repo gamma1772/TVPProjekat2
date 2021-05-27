@@ -52,7 +52,6 @@ namespace TVPProjekat2
             this.racunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projekatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projekatDataSet = new TVPProjekat2.projekatDataSet();
-            this.racunTableAdapter = new TVPProjekat2.projekatDataSetTableAdapters.RacunTableAdapter();
             this.btnNoviRacun = new System.Windows.Forms.Button();
             this.btnStornirajRacun = new System.Windows.Forms.Button();
             this.btnObrisiRacun = new System.Windows.Forms.Button();
@@ -267,10 +266,6 @@ namespace TVPProjekat2
             this.projekatDataSet.DataSetName = "projekatDataSet";
             this.projekatDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // racunTableAdapter
-            // 
-            this.racunTableAdapter.ClearBeforeFill = true;
-            // 
             // btnNoviRacun
             // 
             this.btnNoviRacun.Location = new System.Drawing.Point(866, 28);
@@ -442,7 +437,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.BindingSource projekatDataSetBindingSource;
         private projekatDataSet projekatDataSet;
         private System.Windows.Forms.BindingSource racunBindingSource;
-        private projekatDataSetTableAdapters.RacunTableAdapter racunTableAdapter;
+        private projekatDataSetTableAdapters.racunTableAdapter racunTableAdapter;
         private System.Windows.Forms.Button btnNoviRacun;
         private System.Windows.Forms.Button btnStornirajRacun;
         private System.Windows.Forms.Button btnObrisiRacun;
@@ -455,6 +450,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.Button btnPretraga;
         private System.Windows.Forms.Button btnStampaj;
         private System.Windows.Forms.ToolStripMenuItem štampajRačunToolStripMenuItem;
+        private projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_ProizvodTableAdapter;
     }
 }
 

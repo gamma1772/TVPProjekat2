@@ -33,7 +33,7 @@ namespace TVPProjekat2
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.projekatDataSet = new TVPProjekat2.projekatDataSet();
             this.proizvodBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.proizvodTableAdapter = new TVPProjekat2.projekatDataSetTableAdapters.ProizvodTableAdapter();
+            this.proizvodTableAdapter = new TVPProjekat2.projekatDataSetTableAdapters.proizvodTableAdapter();
             this.iDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kolicinaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -276,7 +276,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.DataGridView dataGridView1;
         private projekatDataSet projekatDataSet;
         private System.Windows.Forms.BindingSource proizvodBindingSource;
-        private projekatDataSetTableAdapters.ProizvodTableAdapter proizvodTableAdapter;
+        private projekatDataSetTableAdapters.proizvodTableAdapter proizvodTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn iDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn kolicinaDataGridViewTextBoxColumn;

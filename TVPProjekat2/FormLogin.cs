@@ -16,14 +16,14 @@ namespace TVPProjekat2
         private delegate void sendUser(Korisnik korisnik);
 
         projekatDataSet pds;
-        projekatDataSetTableAdapters.KorisnikTableAdapter pdaKorisnik;
+        projekatDataSetTableAdapters.korisnikTableAdapter pdaKorisnik;
 
         public FormLogin()
         {
             InitializeComponent();
             pds = new projekatDataSet();
-            pdaKorisnik = new projekatDataSetTableAdapters.KorisnikTableAdapter();
-            pdaKorisnik.Fill(pds.Korisnik);
+            pdaKorisnik = new projekatDataSetTableAdapters.korisnikTableAdapter();
+            pdaKorisnik.Fill(pds.korisnik);
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -47,7 +47,7 @@ namespace TVPProjekat2
             Korisnik k = new Korisnik();
             string username = txtUsername.Text;
             string password = txtPasswd.Text;
-            var korisnikLinq = from korisnik in pds.Korisnik where korisnik.korisnicko_ime.Equals(username) && korisnik.sifra.Equals(password) select korisnik;
+            var korisnikLinq = from korisnik in pds.korisnik where korisnik.korisnicko_ime.Equals(username) && korisnik.sifra.Equals(password) select korisnik;
             if (korisnikLinq.Any())
             {
                 k.UUID = korisnikLinq.ElementAt(0).UUID;

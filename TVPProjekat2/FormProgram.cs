@@ -21,9 +21,10 @@ namespace TVPProjekat2
         private Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
         projekatDataSet pds;
-        projekatDataSetTableAdapters.KategorijaTableAdapter kategorijaDB;
-        projekatDataSetTableAdapters.ProizvodTableAdapter proizvodDB;
-        projekatDataSetTableAdapters.RacunTableAdapter racunDB;
+        projekatDataSetTableAdapters.kategorijaTableAdapter kategorijaDB;
+        projekatDataSetTableAdapters.proizvodTableAdapter proizvodDB;
+        projekatDataSetTableAdapters.racunTableAdapter racunDB;
+        projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
 
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
@@ -33,13 +34,15 @@ namespace TVPProjekat2
 
             
 
-            kategorijaDB = new projekatDataSetTableAdapters.KategorijaTableAdapter();
-            proizvodDB = new projekatDataSetTableAdapters.ProizvodTableAdapter();
-            racunDB = new projekatDataSetTableAdapters.RacunTableAdapter();
+            kategorijaDB = new projekatDataSetTableAdapters.kategorijaTableAdapter();
+            proizvodDB = new projekatDataSetTableAdapters.proizvodTableAdapter();
+            racunDB = new projekatDataSetTableAdapters.racunTableAdapter();
+            racun_proizvodDB = new projekatDataSetTableAdapters.racun_proizvodTableAdapter();
 
-            kategorijaDB.Fill(pds.Kategorija);
-            proizvodDB.Fill(pds.Proizvod);
-            racunDB.Fill(pds.Racun);
+            kategorijaDB.Fill(pds.kategorija);
+            proizvodDB.Fill(pds.proizvod);
+            racunDB.Fill(pds.racun);
+            racun_proizvodDB.Fill(pds.racun_proizvod);
 
             azurirajTabele();
         }
@@ -118,6 +121,19 @@ namespace TVPProjekat2
 
         private void stornirajSelektovano(object sender, EventArgs e)
         {
+            string id = "";
+            foreach (DataRow item in dataRacuni.SelectedRows)
+            {
+                id = item.ItemArray[0].ToString();
+            }
+            var linq = from racun in pds.racun where racun.ID.Equals(id) select racun;
+            foreach (var item in linq)
+            {
+                item.storniran = true;
+                item.AcceptChanges();
+            }
+            pds.AcceptChanges();
+            racunDB.Update(pds.racun);
         }
 
         private void obrisiSelektovano(object sender, EventArgs e)
@@ -133,10 +149,10 @@ namespace TVPProjekat2
 
         private void azurirajTabele()
         {
-            var linq = from racun in pds.Racun 
+            var linq = from racun in pds.racun 
                        where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") 
                        select racun;
-            var storniraniLinq = from racun in pds.Racun
+            var storniraniLinq = from racun in pds.racun
                                  where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") && racun.storniran
                                  select racun;
             if (linq.Any())

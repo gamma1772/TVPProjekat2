@@ -118,17 +118,14 @@
     <Compile Include="FormUputstvo.Designer.cs">
       <DependentUpon>FormUputstvo.cs</DependentUpon>
     </Compile>
-    <Compile Include="Kategorija.cs" />
     <Compile Include="Korisnik.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Proizvod.cs" />
     <Compile Include="projekatDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>projekatDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Racun.cs" />
     <EmbeddedResource Include="FormListaKategorija.resx">
       <DependentUpon>FormListaKategorija.cs</DependentUpon>
     </EmbeddedResource>
