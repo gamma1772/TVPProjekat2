@@ -117,6 +117,11 @@ namespace TVPProjekat2
             azurirajTabele();
         }
 
+        /// <summary>
+        /// Stornira racune koji su selektovani u DataGridView za racune (dataRacun) klikom na dugme.
+        /// </summary>
+        /// <param name="sender">Sender</param>
+        /// <param name="e">Dogadjaj</param>
         private void stornirajSelektovano(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in dataRacuni.SelectedRows)
@@ -147,9 +152,6 @@ namespace TVPProjekat2
         /// Funkcija azurira tabele. Koristi linq query za proveravanje tabela, ako neki linq ne vrati ni jednu vrednost, ta tabela se prazni
         /// tako sto se DataSource postavi na null.
         /// </summary>
-        /// <returns>
-        /// Nema povratnu vrednost (void)
-        /// </returns>
         private void azurirajTabele()
         {
             kategorijaDB.Fill(pds.kategorija);
