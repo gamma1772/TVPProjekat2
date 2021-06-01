@@ -55,7 +55,7 @@ namespace TVPProjekat2
             this.btnNoviRacun = new System.Windows.Forms.Button();
             this.btnStornirajRacun = new System.Windows.Forms.Button();
             this.btnObrisiRacun = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnKloniraj = new System.Windows.Forms.Button();
             this.dataStornirani = new System.Windows.Forms.DataGridView();
             this.groupRacuni = new System.Windows.Forms.GroupBox();
             this.groupStonrirani = new System.Windows.Forms.GroupBox();
@@ -248,6 +248,7 @@ namespace TVPProjekat2
             this.dataRacuni.Location = new System.Drawing.Point(6, 19);
             this.dataRacuni.Name = "dataRacuni";
             this.dataRacuni.ReadOnly = true;
+            this.dataRacuni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataRacuni.Size = new System.Drawing.Size(433, 473);
             this.dataRacuni.TabIndex = 2;
             // 
@@ -296,15 +297,15 @@ namespace TVPProjekat2
             this.btnObrisiRacun.UseVisualStyleBackColor = true;
             this.btnObrisiRacun.Click += new System.EventHandler(this.obrisiSelektovano);
             // 
-            // button1
+            // btnKloniraj
             // 
-            this.button1.Location = new System.Drawing.Point(865, 75);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(156, 41);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Izmeni račun";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.izmeniRacun);
+            this.btnKloniraj.Location = new System.Drawing.Point(865, 75);
+            this.btnKloniraj.Name = "btnKloniraj";
+            this.btnKloniraj.Size = new System.Drawing.Size(156, 41);
+            this.btnKloniraj.TabIndex = 6;
+            this.btnKloniraj.Text = "Kloniraj račun";
+            this.btnKloniraj.UseVisualStyleBackColor = true;
+            this.btnKloniraj.Click += new System.EventHandler(this.izmeniRacun);
             // 
             // dataStornirani
             // 
@@ -382,7 +383,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.groupFiltrirano);
             this.Controls.Add(this.groupStonrirani);
             this.Controls.Add(this.groupRacuni);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnKloniraj);
             this.Controls.Add(this.btnObrisiRacun);
             this.Controls.Add(this.btnStornirajRacun);
             this.Controls.Add(this.btnNoviRacun);
@@ -441,7 +442,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.Button btnNoviRacun;
         private System.Windows.Forms.Button btnStornirajRacun;
         private System.Windows.Forms.Button btnObrisiRacun;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnKloniraj;
         private System.Windows.Forms.DataGridView dataStornirani;
         private System.Windows.Forms.GroupBox groupRacuni;
         private System.Windows.Forms.GroupBox groupStonrirani;

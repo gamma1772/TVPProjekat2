@@ -126,6 +126,7 @@
       <DependentUpon>projekatDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Racun.cs" />
     <EmbeddedResource Include="FormListaKategorija.resx">
       <DependentUpon>FormListaKategorija.cs</DependentUpon>
     </EmbeddedResource>

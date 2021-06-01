@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Data;
+using System.Data.OleDb;
 using System.Linq;
+using System.Net.Sockets;
 using System.Windows.Forms;
 
 namespace TVPProjekat2
@@ -32,17 +34,12 @@ namespace TVPProjekat2
             this.pds = pds;
             this.frmLogin = formLogin;
 
-            
-
             kategorijaDB = new projekatDataSetTableAdapters.kategorijaTableAdapter();
             proizvodDB = new projekatDataSetTableAdapters.proizvodTableAdapter();
             racunDB = new projekatDataSetTableAdapters.racunTableAdapter();
             racun_proizvodDB = new projekatDataSetTableAdapters.racun_proizvodTableAdapter();
 
-            kategorijaDB.Fill(pds.kategorija);
-            proizvodDB.Fill(pds.proizvod);
-            racunDB.Fill(pds.racun);
-            racun_proizvodDB.Fill(pds.racun_proizvod);
+            racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
 
             azurirajTabele();
         }
@@ -54,6 +51,7 @@ namespace TVPProjekat2
 
         private void izlazIzPrograma(object sender, EventArgs e)
         {
+            racunDB.Connection.Close();
             this.Dispose();
             this.Close();
             Application.Exit();
@@ -116,24 +114,22 @@ namespace TVPProjekat2
 
         private void izmeniRacun(object sender, EventArgs e)
         {
-
+            azurirajTabele();
         }
 
         private void stornirajSelektovano(object sender, EventArgs e)
         {
-            string id = "";
-            foreach (DataRow item in dataRacuni.SelectedRows)
+            foreach (DataGridViewRow item in dataRacuni.SelectedRows)
             {
-                id = item.ItemArray[0].ToString();
+                
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = racunDB.Connection;
+                cmd.CommandText = "UPDATE Racun SET storniran = TRUE WHERE ID = '" + item.Cells[0].Value + "'";
+                cmd.ExecuteNonQuery();
+                racunDB.Update(pds);
+                
             }
-            var linq = from racun in pds.racun where racun.ID.Equals(id) select racun;
-            foreach (var item in linq)
-            {
-                item.storniran = true;
-                item.AcceptChanges();
-            }
-            pds.AcceptChanges();
-            racunDB.Update(pds.racun);
+            azurirajTabele();
         }
 
         private void obrisiSelektovano(object sender, EventArgs e)
@@ -147,10 +143,22 @@ namespace TVPProjekat2
             pretraga.Show();
         }
 
+        /// <summary>
+        /// Funkcija azurira tabele. Koristi linq query za proveravanje tabela, ako neki linq ne vrati ni jednu vrednost, ta tabela se prazni
+        /// tako sto se DataSource postavi na null.
+        /// </summary>
+        /// <returns>
+        /// Nema povratnu vrednost (void)
+        /// </returns>
         private void azurirajTabele()
         {
+            kategorijaDB.Fill(pds.kategorija);
+            proizvodDB.Fill(pds.proizvod);
+            racunDB.Fill(pds.racun);
+            racun_proizvodDB.Fill(pds.racun_proizvod);
+            
             var linq = from racun in pds.racun 
-                       where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") 
+                       where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") && !racun.storniran
                        select racun;
             var storniraniLinq = from racun in pds.racun
                                  where racun.datum_izdavanja.ToString("dd/MM/yyyy") == DateTime.Now.ToString("dd/MM/yyyy") && racun.storniran
@@ -158,12 +166,24 @@ namespace TVPProjekat2
             if (linq.Any())
             {
                 dataRacuni.DataSource = linq.CopyToDataTable();
-                dataRacuni.Columns["korisnik"].Visible = false;
                 dataRacuni.Columns["storniran"].Visible = false;
+                dataRacuni.Update();
+                dataRacuni.Refresh();
+            }
+            else
+            {
+                dataRacuni.DataSource = null; // 'Prazni' DataGridView
             }
             if (storniraniLinq.Any())
             {
                 dataStornirani.DataSource = storniraniLinq.CopyToDataTable();
+                dataStornirani.Columns["storniran"].Visible = false;
+                dataStornirani.Update();
+                dataStornirani.Refresh();
+            }
+            else
+            {
+                dataStornirani.DataSource = null;
             }
         }
 
