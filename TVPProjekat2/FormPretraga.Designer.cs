@@ -258,6 +258,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.txtKeyword);
             this.Name = "FormPretraga";
             this.Text = "Pretraga računa";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClosedEvent);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

@@ -11,6 +11,8 @@ namespace TVPProjekat2
 {
     public partial class FormProgram : Form
     {
+        
+
         private FormListaKategorija frmKategorije;
         private FormListaProizvoda frmProizvodi;
         private FormNoviRacun frmNoviRacun;
@@ -33,6 +35,17 @@ namespace TVPProjekat2
         private Thread DBWorkerThread;
         private Task DBWorkerTask;
 
+        public FormListaKategorija FrmKategorije { get => frmKategorije; set => frmKategorije = value; }
+        public FormListaProizvoda FrmProizvodi { get => frmProizvodi; set => frmProizvodi = value; }
+        public FormNoviRacun FrmNoviRacun { get => frmNoviRacun; set => frmNoviRacun = value; }
+        public FormOProjektu FrmOProjektu { get => frmOProjektu; set => frmOProjektu = value; }
+        public FormPretraga FrmPretraga { get => frmPretraga; set => frmPretraga = value; }
+        public FormRacuni FrmRacuni { get => frmRacuni; set => frmRacuni = value; }
+        public FormStampanjeRacuna FrmStampanjeRacuna { get => frmStampanjeRacuna; set => frmStampanjeRacuna = value; }
+        public FormStatistika FrmStatistika { get => frmStatistika; set => frmStatistika = value; }
+        public FormTrebovanje FrmTrebovanje { get => frmTrebovanje; set => frmTrebovanje = value; }
+        public FormUputstvo FrmUputstvo { get => frmUputstvo; set => frmUputstvo = value; }
+
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
             InitializeComponent();
@@ -48,6 +61,8 @@ namespace TVPProjekat2
 
             azurirajTabele();
         }
+
+        
 
         internal void recieveUser(Korisnik korisnik)
         {
@@ -71,38 +86,38 @@ namespace TVPProjekat2
 
         private void statistikaProdaje(object sender, EventArgs e)
         {
-            frmStatistika = new FormStatistika();
-            frmStatistika.Show();
+            FrmStatistika = new FormStatistika();
+            FrmStatistika.Show();
         }
 
         private void noviRacun(object sender, EventArgs e)
         {
-            frmNoviRacun = new FormNoviRacun();
-            frmNoviRacun.Show();
+            FrmNoviRacun = new FormNoviRacun();
+            FrmNoviRacun.Show();
         }
 
         private void pogledajSveRacune(object sender, EventArgs e)
         {
-            frmRacuni = new FormRacuni();
-            frmRacuni.Show();
+            FrmRacuni = new FormRacuni();
+            FrmRacuni.Show();
         }
 
         private void stampajRacun(object sender, EventArgs e)
         {
-            frmStampanjeRacuna = new FormStampanjeRacuna();
-            frmStampanjeRacuna.Show();
+            FrmStampanjeRacuna = new FormStampanjeRacuna();
+            FrmStampanjeRacuna.Show();
         }
 
         private void prikaziListuProizvoda(object sender, EventArgs e)
         {
-            frmProizvodi = new FormListaProizvoda();
-            frmProizvodi.Show();
+            FrmProizvodi = new FormListaProizvoda();
+            FrmProizvodi.Show();
         }
 
         private void prikaziListuKategorija(object sender, EventArgs e)
         {
-            frmKategorije = new FormListaKategorija();
-            frmKategorije.Show();
+            FrmKategorije = new FormListaKategorija();
+            FrmKategorije.Show();
         }
 
         private void PrikaziUputstvo(object sender, EventArgs e)
@@ -147,8 +162,15 @@ namespace TVPProjekat2
 
         private void pretraga(object sender, EventArgs e)
         {
-            FormPretraga pretraga = new FormPretraga(dataFilter, pds);
-            pretraga.Show();
+            if (FrmPretraga == null)
+            {
+                FrmPretraga = new FormPretraga(dataFilter, pds, this);
+                FrmPretraga.Show();
+            }
+            else
+            {
+                FrmPretraga.Focus();
+            }
         }
 
         /// <summary>
@@ -199,8 +221,8 @@ namespace TVPProjekat2
 
         private void trebovanje(object sender, EventArgs e)
         {
-            frmTrebovanje = new FormTrebovanje();
-            frmTrebovanje.Show();
+            FrmTrebovanje = new FormTrebovanje();
+            FrmTrebovanje.Show();
         }
 
         private void formLoadEvent(object sender, EventArgs e)

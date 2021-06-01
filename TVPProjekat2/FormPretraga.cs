@@ -12,16 +12,19 @@ namespace TVPProjekat2
 {
     public partial class FormPretraga : Form
     {
+        public delegate void nullifyForm(Form form);
+
         private DataGridView dataGrid;
-        projekatDataSet projekatData;
+        private projekatDataSet projekatData;
+        private FormProgram mainProgram;
 
         private List<RadioButton> rbs;
-        public FormPretraga(DataGridView dataGrid, projekatDataSet projekatData)
+        public FormPretraga(DataGridView dataGrid, projekatDataSet projekatData, FormProgram main)
         {
             InitializeComponent();
             this.dataGrid = dataGrid;
             this.projekatData = projekatData;
-
+            this.mainProgram = main;
             rbs = new List<RadioButton>();
 
             rbs.Add(rbAll);
@@ -56,6 +59,13 @@ namespace TVPProjekat2
                     }
                 }
             }
+        }
+
+        private void FormClosedEvent(object sender, FormClosedEventArgs e)
+        {
+            this.Dispose();
+            this.Close();
+            mainProgram.FrmPretraga = null;
         }
     }
 }
