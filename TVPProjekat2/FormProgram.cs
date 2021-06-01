@@ -3,6 +3,8 @@ using System.Data;
 using System.Data.OleDb;
 using System.Linq;
 using System.Net.Sockets;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace TVPProjekat2
@@ -27,6 +29,9 @@ namespace TVPProjekat2
         projekatDataSetTableAdapters.proizvodTableAdapter proizvodDB;
         projekatDataSetTableAdapters.racunTableAdapter racunDB;
         projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
+
+        private Thread DBWorkerThread;
+        private Task DBWorkerTask;
 
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
@@ -124,16 +129,14 @@ namespace TVPProjekat2
         /// <param name="e">Dogadjaj</param>
         private void stornirajSelektovano(object sender, EventArgs e)
         {
+            OleDbCommand cmd = new OleDbCommand();
+            cmd.Connection = racunDB.Connection;
             foreach (DataGridViewRow item in dataRacuni.SelectedRows)
-            {
-                
-                OleDbCommand cmd = new OleDbCommand();
-                cmd.Connection = racunDB.Connection;
+            {   
                 cmd.CommandText = "UPDATE Racun SET storniran = TRUE WHERE ID = '" + item.Cells[0].Value + "'";
                 cmd.ExecuteNonQuery();
-                racunDB.Update(pds);
-                
             }
+            racunDB.Update(pds);
             azurirajTabele();
         }
 
@@ -144,7 +147,7 @@ namespace TVPProjekat2
 
         private void pretraga(object sender, EventArgs e)
         {
-            FormPretraga pretraga = new FormPretraga();
+            FormPretraga pretraga = new FormPretraga(dataFilter, pds);
             pretraga.Show();
         }
 

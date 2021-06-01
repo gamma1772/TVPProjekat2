@@ -245,11 +245,11 @@ namespace TVPProjekat2
             this.dataRacuni.AllowUserToAddRows = false;
             this.dataRacuni.AllowUserToDeleteRows = false;
             this.dataRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataRacuni.Location = new System.Drawing.Point(6, 19);
+            this.dataRacuni.Location = new System.Drawing.Point(6, 50);
             this.dataRacuni.Name = "dataRacuni";
             this.dataRacuni.ReadOnly = true;
             this.dataRacuni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataRacuni.Size = new System.Drawing.Size(433, 473);
+            this.dataRacuni.Size = new System.Drawing.Size(433, 411);
             this.dataRacuni.TabIndex = 2;
             // 
             // racunBindingSource
@@ -269,9 +269,9 @@ namespace TVPProjekat2
             // 
             // btnNoviRacun
             // 
-            this.btnNoviRacun.Location = new System.Drawing.Point(866, 28);
+            this.btnNoviRacun.Location = new System.Drawing.Point(6, 19);
             this.btnNoviRacun.Name = "btnNoviRacun";
-            this.btnNoviRacun.Size = new System.Drawing.Size(156, 41);
+            this.btnNoviRacun.Size = new System.Drawing.Size(433, 25);
             this.btnNoviRacun.TabIndex = 3;
             this.btnNoviRacun.Text = "Novi račun";
             this.btnNoviRacun.UseVisualStyleBackColor = true;
@@ -279,9 +279,9 @@ namespace TVPProjekat2
             // 
             // btnStornirajRacun
             // 
-            this.btnStornirajRacun.Location = new System.Drawing.Point(866, 282);
+            this.btnStornirajRacun.Location = new System.Drawing.Point(6, 467);
             this.btnStornirajRacun.Name = "btnStornirajRacun";
-            this.btnStornirajRacun.Size = new System.Drawing.Size(156, 41);
+            this.btnStornirajRacun.Size = new System.Drawing.Size(168, 25);
             this.btnStornirajRacun.TabIndex = 4;
             this.btnStornirajRacun.Text = "Storniraj Selektovano";
             this.btnStornirajRacun.UseVisualStyleBackColor = true;
@@ -289,9 +289,9 @@ namespace TVPProjekat2
             // 
             // btnObrisiRacun
             // 
-            this.btnObrisiRacun.Location = new System.Drawing.Point(866, 329);
+            this.btnObrisiRacun.Location = new System.Drawing.Point(350, 219);
             this.btnObrisiRacun.Name = "btnObrisiRacun";
-            this.btnObrisiRacun.Size = new System.Drawing.Size(156, 41);
+            this.btnObrisiRacun.Size = new System.Drawing.Size(203, 23);
             this.btnObrisiRacun.TabIndex = 5;
             this.btnObrisiRacun.Text = "Obriši selektovano";
             this.btnObrisiRacun.UseVisualStyleBackColor = true;
@@ -299,9 +299,9 @@ namespace TVPProjekat2
             // 
             // btnKloniraj
             // 
-            this.btnKloniraj.Location = new System.Drawing.Point(865, 75);
+            this.btnKloniraj.Location = new System.Drawing.Point(6, 219);
             this.btnKloniraj.Name = "btnKloniraj";
-            this.btnKloniraj.Size = new System.Drawing.Size(156, 41);
+            this.btnKloniraj.Size = new System.Drawing.Size(222, 23);
             this.btnKloniraj.TabIndex = 6;
             this.btnKloniraj.Text = "Kloniraj račun";
             this.btnKloniraj.UseVisualStyleBackColor = true;
@@ -312,12 +312,15 @@ namespace TVPProjekat2
             this.dataStornirani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataStornirani.Location = new System.Drawing.Point(6, 19);
             this.dataStornirani.Name = "dataStornirani";
-            this.dataStornirani.Size = new System.Drawing.Size(384, 223);
+            this.dataStornirani.Size = new System.Drawing.Size(547, 194);
             this.dataStornirani.TabIndex = 7;
             // 
             // groupRacuni
             // 
+            this.groupRacuni.Controls.Add(this.btnStampaj);
             this.groupRacuni.Controls.Add(this.dataRacuni);
+            this.groupRacuni.Controls.Add(this.btnNoviRacun);
+            this.groupRacuni.Controls.Add(this.btnStornirajRacun);
             this.groupRacuni.Location = new System.Drawing.Point(12, 28);
             this.groupRacuni.Name = "groupRacuni";
             this.groupRacuni.Size = new System.Drawing.Size(445, 498);
@@ -328,19 +331,22 @@ namespace TVPProjekat2
             // groupStonrirani
             // 
             this.groupStonrirani.Controls.Add(this.dataStornirani);
+            this.groupStonrirani.Controls.Add(this.btnKloniraj);
+            this.groupStonrirani.Controls.Add(this.btnObrisiRacun);
             this.groupStonrirani.Location = new System.Drawing.Point(463, 28);
             this.groupStonrirani.Name = "groupStonrirani";
-            this.groupStonrirani.Size = new System.Drawing.Size(396, 248);
+            this.groupStonrirani.Size = new System.Drawing.Size(559, 248);
             this.groupStonrirani.TabIndex = 9;
             this.groupStonrirani.TabStop = false;
             this.groupStonrirani.Text = "Stornirani računi";
             // 
             // groupFiltrirano
             // 
+            this.groupFiltrirano.Controls.Add(this.btnPretraga);
             this.groupFiltrirano.Controls.Add(this.dataFilter);
             this.groupFiltrirano.Location = new System.Drawing.Point(463, 282);
             this.groupFiltrirano.Name = "groupFiltrirano";
-            this.groupFiltrirano.Size = new System.Drawing.Size(396, 244);
+            this.groupFiltrirano.Size = new System.Drawing.Size(559, 244);
             this.groupFiltrirano.TabIndex = 10;
             this.groupFiltrirano.TabStop = false;
             this.groupFiltrirano.Text = "Filtrirano";
@@ -348,16 +354,16 @@ namespace TVPProjekat2
             // dataFilter
             // 
             this.dataFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataFilter.Location = new System.Drawing.Point(7, 20);
+            this.dataFilter.Location = new System.Drawing.Point(7, 18);
             this.dataFilter.Name = "dataFilter";
-            this.dataFilter.Size = new System.Drawing.Size(383, 218);
+            this.dataFilter.Size = new System.Drawing.Size(546, 189);
             this.dataFilter.TabIndex = 0;
             // 
             // btnPretraga
             // 
-            this.btnPretraga.Location = new System.Drawing.Point(866, 475);
+            this.btnPretraga.Location = new System.Drawing.Point(7, 213);
             this.btnPretraga.Name = "btnPretraga";
-            this.btnPretraga.Size = new System.Drawing.Size(156, 45);
+            this.btnPretraga.Size = new System.Drawing.Size(546, 25);
             this.btnPretraga.TabIndex = 11;
             this.btnPretraga.Text = "Pretraži današnje račune";
             this.btnPretraga.UseVisualStyleBackColor = true;
@@ -365,9 +371,9 @@ namespace TVPProjekat2
             // 
             // btnStampaj
             // 
-            this.btnStampaj.Location = new System.Drawing.Point(865, 122);
+            this.btnStampaj.Location = new System.Drawing.Point(250, 467);
             this.btnStampaj.Name = "btnStampaj";
-            this.btnStampaj.Size = new System.Drawing.Size(156, 41);
+            this.btnStampaj.Size = new System.Drawing.Size(189, 25);
             this.btnStampaj.TabIndex = 12;
             this.btnStampaj.Text = "Štampaj račun";
             this.btnStampaj.UseVisualStyleBackColor = true;
@@ -378,15 +384,9 @@ namespace TVPProjekat2
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1034, 551);
-            this.Controls.Add(this.btnStampaj);
-            this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.groupFiltrirano);
             this.Controls.Add(this.groupStonrirani);
             this.Controls.Add(this.groupRacuni);
-            this.Controls.Add(this.btnKloniraj);
-            this.Controls.Add(this.btnObrisiRacun);
-            this.Controls.Add(this.btnStornirajRacun);
-            this.Controls.Add(this.btnNoviRacun);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
