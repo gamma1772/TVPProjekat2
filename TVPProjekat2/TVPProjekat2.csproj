@@ -70,18 +70,6 @@
     <Compile Include="FormNoviRacun.Designer.cs">
       <DependentUpon>FormNoviRacun.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormOProjektu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormOProjektu.Designer.cs">
-      <DependentUpon>FormOProjektu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormTrebovanje.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormTrebovanje.Designer.cs">
-      <DependentUpon>FormTrebovanje.cs</DependentUpon>
-    </Compile>
     <Compile Include="FormPretraga.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,12 +100,6 @@
     <Compile Include="FormStatistika.Designer.cs">
       <DependentUpon>FormStatistika.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormUputstvo.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormUputstvo.Designer.cs">
-      <DependentUpon>FormUputstvo.cs</DependentUpon>
-    </Compile>
     <Compile Include="Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="projekatDataSet.Designer.cs">
@@ -139,9 +121,6 @@
     <EmbeddedResource Include="FormNoviRacun.resx">
       <DependentUpon>FormNoviRacun.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormOProjektu.resx">
-      <DependentUpon>FormOProjektu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FormPretraga.resx">
       <DependentUpon>FormPretraga.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,12 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormStatistika.resx">
       <DependentUpon>FormStatistika.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormTrebovanje.resx">
-      <DependentUpon>FormTrebovanje.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormUputstvo.resx">
-      <DependentUpon>FormUputstvo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

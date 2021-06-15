@@ -35,7 +35,6 @@ namespace TVPProjekat2
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.programToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prikažiStatistikuProdajeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.formaYaPovratToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.odjaviSeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izađiIzProgramaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.računToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +44,6 @@ namespace TVPProjekat2
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajListuProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmeniListuKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pomoćToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uputstvoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.oProjektuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataRacuni = new System.Windows.Forms.DataGridView();
             this.racunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projekatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -58,11 +54,11 @@ namespace TVPProjekat2
             this.btnKloniraj = new System.Windows.Forms.Button();
             this.dataStornirani = new System.Windows.Forms.DataGridView();
             this.groupRacuni = new System.Windows.Forms.GroupBox();
+            this.btnStampaj = new System.Windows.Forms.Button();
             this.groupStonrirani = new System.Windows.Forms.GroupBox();
             this.groupFiltrirano = new System.Windows.Forms.GroupBox();
-            this.dataFilter = new System.Windows.Forms.DataGridView();
             this.btnPretraga = new System.Windows.Forms.Button();
-            this.btnStampaj = new System.Windows.Forms.Button();
+            this.dataFilter = new System.Windows.Forms.DataGridView();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRacuni)).BeginInit();
@@ -97,8 +93,7 @@ namespace TVPProjekat2
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.programToolStripMenuItem,
             this.računToolStripMenuItem,
-            this.proizvodToolStripMenuItem,
-            this.pomoćToolStripMenuItem});
+            this.proizvodToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(1034, 24);
@@ -109,7 +104,6 @@ namespace TVPProjekat2
             // 
             this.programToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.prikažiStatistikuProdajeToolStripMenuItem,
-            this.formaYaPovratToolStripMenuItem,
             this.odjaviSeToolStripMenuItem,
             this.izađiIzProgramaToolStripMenuItem});
             this.programToolStripMenuItem.Name = "programToolStripMenuItem";
@@ -124,15 +118,6 @@ namespace TVPProjekat2
             this.prikažiStatistikuProdajeToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
             this.prikažiStatistikuProdajeToolStripMenuItem.Text = "Prikaži statistiku prodaje";
             this.prikažiStatistikuProdajeToolStripMenuItem.Click += new System.EventHandler(this.statistikaProdaje);
-            // 
-            // formaYaPovratToolStripMenuItem
-            // 
-            this.formaYaPovratToolStripMenuItem.Name = "formaYaPovratToolStripMenuItem";
-            this.formaYaPovratToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.F)));
-            this.formaYaPovratToolStripMenuItem.Size = new System.Drawing.Size(269, 22);
-            this.formaYaPovratToolStripMenuItem.Text = "Forma za trebovanje";
-            this.formaYaPovratToolStripMenuItem.Click += new System.EventHandler(this.trebovanje);
             // 
             // odjaviSeToolStripMenuItem
             // 
@@ -214,31 +199,6 @@ namespace TVPProjekat2
             this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
             this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             this.izmeniListuKategorijaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuKategorija);
-            // 
-            // pomoćToolStripMenuItem
-            // 
-            this.pomoćToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.uputstvoToolStripMenuItem,
-            this.oProjektuToolStripMenuItem});
-            this.pomoćToolStripMenuItem.Name = "pomoćToolStripMenuItem";
-            this.pomoćToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.pomoćToolStripMenuItem.Text = "Pomoć";
-            // 
-            // uputstvoToolStripMenuItem
-            // 
-            this.uputstvoToolStripMenuItem.Name = "uputstvoToolStripMenuItem";
-            this.uputstvoToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
-            this.uputstvoToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.uputstvoToolStripMenuItem.Text = "Uputstvo";
-            this.uputstvoToolStripMenuItem.Click += new System.EventHandler(this.PrikaziUputstvo);
-            // 
-            // oProjektuToolStripMenuItem
-            // 
-            this.oProjektuToolStripMenuItem.Name = "oProjektuToolStripMenuItem";
-            this.oProjektuToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
-            this.oProjektuToolStripMenuItem.Size = new System.Drawing.Size(176, 22);
-            this.oProjektuToolStripMenuItem.Text = "O Projektu";
-            this.oProjektuToolStripMenuItem.Click += new System.EventHandler(this.prikaziInformacijeOProjektu);
             // 
             // dataRacuni
             // 
@@ -328,6 +288,16 @@ namespace TVPProjekat2
             this.groupRacuni.TabStop = false;
             this.groupRacuni.Text = "Lista današnjih računa";
             // 
+            // btnStampaj
+            // 
+            this.btnStampaj.Location = new System.Drawing.Point(250, 467);
+            this.btnStampaj.Name = "btnStampaj";
+            this.btnStampaj.Size = new System.Drawing.Size(189, 25);
+            this.btnStampaj.TabIndex = 12;
+            this.btnStampaj.Text = "Štampaj račun";
+            this.btnStampaj.UseVisualStyleBackColor = true;
+            this.btnStampaj.Click += new System.EventHandler(this.stampajRacun);
+            // 
             // groupStonrirani
             // 
             this.groupStonrirani.Controls.Add(this.dataStornirani);
@@ -351,14 +321,6 @@ namespace TVPProjekat2
             this.groupFiltrirano.TabStop = false;
             this.groupFiltrirano.Text = "Filtrirano";
             // 
-            // dataFilter
-            // 
-            this.dataFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataFilter.Location = new System.Drawing.Point(7, 18);
-            this.dataFilter.Name = "dataFilter";
-            this.dataFilter.Size = new System.Drawing.Size(546, 189);
-            this.dataFilter.TabIndex = 0;
-            // 
             // btnPretraga
             // 
             this.btnPretraga.Location = new System.Drawing.Point(7, 213);
@@ -369,15 +331,13 @@ namespace TVPProjekat2
             this.btnPretraga.UseVisualStyleBackColor = true;
             this.btnPretraga.Click += new System.EventHandler(this.pretraga);
             // 
-            // btnStampaj
+            // dataFilter
             // 
-            this.btnStampaj.Location = new System.Drawing.Point(250, 467);
-            this.btnStampaj.Name = "btnStampaj";
-            this.btnStampaj.Size = new System.Drawing.Size(189, 25);
-            this.btnStampaj.TabIndex = 12;
-            this.btnStampaj.Text = "Štampaj račun";
-            this.btnStampaj.UseVisualStyleBackColor = true;
-            this.btnStampaj.Click += new System.EventHandler(this.stampajRacun);
+            this.dataFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataFilter.Location = new System.Drawing.Point(7, 18);
+            this.dataFilter.Name = "dataFilter";
+            this.dataFilter.Size = new System.Drawing.Size(546, 189);
+            this.dataFilter.TabIndex = 0;
             // 
             // FormProgram
             // 
@@ -422,15 +382,11 @@ namespace TVPProjekat2
         private System.Windows.Forms.ToolStripMenuItem programToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem odjaviSeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem izađiIzProgramaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem formaYaPovratToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem računToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dodajNoviRačunToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pogledajRačuneToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proizvodToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pogledajListuProizvodaToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pomoćToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem uputstvoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem oProjektuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem prikažiStatistikuProdajeToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
         private System.Windows.Forms.ToolStripMenuItem izmeniListuKategorijaToolStripMenuItem;

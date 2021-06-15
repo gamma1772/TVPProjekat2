@@ -9,12 +9,9 @@ C:\source\TVPProjekat2\TVPProjekat2\bin\Debug\TVPProjekat2.pdb
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.exe
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.pdb
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormLogin.resources
-C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormOProjektu.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormListaKategorija.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormListaProizvoda.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormNoviRacun.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormPretraga.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormRacuni.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormStatistika.resources
-C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormTrebovanje.resources
-C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormUputstvo.resources

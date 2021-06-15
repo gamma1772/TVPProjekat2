@@ -1,8 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Data.OleDb;
 using System.Linq;
-using System.Net.Sockets;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -16,13 +16,10 @@ namespace TVPProjekat2
         private FormListaKategorija frmKategorije;
         private FormListaProizvoda frmProizvodi;
         private FormNoviRacun frmNoviRacun;
-        private FormOProjektu frmOProjektu;
         private FormPretraga frmPretraga;
         private FormRacuni frmRacuni;
         private FormStampanjeRacuna frmStampanjeRacuna;
         private FormStatistika frmStatistika;
-        private FormTrebovanje frmTrebovanje;
-        private FormUputstvo frmUputstvo;
 
         private Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
@@ -32,19 +29,19 @@ namespace TVPProjekat2
         projekatDataSetTableAdapters.racunTableAdapter racunDB;
         projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
 
+        List<Racun> racuni;
+        List<Korisnik> korisnici;
+
         private Thread DBWorkerThread;
         private Task DBWorkerTask;
 
         public FormListaKategorija FrmKategorije { get => frmKategorije; set => frmKategorije = value; }
         public FormListaProizvoda FrmProizvodi { get => frmProizvodi; set => frmProizvodi = value; }
         public FormNoviRacun FrmNoviRacun { get => frmNoviRacun; set => frmNoviRacun = value; }
-        public FormOProjektu FrmOProjektu { get => frmOProjektu; set => frmOProjektu = value; }
         public FormPretraga FrmPretraga { get => frmPretraga; set => frmPretraga = value; }
         public FormRacuni FrmRacuni { get => frmRacuni; set => frmRacuni = value; }
         public FormStampanjeRacuna FrmStampanjeRacuna { get => frmStampanjeRacuna; set => frmStampanjeRacuna = value; }
         public FormStatistika FrmStatistika { get => frmStatistika; set => frmStatistika = value; }
-        public FormTrebovanje FrmTrebovanje { get => frmTrebovanje; set => frmTrebovanje = value; }
-        public FormUputstvo FrmUputstvo { get => frmUputstvo; set => frmUputstvo = value; }
 
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
@@ -120,18 +117,6 @@ namespace TVPProjekat2
             FrmKategorije.Show();
         }
 
-        private void PrikaziUputstvo(object sender, EventArgs e)
-        {
-            FormUputstvo frmUputstvo = new FormUputstvo();
-            frmUputstvo.Show();
-        }
-
-        private void prikaziInformacijeOProjektu(object sender, EventArgs e)
-        {
-            FormOProjektu oProjektu = new FormOProjektu();
-            oProjektu.Show();
-        }
-
         private void izmeniRacun(object sender, EventArgs e)
         {
             azurirajTabele();
@@ -157,7 +142,14 @@ namespace TVPProjekat2
 
         private void obrisiSelektovano(object sender, EventArgs e)
         {
-
+            if (dataStornirani.SelectedRows.Count > 0)
+            {
+                OleDbCommand cmd = new OleDbCommand();
+                cmd.Connection = racunDB.Connection;
+                cmd.CommandText = "DELETE FROM Racun WHERE ID = '" + dataStornirani.SelectedRows[0].Cells[0].Value + "'";
+                racunDB.Update(pds);
+                azurirajTabele();
+            }
         }
 
         private void pretraga(object sender, EventArgs e)
@@ -217,12 +209,6 @@ namespace TVPProjekat2
         private void izlazIzProgramaForm(object sender, FormClosedEventArgs e)
         {
             izlazIzPrograma(sender, e);
-        }
-
-        private void trebovanje(object sender, EventArgs e)
-        {
-            FrmTrebovanje = new FormTrebovanje();
-            FrmTrebovanje.Show();
         }
 
         private void formLoadEvent(object sender, EventArgs e)
