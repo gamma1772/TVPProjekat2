@@ -61,5 +61,10 @@ namespace TVPProjekat2
             this.Close();
             mainProgram.FrmPretraga = null;
         }
+
+        private void pokreniPretragu(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -29,37 +29,46 @@ namespace TVPProjekat2
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtIDRacuna = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.txtProdavac = new System.Windows.Forms.TextBox();
+            this.listRacun = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCreate = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txtKolicina = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.button2 = new System.Windows.Forms.Button();
+            this.listProizvodi = new System.Windows.Forms.ListView();
+            this.btnDodaj = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rbNaziv = new System.Windows.Forms.RadioButton();
+            this.rbProizvodjac = new System.Windows.Forms.RadioButton();
+            this.rbKategorija = new System.Windows.Forms.RadioButton();
+            this.rbBarKod = new System.Windows.Forms.RadioButton();
             this.label5 = new System.Windows.Forms.Label();
+            this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colBarKod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colNaziv = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colProizvodjac = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colKategorija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colKolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCena = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnIzbaci = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // textBox1
+            // txtIDRacuna
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(74, 6);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(187, 20);
-            this.textBox1.TabIndex = 0;
+            this.txtIDRacuna.Enabled = false;
+            this.txtIDRacuna.Location = new System.Drawing.Point(74, 6);
+            this.txtIDRacuna.Name = "txtIDRacuna";
+            this.txtIDRacuna.ReadOnly = true;
+            this.txtIDRacuna.Size = new System.Drawing.Size(187, 20);
+            this.txtIDRacuna.TabIndex = 0;
             // 
             // label1
             // 
@@ -79,22 +88,25 @@ namespace TVPProjekat2
             this.label2.TabIndex = 3;
             this.label2.Text = "Prodavac";
             // 
-            // textBox2
+            // txtProdavac
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(74, 32);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(187, 20);
-            this.textBox2.TabIndex = 2;
+            this.txtProdavac.Enabled = false;
+            this.txtProdavac.Location = new System.Drawing.Point(74, 32);
+            this.txtProdavac.Name = "txtProdavac";
+            this.txtProdavac.ReadOnly = true;
+            this.txtProdavac.Size = new System.Drawing.Size(187, 20);
+            this.txtProdavac.TabIndex = 2;
             // 
-            // listView2
+            // listRacun
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(74, 245);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(711, 203);
-            this.listView2.TabIndex = 5;
-            this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listRacun.FullRowSelect = true;
+            this.listRacun.HideSelection = false;
+            this.listRacun.Location = new System.Drawing.Point(74, 245);
+            this.listRacun.Name = "listRacun";
+            this.listRacun.Size = new System.Drawing.Size(711, 203);
+            this.listRacun.TabIndex = 5;
+            this.listRacun.UseCompatibleStateImageBehavior = false;
+            this.listRacun.View = System.Windows.Forms.View.Details;
             // 
             // label4
             // 
@@ -105,14 +117,14 @@ namespace TVPProjekat2
             this.label4.TabIndex = 11;
             this.label4.Text = "Račun";
             // 
-            // button1
+            // btnCreate
             // 
-            this.button1.Location = new System.Drawing.Point(12, 454);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 33);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Napravi račun";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnCreate.Location = new System.Drawing.Point(12, 454);
+            this.btnCreate.Name = "btnCreate";
+            this.btnCreate.Size = new System.Drawing.Size(106, 33);
+            this.btnCreate.TabIndex = 12;
+            this.btnCreate.Text = "Napravi račun";
+            this.btnCreate.UseVisualStyleBackColor = true;
             // 
             // button5
             // 
@@ -123,21 +135,22 @@ namespace TVPProjekat2
             this.button5.Text = "Odustani";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnClear
             // 
-            this.button6.Location = new System.Drawing.Point(124, 454);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(106, 33);
-            this.button6.TabIndex = 14;
-            this.button6.Text = "Očisti";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnClear.Location = new System.Drawing.Point(124, 454);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(106, 33);
+            this.btnClear.TabIndex = 14;
+            this.btnClear.Text = "Očisti";
+            this.btnClear.UseVisualStyleBackColor = true;
             // 
-            // textBox4
+            // txtPretraga
             // 
-            this.textBox4.Location = new System.Drawing.Point(328, 32);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(457, 20);
-            this.textBox4.TabIndex = 15;
+            this.txtPretraga.Location = new System.Drawing.Point(328, 32);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(457, 20);
+            this.txtPretraga.TabIndex = 15;
+            this.txtPretraga.TextChanged += new System.EventHandler(this.autoPretraga);
             // 
             // label7
             // 
@@ -148,13 +161,12 @@ namespace TVPProjekat2
             this.label7.TabIndex = 20;
             this.label7.Text = "Količina";
             // 
-            // textBox6
+            // txtKolicina
             // 
-            this.textBox6.Enabled = false;
-            this.textBox6.Location = new System.Drawing.Point(74, 216);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(193, 20);
-            this.textBox6.TabIndex = 19;
+            this.txtKolicina.Location = new System.Drawing.Point(74, 216);
+            this.txtKolicina.Name = "txtKolicina";
+            this.txtKolicina.Size = new System.Drawing.Size(193, 20);
+            this.txtKolicina.TabIndex = 19;
             // 
             // label10
             // 
@@ -168,31 +180,40 @@ namespace TVPProjekat2
             // 
             // textBox9
             // 
-            this.textBox9.Enabled = false;
             this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(399, 454);
+            this.textBox9.Location = new System.Drawing.Point(400, 455);
             this.textBox9.Name = "textBox9";
             this.textBox9.ReadOnly = true;
             this.textBox9.Size = new System.Drawing.Size(187, 32);
             this.textBox9.TabIndex = 27;
             // 
-            // listView1
+            // listProizvodi
             // 
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(74, 58);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(711, 146);
-            this.listView1.TabIndex = 29;
-            this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listProizvodi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colID,
+            this.colBarKod,
+            this.colNaziv,
+            this.colProizvodjac,
+            this.colKategorija,
+            this.colKolicina,
+            this.colCena});
+            this.listProizvodi.FullRowSelect = true;
+            this.listProizvodi.HideSelection = false;
+            this.listProizvodi.Location = new System.Drawing.Point(74, 58);
+            this.listProizvodi.Name = "listProizvodi";
+            this.listProizvodi.Size = new System.Drawing.Size(711, 146);
+            this.listProizvodi.TabIndex = 29;
+            this.listProizvodi.UseCompatibleStateImageBehavior = false;
+            this.listProizvodi.View = System.Windows.Forms.View.Details;
             // 
-            // button2
+            // btnDodaj
             // 
-            this.button2.Location = new System.Drawing.Point(270, 210);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(515, 30);
-            this.button2.TabIndex = 31;
-            this.button2.Text = "Dodaj na račun";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnDodaj.Location = new System.Drawing.Point(270, 210);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(283, 30);
+            this.btnDodaj.TabIndex = 31;
+            this.btnDodaj.Text = "Dodaj na račun";
+            this.btnDodaj.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -203,47 +224,47 @@ namespace TVPProjekat2
             this.label3.TabIndex = 32;
             this.label3.Text = "Proizvodi";
             // 
-            // radioButton1
+            // rbNaziv
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(328, 12);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(52, 17);
-            this.radioButton1.TabIndex = 33;
-            this.radioButton1.Text = "Naziv";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbNaziv.AutoSize = true;
+            this.rbNaziv.Location = new System.Drawing.Point(328, 12);
+            this.rbNaziv.Name = "rbNaziv";
+            this.rbNaziv.Size = new System.Drawing.Size(52, 17);
+            this.rbNaziv.TabIndex = 33;
+            this.rbNaziv.Text = "Naziv";
+            this.rbNaziv.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbProizvodjac
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(386, 12);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(79, 17);
-            this.radioButton2.TabIndex = 34;
-            this.radioButton2.Text = "Proizvođač";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbProizvodjac.AutoSize = true;
+            this.rbProizvodjac.Location = new System.Drawing.Point(386, 12);
+            this.rbProizvodjac.Name = "rbProizvodjac";
+            this.rbProizvodjac.Size = new System.Drawing.Size(79, 17);
+            this.rbProizvodjac.TabIndex = 34;
+            this.rbProizvodjac.Text = "Proizvođač";
+            this.rbProizvodjac.UseVisualStyleBackColor = true;
             // 
-            // radioButton4
+            // rbKategorija
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(471, 12);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(72, 17);
-            this.radioButton4.TabIndex = 36;
-            this.radioButton4.Text = "Kategorija";
-            this.radioButton4.UseVisualStyleBackColor = true;
+            this.rbKategorija.AutoSize = true;
+            this.rbKategorija.Location = new System.Drawing.Point(471, 12);
+            this.rbKategorija.Name = "rbKategorija";
+            this.rbKategorija.Size = new System.Drawing.Size(72, 17);
+            this.rbKategorija.TabIndex = 36;
+            this.rbKategorija.Text = "Kategorija";
+            this.rbKategorija.UseVisualStyleBackColor = true;
             // 
-            // radioButton5
+            // rbBarKod
             // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Checked = true;
-            this.radioButton5.Location = new System.Drawing.Point(723, 12);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(62, 17);
-            this.radioButton5.TabIndex = 37;
-            this.radioButton5.TabStop = true;
-            this.radioButton5.Text = "Bar kod";
-            this.radioButton5.UseVisualStyleBackColor = true;
+            this.rbBarKod.AutoSize = true;
+            this.rbBarKod.Checked = true;
+            this.rbBarKod.Location = new System.Drawing.Point(723, 12);
+            this.rbBarKod.Name = "rbBarKod";
+            this.rbBarKod.Size = new System.Drawing.Size(62, 17);
+            this.rbBarKod.TabIndex = 37;
+            this.rbBarKod.TabStop = true;
+            this.rbBarKod.Text = "Bar kod";
+            this.rbBarKod.UseVisualStyleBackColor = true;
             // 
             // label5
             // 
@@ -254,33 +275,78 @@ namespace TVPProjekat2
             this.label5.TabIndex = 38;
             this.label5.Text = "Pretraga";
             // 
+            // colID
+            // 
+            this.colID.Text = "ID";
+            this.colID.Width = 40;
+            // 
+            // colBarKod
+            // 
+            this.colBarKod.Text = "Bar Kod";
+            this.colBarKod.Width = 120;
+            // 
+            // colNaziv
+            // 
+            this.colNaziv.Text = "Naziv";
+            this.colNaziv.Width = 120;
+            // 
+            // colProizvodjac
+            // 
+            this.colProizvodjac.Text = "Proizvođač";
+            this.colProizvodjac.Width = 120;
+            // 
+            // colKategorija
+            // 
+            this.colKategorija.Text = "Kategorija";
+            this.colKategorija.Width = 120;
+            // 
+            // colKolicina
+            // 
+            this.colKolicina.Text = "Količina";
+            this.colKolicina.Width = 85;
+            // 
+            // colCena
+            // 
+            this.colCena.Text = "Cena";
+            this.colCena.Width = 85;
+            // 
+            // btnIzbaci
+            // 
+            this.btnIzbaci.Location = new System.Drawing.Point(559, 210);
+            this.btnIzbaci.Name = "btnIzbaci";
+            this.btnIzbaci.Size = new System.Drawing.Size(226, 30);
+            this.btnIzbaci.TabIndex = 39;
+            this.btnIzbaci.Text = "Izbaci sa računa";
+            this.btnIzbaci.UseVisualStyleBackColor = true;
+            // 
             // FormNoviRacun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 495);
+            this.Controls.Add(this.btnIzbaci);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.radioButton5);
-            this.Controls.Add(this.radioButton4);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbBarKod);
+            this.Controls.Add(this.rbKategorija);
+            this.Controls.Add(this.rbProizvodjac);
+            this.Controls.Add(this.rbNaziv);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.listProizvodi);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.textBox9);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.button6);
+            this.Controls.Add(this.txtKolicina);
+            this.Controls.Add(this.txtPretraga);
+            this.Controls.Add(this.btnClear);
             this.Controls.Add(this.button5);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.listRacun);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txtProdavac);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txtIDRacuna);
             this.Name = "FormNoviRacun";
             this.Text = "Novi račun";
             this.ResumeLayout(false);
@@ -290,27 +356,35 @@ namespace TVPProjekat2
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtIDRacuna;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.TextBox txtProdavac;
+        private System.Windows.Forms.ListView listRacun;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txtKolicina;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ListView listProizvodi;
+        private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton4;
-        private System.Windows.Forms.RadioButton radioButton5;
+        private System.Windows.Forms.RadioButton rbNaziv;
+        private System.Windows.Forms.RadioButton rbProizvodjac;
+        private System.Windows.Forms.RadioButton rbKategorija;
+        private System.Windows.Forms.RadioButton rbBarKod;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ColumnHeader colID;
+        private System.Windows.Forms.ColumnHeader colBarKod;
+        private System.Windows.Forms.ColumnHeader colNaziv;
+        private System.Windows.Forms.ColumnHeader colProizvodjac;
+        private System.Windows.Forms.ColumnHeader colKategorija;
+        private System.Windows.Forms.ColumnHeader colKolicina;
+        private System.Windows.Forms.ColumnHeader colCena;
+        private System.Windows.Forms.Button btnIzbaci;
     }
 }

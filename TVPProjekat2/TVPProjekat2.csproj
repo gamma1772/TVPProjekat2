@@ -130,6 +130,9 @@
     <EmbeddedResource Include="FormRacuni.resx">
       <DependentUpon>FormRacuni.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FormStampanjeRacuna.resx">
+      <DependentUpon>FormStampanjeRacuna.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormStatistika.resx">
       <DependentUpon>FormStatistika.cs</DependentUpon>
     </EmbeddedResource>

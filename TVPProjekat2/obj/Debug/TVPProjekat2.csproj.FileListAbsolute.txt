@@ -15,3 +15,4 @@ C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormNoviRacun.resourc
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormPretraga.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormRacuni.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormStatistika.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormStampanjeRacuna.resources

@@ -21,7 +21,7 @@ namespace TVPProjekat2
         private FormStampanjeRacuna frmStampanjeRacuna;
         private FormStatistika frmStatistika;
 
-        private Korisnik prijavljenKorisnik;
+        internal Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
         projekatDataSet pds;
         projekatDataSetTableAdapters.kategorijaTableAdapter kategorijaDB;
@@ -29,11 +29,9 @@ namespace TVPProjekat2
         projekatDataSetTableAdapters.racunTableAdapter racunDB;
         projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
 
-        List<Racun> racuni;
-        List<Korisnik> korisnici;
-
-        private Thread DBWorkerThread;
-        private Task DBWorkerTask;
+        private Thread DBThread;
+        private Task DBUpdateTask;
+        private Task DBTask;
 
         public FormListaKategorija FrmKategorije { get => frmKategorije; set => frmKategorije = value; }
         public FormListaProizvoda FrmProizvodi { get => frmProizvodi; set => frmProizvodi = value; }
@@ -49,17 +47,18 @@ namespace TVPProjekat2
             this.pds = pds;
             this.frmLogin = formLogin;
 
+            startAdapters();
+            azurirajTabele();
+        }
+
+        private void startAdapters()
+        {
             kategorijaDB = new projekatDataSetTableAdapters.kategorijaTableAdapter();
             proizvodDB = new projekatDataSetTableAdapters.proizvodTableAdapter();
             racunDB = new projekatDataSetTableAdapters.racunTableAdapter();
             racun_proizvodDB = new projekatDataSetTableAdapters.racun_proizvodTableAdapter();
-
             racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
-
-            azurirajTabele();
         }
-
-        
 
         internal void recieveUser(Korisnik korisnik)
         {
@@ -83,38 +82,76 @@ namespace TVPProjekat2
 
         private void statistikaProdaje(object sender, EventArgs e)
         {
-            FrmStatistika = new FormStatistika();
-            FrmStatistika.Show();
+            if (FrmStatistika == null)
+            {
+                FrmStatistika = new FormStatistika();
+                FrmStatistika.Show();
+            }
+            else
+            {
+                FrmStatistika.Focus();
+            }
         }
 
         private void noviRacun(object sender, EventArgs e)
         {
-            FrmNoviRacun = new FormNoviRacun();
+            FrmNoviRacun = new FormNoviRacun(pds, proizvodDB, kategorijaDB, racunDB, racun_proizvodDB, this);
             FrmNoviRacun.Show();
         }
 
         private void pogledajSveRacune(object sender, EventArgs e)
         {
-            FrmRacuni = new FormRacuni();
-            FrmRacuni.Show();
+            if (FrmRacuni == null)
+            {
+                FrmRacuni = new FormRacuni();
+                FrmRacuni.Show();
+            }
+            else
+            {
+                FrmRacuni.Focus();
+            }
+            
         }
 
         private void stampajRacun(object sender, EventArgs e)
         {
-            FrmStampanjeRacuna = new FormStampanjeRacuna();
-            FrmStampanjeRacuna.Show();
+            if (FrmStampanjeRacuna == null)
+            {
+                FrmStampanjeRacuna = new FormStampanjeRacuna();
+                FrmStampanjeRacuna.Show();
+            }
+            else
+            {
+                FrmStampanjeRacuna.Focus();
+            }
         }
 
         private void prikaziListuProizvoda(object sender, EventArgs e)
         {
-            FrmProizvodi = new FormListaProizvoda();
-            FrmProizvodi.Show();
+            if (FrmProizvodi == null)
+            {
+                FrmProizvodi = new FormListaProizvoda();
+                FrmProizvodi.Show();
+            }
+            else
+            {
+                FrmProizvodi.Focus();
+            }
+            
         }
 
         private void prikaziListuKategorija(object sender, EventArgs e)
         {
-            FrmKategorije = new FormListaKategorija();
-            FrmKategorije.Show();
+            if (FrmKategorije == null)
+            {
+                FrmKategorije = new FormListaKategorija();
+                FrmKategorije.Show();
+            }
+            else
+            {
+                FrmKategorije.Focus();
+            }
+            
         }
 
         private void izmeniRacun(object sender, EventArgs e)
@@ -144,16 +181,20 @@ namespace TVPProjekat2
         {
             if (dataStornirani.SelectedRows.Count > 0)
             {
-                OleDbCommand cmd = new OleDbCommand();
-                cmd.Connection = racunDB.Connection;
-                cmd.CommandText = "DELETE FROM Racun WHERE ID = '" + dataStornirani.SelectedRows[0].Cells[0].Value + "'";
-                racunDB.Update(pds);
+                var linq = from racun in pds.racun where racun.ID == dataStornirani.SelectedRows[0].Cells[0].Value.ToString() select racun;
+                if (linq.Any())
+                {
+                    racunDB.Delete(linq.ElementAt(0).ID, linq.ElementAt(0).korisnik, linq.ElementAt(0).datum_izdavanja, linq.ElementAt(0).cena, linq.ElementAt(0).storniran);
+                    racunDB.Update(pds);
+                }
                 azurirajTabele();
             }
+            
         }
 
         private void pretraga(object sender, EventArgs e)
         {
+            //CreateOrFocus(FrmPretraga, new FormPretraga(dataFilter, pds, this));
             if (FrmPretraga == null)
             {
                 FrmPretraga = new FormPretraga(dataFilter, pds, this);
@@ -206,6 +247,14 @@ namespace TVPProjekat2
             }
         }
 
+        private void auzirirajDB()
+        {
+            kategorijaDB.Update(pds);
+            proizvodDB.Update(pds);
+            racunDB.Update(pds);
+            racun_proizvodDB.Update(pds);
+        }
+
         private void izlazIzProgramaForm(object sender, FormClosedEventArgs e)
         {
             izlazIzPrograma(sender, e);
@@ -214,6 +263,18 @@ namespace TVPProjekat2
         private void formLoadEvent(object sender, EventArgs e)
         {
             toolStripStatusLabel1.Text = prijavljenKorisnik.UUID;
+        }
+        private void CreateOrFocus(Form form, object type)
+        {
+            if (form == null)
+            {
+                form = (Form) type;
+                form.Show();
+            }
+            else
+            {
+                form.Focus();
+            }
         }
     }
 }

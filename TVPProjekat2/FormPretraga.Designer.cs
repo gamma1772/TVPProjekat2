@@ -76,6 +76,7 @@ namespace TVPProjekat2
             this.button1.TabIndex = 6;
             this.button1.Text = "Pretraži";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.pokreniPretragu);
             // 
             // rbDanas
             // 
