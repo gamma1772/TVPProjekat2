@@ -96,7 +96,7 @@ namespace TVPProjekat2
 
         private void noviRacun(object sender, EventArgs e)
         {
-            FrmNoviRacun = new FormNoviRacun(pds, proizvodDB, kategorijaDB, racunDB, racun_proizvodDB, this);
+            FrmNoviRacun = new FormNoviRacun(pds, proizvodDB, kategorijaDB, racunDB, racun_proizvodDB, proizvodjacDB, this);
             FrmNoviRacun.Show();
         }
 

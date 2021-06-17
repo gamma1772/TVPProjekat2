@@ -35,7 +35,7 @@ namespace TVPProjekat2
             this.txtProdavac = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.btnExit = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtPretraga = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -122,15 +122,17 @@ namespace TVPProjekat2
             this.btnCreate.TabIndex = 12;
             this.btnCreate.Text = "Napravi račun";
             this.btnCreate.UseVisualStyleBackColor = true;
+            this.btnCreate.Click += new System.EventHandler(this.napraviRacun);
             // 
-            // button5
+            // btnExit
             // 
-            this.button5.Location = new System.Drawing.Point(679, 454);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(106, 33);
-            this.button5.TabIndex = 13;
-            this.button5.Text = "Odustani";
-            this.button5.UseVisualStyleBackColor = true;
+            this.btnExit.Location = new System.Drawing.Point(679, 454);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(106, 33);
+            this.btnExit.TabIndex = 13;
+            this.btnExit.Text = "Odustani";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.odustani);
             // 
             // btnClear
             // 
@@ -140,6 +142,7 @@ namespace TVPProjekat2
             this.btnClear.TabIndex = 14;
             this.btnClear.Text = "Očisti";
             this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.ocistiRacun);
             // 
             // txtPretraga
             // 
@@ -381,6 +384,7 @@ namespace TVPProjekat2
             this.btnOsvezi.TabIndex = 41;
             this.btnOsvezi.Text = "Osveži";
             this.btnOsvezi.UseVisualStyleBackColor = true;
+            this.btnOsvezi.Click += new System.EventHandler(this.osveziProizvode);
             // 
             // FormNoviRacun
             // 
@@ -404,7 +408,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.txtKolicina);
             this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.button5);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
@@ -413,6 +417,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.txtIDRacuna);
             this.Name = "FormNoviRacun";
             this.Text = "Novi račun";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.odustaniClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -426,7 +431,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.TextBox txtProdavac;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCreate;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnExit;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.TextBox txtPretraga;
         private System.Windows.Forms.Label label7;

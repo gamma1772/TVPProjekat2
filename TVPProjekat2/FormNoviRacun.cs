@@ -14,10 +14,11 @@ namespace TVPProjekat2
         racun_proizvodTableAdapter racunProizvodDB;
         proizvodTableAdapter proizvodDB;
         kategorijaTableAdapter kategorijaDB;
+        proizvodjacTableAdapter proizvodjacDB;
 
         private string ID;
         private double iznosRacuna = 0.00D;
-        public FormNoviRacun(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, FormProgram frmProgram)
+        public FormNoviRacun(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodjacTableAdapter proizvodjacDB, FormProgram frmProgram)
         {
             InitializeComponent();
             ID = generateID();
@@ -28,7 +29,7 @@ namespace TVPProjekat2
             this.racunProizvodDB = racunProizvodDB;
             this.proizvodDB = proizvodDB;
             this.kategorijaDB = kategorijaDB;
-
+            this.proizvodjacDB = proizvodjacDB;
             this.txtIznos.Text = iznosRacuna.ToString("0.00");
             osveziListu();
         }
@@ -106,39 +107,58 @@ namespace TVPProjekat2
         //Ako proizvod nije na stanju, izbaciti gresku.
         private void dodajProizvod(object sender, EventArgs e)
         {
-            foreach (ListViewItem item in listProizvodi.SelectedItems)
+            if (!string.IsNullOrEmpty(txtKolicina.Text))
             {
-                ListViewItem clone = (ListViewItem)item.Clone();
-                if (int.Parse(item.SubItems[5].Text) > 0 && !txtKolicina.Text.Equals(""))
+                bool digits = true;
+                foreach (char c in txtKolicina.Text.ToArray())
                 {
-                    
-                    clone.SubItems[5].Text = txtKolicina.Text;
-                    listRacun.Items.Add(clone);
+                    if (!Char.IsDigit(c))
+                    {
+                        digits = false;
+                    }
+                }
 
-                    var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
-                    var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
+                if (digits)
+                {
+                    foreach (ListViewItem item in listProizvodi.SelectedItems)
+                    {
+                        ListViewItem clone = (ListViewItem)item.Clone();
+                        if (int.Parse(item.SubItems[5].Text) > 0)
+                        {
 
-                    proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) - short.Parse(txtKolicina.Text)), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
-                        int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(item.SubItems[5].Text), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
-                    proizvodDB.Update(dataSet);
-                    proizvodDB.Fill(dataSet.proizvod);
-                    iznosRacuna += double.Parse(item.SubItems[6].Text) * int.Parse(txtKolicina.Text);
+                            clone.SubItems[5].Text = txtKolicina.Text;
+                            listRacun.Items.Add(clone);
+
+                            var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
+                            var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
+
+                            proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) - short.Parse(txtKolicina.Text)), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
+                                int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(item.SubItems[5].Text), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
+                            proizvodDB.Update(dataSet);
+                            proizvodDB.Fill(dataSet.proizvod);
+                            iznosRacuna += double.Parse(item.SubItems[6].Text) * int.Parse(txtKolicina.Text);
+
+                            txtKolicina.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Proizvod više nije na stanju.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                    txtIznos.Text = iznosRacuna.ToString("0.00");
                     osveziListu();
-                    txtKolicina.Clear();
                 }
                 else
                 {
-                    if (!txtKolicina.Text.Equals(""))
-                    {
-                        MessageBox.Show("Proizvod više nije na stanju.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    } else
-                    {
-                        MessageBox.Show("Niste uneli količinu.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    MessageBox.Show("U količinu mogu da se unose samo brojevi!.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                
             }
-            txtIznos.Text = iznosRacuna.ToString("0.00");
+            else
+            {
+                MessageBox.Show("Niste uneli količinu!.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void izbaciproizvod(object sender, EventArgs e)
@@ -160,14 +180,90 @@ namespace TVPProjekat2
 
                     listRacun.Items.Remove(item);
 
-                    osveziListu();
+                    
                 }
                 txtIznos.Text = iznosRacuna.ToString("0.00");
+                osveziListu();
             }
             else
             {
                 MessageBox.Show("Niste odabrali stavku sa liste 'Račun'.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
+            }
+        }
+
+        private void osveziProizvode(object sender, EventArgs e)
+        {
+            kategorijaDB.Fill(dataSet.kategorija);
+            proizvodjacDB.Fill(dataSet.proizvodjac);
+            proizvodDB.Fill(dataSet.proizvod);
+
+            osveziListu();
+        }
+
+        private void odustani(object sender, EventArgs e)
+        {
+            this.Dispose();
+            this.Close();
+        }
+
+        private void ocistiRacun(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Da li sigurno želite da očistite račun?", "Račun", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (result.Equals(DialogResult.Yes))
+            {
+                if (listRacun.Items.Count > 0)
+                {
+                    foreach (ListViewItem item in listRacun.Items)
+                    {
+                        var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
+                        var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
+                        var linq3 = from proizvod in dataSet.proizvod where int.Parse(item.SubItems[0].Text) == proizvod.ID select proizvod.kolicina;
+
+                        proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
+                            int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
+                        proizvodDB.Update(dataSet);
+                        proizvodDB.Fill(dataSet.proizvod);
+
+                        iznosRacuna -= double.Parse(item.SubItems[6].Text) * int.Parse(item.SubItems[5].Text);
+
+                        listRacun.Items.Remove(item);
+                    }
+
+                    MessageBox.Show("Račun uspešno ispražnjen.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    osveziListu();
+                    txtIznos.Text = iznosRacuna.ToString("0.00");
+                }
+                else
+                {
+                    MessageBox.Show("Račun je prazan.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void odustaniClosed(object sender, FormClosedEventArgs e)
+        {
+            odustani(sender, e);
+        }
+
+        private void napraviRacun(object sender, EventArgs e)
+        {
+            if (listRacun.Items.Count > 0)
+            {
+                racunDB.Insert(txtIDRacuna.Text, txtProdavac.Text, DateTime.Now, iznosRacuna, false);
+                racunDB.Update(dataSet);
+
+                foreach (ListViewItem item in listRacun.Items)
+                {
+                    racunProizvodDB.Insert(txtIDRacuna.Text, int.Parse(item.SubItems[0].Text), double.Parse(item.SubItems[5].Text));
+                }
+                racunProizvodDB.Update(dataSet);
+                MessageBox.Show("Račun uspešno kreiran.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("Račun je prazan.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
