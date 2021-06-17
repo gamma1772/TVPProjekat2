@@ -260,6 +260,8 @@ namespace TVPProjekat2
                 }
                 racunProizvodDB.Update(dataSet);
                 MessageBox.Show("Račun uspešno kreiran.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                listRacun.Items.Clear();
+                iznosRacuna = 0.00D;
             }
             else
             {
