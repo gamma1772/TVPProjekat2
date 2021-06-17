@@ -33,7 +33,6 @@ namespace TVPProjekat2
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtProdavac = new System.Windows.Forms.TextBox();
-            this.listRacun = new System.Windows.Forms.ListView();
             this.label4 = new System.Windows.Forms.Label();
             this.btnCreate = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
@@ -42,15 +41,8 @@ namespace TVPProjekat2
             this.label7 = new System.Windows.Forms.Label();
             this.txtKolicina = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.txtIznos = new System.Windows.Forms.TextBox();
             this.listProizvodi = new System.Windows.Forms.ListView();
-            this.btnDodaj = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.rbNaziv = new System.Windows.Forms.RadioButton();
-            this.rbProizvodjac = new System.Windows.Forms.RadioButton();
-            this.rbKategorija = new System.Windows.Forms.RadioButton();
-            this.rbBarKod = new System.Windows.Forms.RadioButton();
-            this.label5 = new System.Windows.Forms.Label();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colBarKod = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colNaziv = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -58,7 +50,23 @@ namespace TVPProjekat2
             this.colKategorija = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colKolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCena = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbNaziv = new System.Windows.Forms.RadioButton();
+            this.rbProizvodjac = new System.Windows.Forms.RadioButton();
+            this.rbKategorija = new System.Windows.Forms.RadioButton();
+            this.rbBarKod = new System.Windows.Forms.RadioButton();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnIzbaci = new System.Windows.Forms.Button();
+            this.listRacun = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btnOsvezi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIDRacuna
@@ -96,17 +104,6 @@ namespace TVPProjekat2
             this.txtProdavac.ReadOnly = true;
             this.txtProdavac.Size = new System.Drawing.Size(187, 20);
             this.txtProdavac.TabIndex = 2;
-            // 
-            // listRacun
-            // 
-            this.listRacun.FullRowSelect = true;
-            this.listRacun.HideSelection = false;
-            this.listRacun.Location = new System.Drawing.Point(74, 245);
-            this.listRacun.Name = "listRacun";
-            this.listRacun.Size = new System.Drawing.Size(711, 203);
-            this.listRacun.TabIndex = 5;
-            this.listRacun.UseCompatibleStateImageBehavior = false;
-            this.listRacun.View = System.Windows.Forms.View.Details;
             // 
             // label4
             // 
@@ -178,14 +175,14 @@ namespace TVPProjekat2
             this.label10.TabIndex = 28;
             this.label10.Text = "Ukupno";
             // 
-            // textBox9
+            // txtIznos
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(400, 455);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.ReadOnly = true;
-            this.textBox9.Size = new System.Drawing.Size(187, 32);
-            this.textBox9.TabIndex = 27;
+            this.txtIznos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIznos.Location = new System.Drawing.Point(400, 455);
+            this.txtIznos.Name = "txtIznos";
+            this.txtIznos.ReadOnly = true;
+            this.txtIznos.Size = new System.Drawing.Size(187, 32);
+            this.txtIznos.TabIndex = 27;
             // 
             // listProizvodi
             // 
@@ -200,11 +197,47 @@ namespace TVPProjekat2
             this.listProizvodi.FullRowSelect = true;
             this.listProizvodi.HideSelection = false;
             this.listProizvodi.Location = new System.Drawing.Point(74, 58);
+            this.listProizvodi.MultiSelect = false;
             this.listProizvodi.Name = "listProizvodi";
             this.listProizvodi.Size = new System.Drawing.Size(711, 146);
             this.listProizvodi.TabIndex = 29;
             this.listProizvodi.UseCompatibleStateImageBehavior = false;
             this.listProizvodi.View = System.Windows.Forms.View.Details;
+            // 
+            // colID
+            // 
+            this.colID.Text = "ID";
+            this.colID.Width = 40;
+            // 
+            // colBarKod
+            // 
+            this.colBarKod.Text = "Bar Kod";
+            this.colBarKod.Width = 120;
+            // 
+            // colNaziv
+            // 
+            this.colNaziv.Text = "Naziv";
+            this.colNaziv.Width = 120;
+            // 
+            // colProizvodjac
+            // 
+            this.colProizvodjac.Text = "Proizvođač";
+            this.colProizvodjac.Width = 120;
+            // 
+            // colKategorija
+            // 
+            this.colKategorija.Text = "Kategorija";
+            this.colKategorija.Width = 120;
+            // 
+            // colKolicina
+            // 
+            this.colKolicina.Text = "Količina";
+            this.colKolicina.Width = 85;
+            // 
+            // colCena
+            // 
+            this.colCena.Text = "Cena";
+            this.colCena.Width = 101;
             // 
             // btnDodaj
             // 
@@ -214,11 +247,12 @@ namespace TVPProjekat2
             this.btnDodaj.TabIndex = 31;
             this.btnDodaj.Text = "Dodaj na račun";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.dodajProizvod);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 58);
+            this.label3.Location = new System.Drawing.Point(9, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
             this.label3.TabIndex = 32;
@@ -275,55 +309,86 @@ namespace TVPProjekat2
             this.label5.TabIndex = 38;
             this.label5.Text = "Pretraga";
             // 
-            // colID
-            // 
-            this.colID.Text = "ID";
-            this.colID.Width = 40;
-            // 
-            // colBarKod
-            // 
-            this.colBarKod.Text = "Bar Kod";
-            this.colBarKod.Width = 120;
-            // 
-            // colNaziv
-            // 
-            this.colNaziv.Text = "Naziv";
-            this.colNaziv.Width = 120;
-            // 
-            // colProizvodjac
-            // 
-            this.colProizvodjac.Text = "Proizvođač";
-            this.colProizvodjac.Width = 120;
-            // 
-            // colKategorija
-            // 
-            this.colKategorija.Text = "Kategorija";
-            this.colKategorija.Width = 120;
-            // 
-            // colKolicina
-            // 
-            this.colKolicina.Text = "Količina";
-            this.colKolicina.Width = 85;
-            // 
-            // colCena
-            // 
-            this.colCena.Text = "Cena";
-            this.colCena.Width = 85;
-            // 
             // btnIzbaci
             // 
             this.btnIzbaci.Location = new System.Drawing.Point(559, 210);
             this.btnIzbaci.Name = "btnIzbaci";
-            this.btnIzbaci.Size = new System.Drawing.Size(226, 30);
+            this.btnIzbaci.Size = new System.Drawing.Size(145, 30);
             this.btnIzbaci.TabIndex = 39;
             this.btnIzbaci.Text = "Izbaci sa računa";
             this.btnIzbaci.UseVisualStyleBackColor = true;
+            this.btnIzbaci.Click += new System.EventHandler(this.izbaciproizvod);
+            // 
+            // listRacun
+            // 
+            this.listRacun.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2,
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6,
+            this.columnHeader7});
+            this.listRacun.FullRowSelect = true;
+            this.listRacun.HideSelection = false;
+            this.listRacun.Location = new System.Drawing.Point(74, 246);
+            this.listRacun.Name = "listRacun";
+            this.listRacun.Size = new System.Drawing.Size(711, 202);
+            this.listRacun.TabIndex = 40;
+            this.listRacun.UseCompatibleStateImageBehavior = false;
+            this.listRacun.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader1
+            // 
+            this.columnHeader1.Text = "ID";
+            this.columnHeader1.Width = 40;
+            // 
+            // columnHeader2
+            // 
+            this.columnHeader2.Text = "Bar Kod";
+            this.columnHeader2.Width = 120;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "Naziv";
+            this.columnHeader3.Width = 120;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Proizvođač";
+            this.columnHeader4.Width = 120;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Kategorija";
+            this.columnHeader5.Width = 120;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Količina";
+            this.columnHeader6.Width = 85;
+            // 
+            // columnHeader7
+            // 
+            this.columnHeader7.Text = "Cena";
+            this.columnHeader7.Width = 101;
+            // 
+            // btnOsvezi
+            // 
+            this.btnOsvezi.Location = new System.Drawing.Point(710, 210);
+            this.btnOsvezi.Name = "btnOsvezi";
+            this.btnOsvezi.Size = new System.Drawing.Size(75, 30);
+            this.btnOsvezi.TabIndex = 41;
+            this.btnOsvezi.Text = "Osveži";
+            this.btnOsvezi.UseVisualStyleBackColor = true;
             // 
             // FormNoviRacun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 495);
+            this.Controls.Add(this.btnOsvezi);
+            this.Controls.Add(this.listRacun);
             this.Controls.Add(this.btnIzbaci);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.rbBarKod);
@@ -334,7 +399,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.listProizvodi);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox9);
+            this.Controls.Add(this.txtIznos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.txtKolicina);
             this.Controls.Add(this.txtPretraga);
@@ -342,7 +407,6 @@ namespace TVPProjekat2
             this.Controls.Add(this.button5);
             this.Controls.Add(this.btnCreate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.listRacun);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtProdavac);
             this.Controls.Add(this.label1);
@@ -360,7 +424,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtProdavac;
-        private System.Windows.Forms.ListView listRacun;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnCreate;
         private System.Windows.Forms.Button button5;
@@ -369,7 +432,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtKolicina;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox txtIznos;
         private System.Windows.Forms.ListView listProizvodi;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Label label3;
@@ -386,5 +449,14 @@ namespace TVPProjekat2
         private System.Windows.Forms.ColumnHeader colKolicina;
         private System.Windows.Forms.ColumnHeader colCena;
         private System.Windows.Forms.Button btnIzbaci;
+        private System.Windows.Forms.ListView listRacun;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.ColumnHeader columnHeader3;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.Button btnOsvezi;
     }
 }

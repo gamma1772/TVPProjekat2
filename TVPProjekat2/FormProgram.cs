@@ -26,6 +26,7 @@ namespace TVPProjekat2
         projekatDataSet pds;
         projekatDataSetTableAdapters.kategorijaTableAdapter kategorijaDB;
         projekatDataSetTableAdapters.proizvodTableAdapter proizvodDB;
+        projekatDataSetTableAdapters.proizvodjacTableAdapter proizvodjacDB;
         projekatDataSetTableAdapters.racunTableAdapter racunDB;
         projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
 
@@ -55,9 +56,9 @@ namespace TVPProjekat2
         {
             kategorijaDB = new projekatDataSetTableAdapters.kategorijaTableAdapter();
             proizvodDB = new projekatDataSetTableAdapters.proizvodTableAdapter();
+            proizvodjacDB = new projekatDataSetTableAdapters.proizvodjacTableAdapter();
             racunDB = new projekatDataSetTableAdapters.racunTableAdapter();
             racun_proizvodDB = new projekatDataSetTableAdapters.racun_proizvodTableAdapter();
-            racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
         }
 
         internal void recieveUser(Korisnik korisnik)
@@ -67,7 +68,7 @@ namespace TVPProjekat2
 
         private void izlazIzPrograma(object sender, EventArgs e)
         {
-            racunDB.Connection.Close();
+            azurirajDB();
             this.Dispose();
             this.Close();
             Application.Exit();
@@ -166,15 +167,21 @@ namespace TVPProjekat2
         /// <param name="e">Dogadjaj</param>
         private void stornirajSelektovano(object sender, EventArgs e)
         {
-            OleDbCommand cmd = new OleDbCommand();
-            cmd.Connection = racunDB.Connection;
+            //DataTable table = (DataTable)(dataRacuni.DataSource);
+
+            racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
+            OleDbCommand cmd = new OleDbCommand
+            {
+                Connection = racunDB.Connection
+            };
             foreach (DataGridViewRow item in dataRacuni.SelectedRows)
-            {   
+            {
                 cmd.CommandText = "UPDATE Racun SET storniran = TRUE WHERE ID = '" + item.Cells[0].Value + "'";
                 cmd.ExecuteNonQuery();
             }
             racunDB.Update(pds);
             azurirajTabele();
+            racunDB.Connection.Close();
         }
 
         private void obrisiSelektovano(object sender, EventArgs e)
@@ -214,6 +221,7 @@ namespace TVPProjekat2
         {
             kategorijaDB.Fill(pds.kategorija);
             proizvodDB.Fill(pds.proizvod);
+            proizvodjacDB.Fill(pds.proizvodjac);
             racunDB.Fill(pds.racun);
             racun_proizvodDB.Fill(pds.racun_proizvod);
             
@@ -247,10 +255,11 @@ namespace TVPProjekat2
             }
         }
 
-        private void auzirirajDB()
+        private void azurirajDB()
         {
             kategorijaDB.Update(pds);
             proizvodDB.Update(pds);
+            proizvodjacDB.Update(pds);
             racunDB.Update(pds);
             racun_proizvodDB.Update(pds);
         }
@@ -258,6 +267,7 @@ namespace TVPProjekat2
         private void izlazIzProgramaForm(object sender, FormClosedEventArgs e)
         {
             izlazIzPrograma(sender, e);
+            
         }
 
         private void formLoadEvent(object sender, EventArgs e)
