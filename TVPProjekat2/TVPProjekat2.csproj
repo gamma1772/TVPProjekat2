@@ -46,34 +46,52 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormListaKategorija.cs">
+    <Compile Include="Kategorija\FormIzmeniKategoriju.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaKategorija.Designer.cs">
+    <Compile Include="Kategorija\FormIzmeniKategoriju.Designer.cs">
+      <DependentUpon>FormIzmeniKategoriju.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kategorija\FormListaKategorija.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kategorija\FormListaKategorija.Designer.cs">
       <DependentUpon>FormListaKategorija.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormListaProizvoda.cs">
+    <Compile Include="Kategorija\FormNovaKategorija.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormListaProizvoda.Designer.cs">
+    <Compile Include="Kategorija\FormNovaKategorija.Designer.cs">
+      <DependentUpon>FormNovaKategorija.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Proizvod\FormListaProizvoda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proizvod\FormListaProizvoda.Designer.cs">
       <DependentUpon>FormListaProizvoda.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormLogin.cs">
+    <Compile Include="Korisnik\FormLogin.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormLogin.Designer.cs">
+    <Compile Include="Korisnik\FormLogin.Designer.cs">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormNoviRacun.cs">
+    <Compile Include="Proizvod\Proizvodjac\FormListaProizvodjaca.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormNoviRacun.Designer.cs">
+    <Compile Include="Proizvod\Proizvodjac\FormListaProizvodjaca.Designer.cs">
+      <DependentUpon>FormListaProizvodjaca.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Racun\FormNoviRacun.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Racun\FormNoviRacun.Designer.cs">
       <DependentUpon>FormNoviRacun.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormPretraga.cs">
+    <Compile Include="Racun\FormPretraga.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormPretraga.Designer.cs">
+    <Compile Include="Racun\FormPretraga.Designer.cs">
       <DependentUpon>FormPretraga.cs</DependentUpon>
     </Compile>
     <Compile Include="FormProgram.cs">
@@ -82,25 +100,25 @@
     <Compile Include="FormProgram.Designer.cs">
       <DependentUpon>FormProgram.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormRacuni.cs">
+    <Compile Include="Racun\FormRacuni.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormRacuni.Designer.cs">
+    <Compile Include="Racun\FormRacuni.Designer.cs">
       <DependentUpon>FormRacuni.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStampanjeRacuna.cs">
+    <Compile Include="Racun\FormStampanjeRacuna.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStampanjeRacuna.Designer.cs">
+    <Compile Include="Racun\FormStampanjeRacuna.Designer.cs">
       <DependentUpon>FormStampanjeRacuna.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormStatistika.cs">
+    <Compile Include="Proizvod\FormStatistika.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormStatistika.Designer.cs">
+    <Compile Include="Proizvod\FormStatistika.Designer.cs">
       <DependentUpon>FormStatistika.cs</DependentUpon>
     </Compile>
-    <Compile Include="Korisnik.cs" />
+    <Compile Include="Korisnik\Korisnik.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="projekatDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -108,32 +126,38 @@
       <DependentUpon>projekatDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Racun.cs" />
-    <EmbeddedResource Include="FormListaKategorija.resx">
+    <Compile Include="Racun\Racun.cs" />
+    <EmbeddedResource Include="Kategorija\FormIzmeniKategoriju.resx">
+      <DependentUpon>FormIzmeniKategoriju.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kategorija\FormListaKategorija.resx">
       <DependentUpon>FormListaKategorija.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormListaProizvoda.resx">
+    <EmbeddedResource Include="Kategorija\FormNovaKategorija.resx">
+      <DependentUpon>FormNovaKategorija.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proizvod\FormListaProizvoda.resx">
       <DependentUpon>FormListaProizvoda.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormLogin.resx">
+    <EmbeddedResource Include="Korisnik\FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormNoviRacun.resx">
+    <EmbeddedResource Include="Racun\FormNoviRacun.resx">
       <DependentUpon>FormNoviRacun.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormPretraga.resx">
+    <EmbeddedResource Include="Racun\FormPretraga.resx">
       <DependentUpon>FormPretraga.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormProgram.resx">
       <DependentUpon>FormProgram.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormRacuni.resx">
+    <EmbeddedResource Include="Racun\FormRacuni.resx">
       <DependentUpon>FormRacuni.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStampanjeRacuna.resx">
+    <EmbeddedResource Include="Racun\FormStampanjeRacuna.resx">
       <DependentUpon>FormStampanjeRacuna.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormStatistika.resx">
+    <EmbeddedResource Include="Proizvod\FormStatistika.resx">
       <DependentUpon>FormStatistika.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -169,5 +193,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

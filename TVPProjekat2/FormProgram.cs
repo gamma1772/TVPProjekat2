@@ -145,14 +145,13 @@ namespace TVPProjekat2
         {
             if (FrmKategorije == null)
             {
-                FrmKategorije = new FormListaKategorija();
+                FrmKategorije = new FormListaKategorija(pds, kategorijaDB, proizvodDB, this);
                 FrmKategorije.Show();
             }
             else
             {
                 FrmKategorije.Focus();
             }
-            
         }
 
         private void izmeniRacun(object sender, EventArgs e)

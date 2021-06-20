@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TVPProjekat2
+namespace TVPProjekat2.Proizvod.Proizvodjac
 {
-    public partial class FormListaKategorija : Form
+    public partial class FormListaProizvodjaca : Form
     {
-        public FormListaKategorija()
+        public FormListaProizvodjaca()
         {
             InitializeComponent();
         }
