@@ -29,12 +29,97 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.btnIzmeni = new System.Windows.Forms.Button();
+            this.btnZatvori = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.dataProizvodjaci = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dataProizvodjaci)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // btnIzmeni
+            // 
+            this.btnIzmeni.Location = new System.Drawing.Point(361, 41);
+            this.btnIzmeni.Name = "btnIzmeni";
+            this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
+            this.btnIzmeni.TabIndex = 9;
+            this.btnIzmeni.Text = "Izmeni";
+            this.btnIzmeni.UseVisualStyleBackColor = true;
+            this.btnIzmeni.Click += new System.EventHandler(this.izmeniProizvodjaca);
+            // 
+            // btnZatvori
+            // 
+            this.btnZatvori.Location = new System.Drawing.Point(361, 406);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(169, 23);
+            this.btnZatvori.TabIndex = 8;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.close);
+            // 
+            // btnObrisi
+            // 
+            this.btnObrisi.Location = new System.Drawing.Point(361, 70);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(169, 23);
+            this.btnObrisi.TabIndex = 7;
+            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.obrisiProizvodjaca);
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(361, 12);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(169, 23);
+            this.btnDodaj.TabIndex = 6;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.dodajProizvodjaca);
+            // 
+            // dataProizvodjaci
+            // 
+            this.dataProizvodjaci.AllowUserToAddRows = false;
+            this.dataProizvodjaci.AllowUserToDeleteRows = false;
+            this.dataProizvodjaci.AllowUserToResizeRows = false;
+            this.dataProizvodjaci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataProizvodjaci.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataProizvodjaci.Location = new System.Drawing.Point(12, 12);
+            this.dataProizvodjaci.MultiSelect = false;
+            this.dataProizvodjaci.Name = "dataProizvodjaci";
+            this.dataProizvodjaci.ReadOnly = true;
+            this.dataProizvodjaci.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataProizvodjaci.ShowCellErrors = false;
+            this.dataProizvodjaci.ShowCellToolTips = false;
+            this.dataProizvodjaci.ShowEditingIcon = false;
+            this.dataProizvodjaci.ShowRowErrors = false;
+            this.dataProizvodjaci.Size = new System.Drawing.Size(343, 417);
+            this.dataProizvodjaci.TabIndex = 5;
+            // 
+            // FormListaProizvodjaca
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "FormListaProizvodjaca";
+            this.ClientSize = new System.Drawing.Size(541, 441);
+            this.Controls.Add(this.btnIzmeni);
+            this.Controls.Add(this.btnZatvori);
+            this.Controls.Add(this.btnObrisi);
+            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.dataProizvodjaci);
+            this.Name = "FormListaProizvodjaca";
+            this.Text = "Lista proizvođača";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaProizvodjaca_FormClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dataProizvodjaci)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button btnIzmeni;
+        private System.Windows.Forms.Button btnZatvori;
+        private System.Windows.Forms.Button btnObrisi;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.DataGridView dataProizvodjaci;
     }
 }

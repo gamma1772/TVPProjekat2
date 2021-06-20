@@ -18,3 +18,6 @@ C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormStatistika.resour
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.FormStampanjeRacuna.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Kategorija.FormNovaKategorija.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Kategorija.FormIzmeniKategoriju.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormIzmeniProizvodjaca.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormListaProizvodjaca.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormNoviProizvodjac.resources

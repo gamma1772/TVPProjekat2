@@ -45,7 +45,6 @@ namespace TVPProjekat2.Kategorija
                 else if (linq.Any())
                 {
                     MessageBox.Show("Kategorija sa ovim imenom već postoji.", "Izmena kategorije", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
                 }
                 else
                 {
@@ -53,10 +52,14 @@ namespace TVPProjekat2.Kategorija
                     kategorijaDB.Fill(dataSet.kategorija);
 
                     MessageBox.Show("Kategorija uspešno izmenjena.", "Izmena kategorije", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                    
                     frmKategorije.azurirajTabelu();
                     otkazi(sender, e);
                 }
+            }
+            else
+            {
+                MessageBox.Show("Polje za naziv kategorije ne sme da bude kraće od 2 znaka i može da sadrži samo slova i brojeve.", "Nova kategorija", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

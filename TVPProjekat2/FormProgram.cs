@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVPProjekat2.Proizvod.Proizvodjac;
 
 namespace TVPProjekat2
 {
@@ -20,6 +21,7 @@ namespace TVPProjekat2
         private FormRacuni frmRacuni;
         private FormStampanjeRacuna frmStampanjeRacuna;
         private FormStatistika frmStatistika;
+        private FormListaProizvodjaca frmProizvodjaci;
 
         internal Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
@@ -41,6 +43,7 @@ namespace TVPProjekat2
         public FormRacuni FrmRacuni { get => frmRacuni; set => frmRacuni = value; }
         public FormStampanjeRacuna FrmStampanjeRacuna { get => frmStampanjeRacuna; set => frmStampanjeRacuna = value; }
         public FormStatistika FrmStatistika { get => frmStatistika; set => frmStatistika = value; }
+        public FormListaProizvodjaca FrmProizvodjaci { get => frmProizvodjaci; set => frmProizvodjaci = value; }
 
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
@@ -283,6 +286,19 @@ namespace TVPProjekat2
             else
             {
                 form.Focus();
+            }
+        }
+
+        private void prikaziListuProizvodjaca(object sender, EventArgs e)
+        {
+            if (FrmProizvodjaci == null)
+            {
+                FrmProizvodjaci = new FormListaProizvodjaca(pds, proizvodjacDB, proizvodDB, this);
+                FrmProizvodjaci.Show();
+            }
+            else
+            {
+                FrmProizvodjaci.Focus();
             }
         }
     }

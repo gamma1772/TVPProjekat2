@@ -59,6 +59,7 @@ namespace TVPProjekat2
             this.groupFiltrirano = new System.Windows.Forms.GroupBox();
             this.btnPretraga = new System.Windows.Forms.Button();
             this.dataFilter = new System.Windows.Forms.DataGridView();
+            this.listaProizvođačaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRacuni)).BeginInit();
@@ -177,7 +178,8 @@ namespace TVPProjekat2
             // 
             this.proizvodToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.pogledajListuProizvodaToolStripMenuItem,
-            this.izmeniListuKategorijaToolStripMenuItem});
+            this.izmeniListuKategorijaToolStripMenuItem,
+            this.listaProizvođačaToolStripMenuItem});
             this.proizvodToolStripMenuItem.Name = "proizvodToolStripMenuItem";
             this.proizvodToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
             this.proizvodToolStripMenuItem.Text = "Proizvod";
@@ -187,7 +189,7 @@ namespace TVPProjekat2
             this.pogledajListuProizvodaToolStripMenuItem.Name = "pogledajListuProizvodaToolStripMenuItem";
             this.pogledajListuProizvodaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.P)));
-            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.pogledajListuProizvodaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.pogledajListuProizvodaToolStripMenuItem.Text = "Lista proizvoda";
             this.pogledajListuProizvodaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuProizvoda);
             // 
@@ -196,7 +198,7 @@ namespace TVPProjekat2
             this.izmeniListuKategorijaToolStripMenuItem.Name = "izmeniListuKategorijaToolStripMenuItem";
             this.izmeniListuKategorijaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
             | System.Windows.Forms.Keys.K)));
-            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(217, 22);
+            this.izmeniListuKategorijaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
             this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             this.izmeniListuKategorijaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuKategorija);
             // 
@@ -344,6 +346,16 @@ namespace TVPProjekat2
             this.dataFilter.Size = new System.Drawing.Size(434, 189);
             this.dataFilter.TabIndex = 0;
             // 
+            // listaProizvođačaToolStripMenuItem
+            // 
+            this.listaProizvođačaToolStripMenuItem.Name = "listaProizvođačaToolStripMenuItem";
+            this.listaProizvođačaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.listaProizvođačaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.listaProizvođačaToolStripMenuItem.Text = "Lista proizvođača";
+            this.listaProizvođačaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuProizvodjaca);
+            // 
             // FormProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -413,6 +425,7 @@ namespace TVPProjekat2
         private System.Windows.Forms.Button btnStampaj;
         private System.Windows.Forms.ToolStripMenuItem štampajRačunToolStripMenuItem;
         private projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_ProizvodTableAdapter;
+        private System.Windows.Forms.ToolStripMenuItem listaProizvođačaToolStripMenuItem;
     }
 }
 

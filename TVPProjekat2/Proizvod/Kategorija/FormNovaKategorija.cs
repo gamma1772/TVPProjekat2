@@ -50,7 +50,7 @@ namespace TVPProjekat2.Kategorija
             }
             else
             {
-                MessageBox.Show("Polje za naziv kategorije ne sme da bude kraće od 2 znaka, duže od 255 znakova i može da sadrži samo slova i brojeve.", "Nova kategorija", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Polje za naziv kategorije ne sme da bude kraće od 2 znaka i može da sadrži samo slova i brojeve.", "Nova kategorija", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }

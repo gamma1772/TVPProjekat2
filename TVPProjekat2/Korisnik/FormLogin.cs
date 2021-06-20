@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -33,7 +34,7 @@ namespace TVPProjekat2
             }
             else
             {
-                MessageBox.Show(@"Polja ne smeju da sadrze specijalne znakove: @, #, &, *, =, +, |, \, / ili prazan znak", "Neispravan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show(@"Polja ne smeju da sadrze specijalne znakove osim ! . _ -", "Neispravan unos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -77,19 +78,20 @@ namespace TVPProjekat2
         ///Proverava da li forma sadrzi nepravilne karaktere;
         ///</summary>
         ///<returns>
-        ///true ako forma ne sadrzi nepravilne znakove iz 'kolekcija' liste karaktera, u suprotnom false.
+        ///True ako se tekstualna polja poklapaju sa regularnim izrazom.
         ///</returns>
         private bool proveraForme()
         {
-            char[] kolekcija = { '@', '#', '%', '&', '*', '=', '+', '|', '/', '\\', ' '};
-            foreach (char c in kolekcija)
+            //char[] kolekcija = { '@', '#', '%', '&', '*', '=', '+', '|', '/', '\\', ' '};
+            Regex regex = new Regex("[A-Za-z0-9!._-]+");
+            if (!regex.IsMatch(txtUsername.Text) || !regex.IsMatch(txtPasswd.Text))
             {
-                if (txtUsername.Text.Contains(c) || txtPasswd.Text.Contains(c))
-                {
-                    return false;
-                }
+                return false;
             }
-            return true;
+            else
+            {
+                return true;
+            }
         }
     }
 }
