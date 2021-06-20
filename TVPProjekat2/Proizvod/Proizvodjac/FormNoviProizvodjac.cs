@@ -35,7 +35,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
                 var linq = from proizvodjac in dataSet.proizvodjac where proizvodjac.naziv.ToLower().Equals(txtNaziv.Text.ToLower()) && proizvodjac.drzava.ToLower().Equals(txtDrzava.Text.ToLower()) select proizvodjac;
                 if (!linq.Any())
                 {
-                    proizvodjacDB.Insert(txtNaziv.Text, txtDrzava.Text);
+                    proizvodjacDB.Insert(txtNaziv.Text, txtDrzava.Text, true);
                     proizvodjacDB.Update(dataSet);
                     proizvodjacDB.Fill(dataSet.proizvodjac);
 

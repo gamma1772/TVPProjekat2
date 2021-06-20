@@ -34,7 +34,7 @@ namespace TVPProjekat2.Kategorija
                 var linq = from kategorija in dataSet.kategorija where kategorija.ime.ToLower().Equals(txtNaziv.Text.ToLower()) select kategorija;
                 if (!linq.Any())
                 {
-                    kategorijaDB.Insert(txtNaziv.Text);
+                    kategorijaDB.Insert(txtNaziv.Text, true);
                     kategorijaDB.Update(dataSet);
                     kategorijaDB.Fill(dataSet.kategorija);
 

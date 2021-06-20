@@ -45,7 +45,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
                 }
                 else
                 {
-                    proizvodjacDB.Update(txtNaziv.Text, txtDrzava.Text, int.Parse(row[0].Cells[0].Value.ToString()), row[0].Cells[1].Value.ToString(), row[0].Cells[2].Value.ToString());
+                    proizvodjacDB.Update(txtNaziv.Text, txtDrzava.Text, true, int.Parse(row[0].Cells[0].Value.ToString()), row[0].Cells[1].Value.ToString(), row[0].Cells[2].Value.ToString(), bool.Parse(row[0].Cells[3].Value.ToString()));
                     proizvodjacDB.Fill(dataSet.proizvodjac);
 
                     MessageBox.Show("Proizvođač uspešno izmenjen.", "Izmena proizvođača", MessageBoxButtons.OK, MessageBoxIcon.Information);

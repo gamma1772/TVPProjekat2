@@ -68,6 +68,7 @@ namespace TVPProjekat2
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnOsvezi = new System.Windows.Forms.Button();
             this.btnDodajNoviProizvod = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIDRacuna
@@ -396,11 +397,21 @@ namespace TVPProjekat2
             this.btnDodajNoviProizvod.Text = "Dodaj novi proizvod";
             this.btnDodajNoviProizvod.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(2, 131);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(70, 50);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "Aktiviraj proizvod";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormNoviRacun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(793, 495);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDodajNoviProizvod);
             this.Controls.Add(this.btnOsvezi);
             this.Controls.Add(this.listRacun);
@@ -475,5 +486,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.Button btnOsvezi;
         private System.Windows.Forms.Button btnDodajNoviProizvod;
+        private System.Windows.Forms.Button button1;
     }
 }

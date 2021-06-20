@@ -36,7 +36,7 @@ namespace TVPProjekat2
 
         private void osveziListu()
         {
-            var linq = from proizvod in dataSet.proizvod select proizvod;
+            var linq = from proizvod in dataSet.proizvod where proizvod.aktivno == true select proizvod;
             populateListProizvod(linq);
         }
 
@@ -132,8 +132,8 @@ namespace TVPProjekat2
                             var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
                             var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
 
-                            proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) - short.Parse(txtKolicina.Text)), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
-                                int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(item.SubItems[5].Text), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
+                            proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) - short.Parse(txtKolicina.Text)), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true,
+                                int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(item.SubItems[5].Text), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true);
                             proizvodDB.Update(dataSet);
                             proizvodDB.Fill(dataSet.proizvod);
                             iznosRacuna += double.Parse(item.SubItems[6].Text) * int.Parse(txtKolicina.Text);
@@ -171,8 +171,8 @@ namespace TVPProjekat2
                     var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
                     var linq3 = from proizvod in dataSet.proizvod where int.Parse(item.SubItems[0].Text) == proizvod.ID select proizvod.kolicina;
 
-                    proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
-                        int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
+                    proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true,
+                        int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true);
                     proizvodDB.Update(dataSet);
                     proizvodDB.Fill(dataSet.proizvod);
 
@@ -220,8 +220,8 @@ namespace TVPProjekat2
                         var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
                         var linq3 = from proizvod in dataSet.proizvod where int.Parse(item.SubItems[0].Text) == proizvod.ID select proizvod.kolicina;
 
-                        proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text,
-                            int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text);
+                        proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true,
+                            int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true);
                         proizvodDB.Update(dataSet);
                         proizvodDB.Fill(dataSet.proizvod);
 

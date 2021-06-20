@@ -48,7 +48,7 @@ namespace TVPProjekat2.Kategorija
                 }
                 else
                 {
-                    kategorijaDB.Update(txtNaziv.Text, int.Parse(row[0].Cells[0].Value.ToString()), row[0].Cells[1].Value.ToString());
+                    kategorijaDB.Update(txtNaziv.Text, true, int.Parse(row[0].Cells[0].Value.ToString()), row[0].Cells[1].Value.ToString(), bool.Parse(row[0].Cells[2].Value.ToString()));
                     kategorijaDB.Fill(dataSet.kategorija);
 
                     MessageBox.Show("Kategorija uspešno izmenjena.", "Izmena kategorije", MessageBoxButtons.OK, MessageBoxIcon.Information);

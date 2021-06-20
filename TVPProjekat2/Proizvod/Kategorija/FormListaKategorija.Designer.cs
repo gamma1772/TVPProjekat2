@@ -34,6 +34,7 @@ namespace TVPProjekat2
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnZatvori = new System.Windows.Forms.Button();
             this.btnIzmeni = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataKategorije)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,7 +69,7 @@ namespace TVPProjekat2
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(272, 71);
+            this.btnObrisi.Location = new System.Drawing.Point(272, 100);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 2;
@@ -96,11 +97,21 @@ namespace TVPProjekat2
             this.btnIzmeni.UseVisualStyleBackColor = true;
             this.btnIzmeni.Click += new System.EventHandler(this.izmeniKategoriju);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(272, 71);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Aktiviraj / Deaktiviraj";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormListaKategorija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(446, 442);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnObrisi);
@@ -121,5 +132,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnZatvori;
         private System.Windows.Forms.Button btnIzmeni;
+        private System.Windows.Forms.Button button1;
     }
 }

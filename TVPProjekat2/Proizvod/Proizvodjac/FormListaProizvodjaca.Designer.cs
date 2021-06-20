@@ -34,6 +34,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.btnObrisi = new System.Windows.Forms.Button();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dataProizvodjaci = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataProizvodjaci)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +60,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(361, 70);
+            this.btnObrisi.Location = new System.Drawing.Point(361, 99);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 7;
@@ -96,11 +97,21 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.dataProizvodjaci.Size = new System.Drawing.Size(343, 417);
             this.dataProizvodjaci.TabIndex = 5;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(361, 70);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(169, 23);
+            this.button1.TabIndex = 11;
+            this.button1.Text = "Aktiviraj / Deaktiviraj";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // FormListaProizvodjaca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(541, 441);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.btnZatvori);
             this.Controls.Add(this.btnObrisi);
@@ -121,5 +132,6 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         private System.Windows.Forms.Button btnObrisi;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dataProizvodjaci;
+        private System.Windows.Forms.Button button1;
     }
 }

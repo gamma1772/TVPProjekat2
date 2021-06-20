@@ -106,6 +106,12 @@
     <Compile Include="Proizvod\Proizvodjac\FormNoviProizvodjac.Designer.cs">
       <DependentUpon>FormNoviProizvodjac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Proizvod\FormAktivirajProizvod.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Proizvod\FormAktivirajProizvod.Designer.cs">
+      <DependentUpon>FormAktivirajProizvod.cs</DependentUpon>
+    </Compile>
     <Compile Include="Racun\FormNoviRacun.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,12 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Racun\Racun.cs" />
+    <EmbeddedResource Include="Proizvod\FormIzmeniProizvod.resx">
+      <DependentUpon>FormIzmeniProizvod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Proizvod\FormNoviProizvod.resx">
+      <DependentUpon>FormNoviProizvod.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Proizvod\Kategorija\FormIzmeniKategoriju.resx">
       <DependentUpon>FormIzmeniKategoriju.cs</DependentUpon>
     </EmbeddedResource>

@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TVPProjekat2.projekatDataSetTableAdapters;
 
-namespace TVPProjekat2.Proizvod
+namespace TVPProjekat2.Racun
 {
-    public partial class FormIzmeniProizvod : Form
+    public partial class FormAktivirajProizvod : Form
     {
-
-        public FormIzmeniProizvod(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, FormListaProizvoda main)
+        public FormAktivirajProizvod()
         {
             InitializeComponent();
         }

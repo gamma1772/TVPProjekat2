@@ -29,69 +29,112 @@ namespace TVPProjekat2
         /// </summary>
         private void InitializeComponent()
         {
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.btnZatvori = new System.Windows.Forms.Button();
+            this.btnObrisi = new System.Windows.Forms.Button();
+            this.btnDodaj = new System.Windows.Forms.Button();
+            this.dataProizvodi = new System.Windows.Forms.DataGridView();
+            this.btnIzmeni = new System.Windows.Forms.Button();
+            this.btnStatistika = new System.Windows.Forms.Button();
+            this.btnAktiv = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dataProizvodi)).BeginInit();
             this.SuspendLayout();
             // 
-            // button3
+            // btnZatvori
             // 
-            this.button3.Location = new System.Drawing.Point(620, 411);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Zatvori";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btnZatvori.Location = new System.Drawing.Point(620, 411);
+            this.btnZatvori.Name = "btnZatvori";
+            this.btnZatvori.Size = new System.Drawing.Size(169, 23);
+            this.btnZatvori.TabIndex = 7;
+            this.btnZatvori.Text = "Zatvori";
+            this.btnZatvori.UseVisualStyleBackColor = true;
+            this.btnZatvori.Click += new System.EventHandler(this.close);
             // 
-            // button2
+            // btnObrisi
             // 
-            this.button2.Location = new System.Drawing.Point(620, 46);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 23);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Obriši";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnObrisi.Location = new System.Drawing.Point(620, 133);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(169, 23);
+            this.btnObrisi.TabIndex = 6;
+            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.obrisiProizvod);
             // 
-            // button1
+            // btnDodaj
             // 
-            this.button1.Location = new System.Drawing.Point(620, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Dodaj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnDodaj.Location = new System.Drawing.Point(620, 17);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(169, 23);
+            this.btnDodaj.TabIndex = 5;
+            this.btnDodaj.Text = "Dodaj";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.dodajProizvod);
             // 
-            // dataGridView1
+            // dataProizvodi
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(11, 17);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(602, 417);
-            this.dataGridView1.TabIndex = 4;
+            this.dataProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataProizvodi.Location = new System.Drawing.Point(11, 17);
+            this.dataProizvodi.Name = "dataProizvodi";
+            this.dataProizvodi.Size = new System.Drawing.Size(602, 417);
+            this.dataProizvodi.TabIndex = 4;
+            // 
+            // btnIzmeni
+            // 
+            this.btnIzmeni.Location = new System.Drawing.Point(620, 46);
+            this.btnIzmeni.Name = "btnIzmeni";
+            this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
+            this.btnIzmeni.TabIndex = 8;
+            this.btnIzmeni.Text = "Izmeni";
+            this.btnIzmeni.UseVisualStyleBackColor = true;
+            this.btnIzmeni.Click += new System.EventHandler(this.izmeniProizvod);
+            // 
+            // btnStatistika
+            // 
+            this.btnStatistika.Location = new System.Drawing.Point(620, 75);
+            this.btnStatistika.Name = "btnStatistika";
+            this.btnStatistika.Size = new System.Drawing.Size(169, 23);
+            this.btnStatistika.TabIndex = 9;
+            this.btnStatistika.Text = "Prikaži statistiku prodaje";
+            this.btnStatistika.UseVisualStyleBackColor = true;
+            this.btnStatistika.Click += new System.EventHandler(this.prikaziStatistiku);
+            // 
+            // btnAktiv
+            // 
+            this.btnAktiv.Location = new System.Drawing.Point(620, 104);
+            this.btnAktiv.Name = "btnAktiv";
+            this.btnAktiv.Size = new System.Drawing.Size(169, 23);
+            this.btnAktiv.TabIndex = 10;
+            this.btnAktiv.Text = "Aktiviraj / Deaktiviraj";
+            this.btnAktiv.UseVisualStyleBackColor = true;
+            this.btnAktiv.Click += new System.EventHandler(this.promeniAktivniStatus);
             // 
             // FormListaProizvoda
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(799, 444);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.btnAktiv);
+            this.Controls.Add(this.btnStatistika);
+            this.Controls.Add(this.btnIzmeni);
+            this.Controls.Add(this.btnZatvori);
+            this.Controls.Add(this.btnObrisi);
+            this.Controls.Add(this.btnDodaj);
+            this.Controls.Add(this.dataProizvodi);
             this.Name = "FormListaProizvoda";
             this.Text = "FormListaProizvoda";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
+            ((System.ComponentModel.ISupportInitialize)(this.dataProizvodi)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button btnZatvori;
+        private System.Windows.Forms.Button btnObrisi;
+        private System.Windows.Forms.Button btnDodaj;
+        private System.Windows.Forms.DataGridView dataProizvodi;
+        private System.Windows.Forms.Button btnIzmeni;
+        private System.Windows.Forms.Button btnStatistika;
+        private System.Windows.Forms.Button btnAktiv;
     }
 }
