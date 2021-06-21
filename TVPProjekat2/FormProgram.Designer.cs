@@ -40,7 +40,6 @@ namespace TVPProjekat2
             this.računToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dodajNoviRačunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajRačuneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.štampajRačunToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajListuProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmeniListuKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,11 +54,8 @@ namespace TVPProjekat2
             this.btnKloniraj = new System.Windows.Forms.Button();
             this.dataStornirani = new System.Windows.Forms.DataGridView();
             this.groupRacuni = new System.Windows.Forms.GroupBox();
-            this.btnStampaj = new System.Windows.Forms.Button();
             this.groupStonrirani = new System.Windows.Forms.GroupBox();
-            this.groupFiltrirano = new System.Windows.Forms.GroupBox();
-            this.btnPretraga = new System.Windows.Forms.Button();
-            this.dataFilter = new System.Windows.Forms.DataGridView();
+            this.btnPrikazi = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRacuni)).BeginInit();
@@ -69,8 +65,6 @@ namespace TVPProjekat2
             ((System.ComponentModel.ISupportInitialize)(this.dataStornirani)).BeginInit();
             this.groupRacuni.SuspendLayout();
             this.groupStonrirani.SuspendLayout();
-            this.groupFiltrirano.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip1
@@ -141,8 +135,7 @@ namespace TVPProjekat2
             // 
             this.računToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.dodajNoviRačunToolStripMenuItem,
-            this.pogledajRačuneToolStripMenuItem,
-            this.štampajRačunToolStripMenuItem});
+            this.pogledajRačuneToolStripMenuItem});
             this.računToolStripMenuItem.Name = "računToolStripMenuItem";
             this.računToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
             this.računToolStripMenuItem.Text = "Račun";
@@ -164,15 +157,6 @@ namespace TVPProjekat2
             this.pogledajRačuneToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
             this.pogledajRačuneToolStripMenuItem.Text = "Pogledaj račune";
             this.pogledajRačuneToolStripMenuItem.Click += new System.EventHandler(this.pogledajSveRacune);
-            // 
-            // štampajRačunToolStripMenuItem
-            // 
-            this.štampajRačunToolStripMenuItem.Name = "štampajRačunToolStripMenuItem";
-            this.štampajRačunToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.P)));
-            this.štampajRačunToolStripMenuItem.Size = new System.Drawing.Size(234, 22);
-            this.štampajRačunToolStripMenuItem.Text = "Štampaj račun";
-            this.štampajRačunToolStripMenuItem.Click += new System.EventHandler(this.stampajRacun);
             // 
             // proizvodToolStripMenuItem
             // 
@@ -217,11 +201,11 @@ namespace TVPProjekat2
             this.dataRacuni.AllowUserToAddRows = false;
             this.dataRacuni.AllowUserToDeleteRows = false;
             this.dataRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataRacuni.Location = new System.Drawing.Point(6, 50);
+            this.dataRacuni.Location = new System.Drawing.Point(6, 19);
             this.dataRacuni.Name = "dataRacuni";
             this.dataRacuni.ReadOnly = true;
             this.dataRacuni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataRacuni.Size = new System.Drawing.Size(433, 411);
+            this.dataRacuni.Size = new System.Drawing.Size(433, 380);
             this.dataRacuni.TabIndex = 2;
             // 
             // racunBindingSource
@@ -241,9 +225,10 @@ namespace TVPProjekat2
             // 
             // btnNoviRacun
             // 
-            this.btnNoviRacun.Location = new System.Drawing.Point(6, 19);
+            this.btnNoviRacun.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNoviRacun.Location = new System.Drawing.Point(12, 27);
             this.btnNoviRacun.Name = "btnNoviRacun";
-            this.btnNoviRacun.Size = new System.Drawing.Size(433, 25);
+            this.btnNoviRacun.Size = new System.Drawing.Size(899, 56);
             this.btnNoviRacun.TabIndex = 3;
             this.btnNoviRacun.Text = "Novi račun";
             this.btnNoviRacun.UseVisualStyleBackColor = true;
@@ -251,9 +236,9 @@ namespace TVPProjekat2
             // 
             // btnStornirajRacun
             // 
-            this.btnStornirajRacun.Location = new System.Drawing.Point(6, 467);
+            this.btnStornirajRacun.Location = new System.Drawing.Point(6, 405);
             this.btnStornirajRacun.Name = "btnStornirajRacun";
-            this.btnStornirajRacun.Size = new System.Drawing.Size(168, 25);
+            this.btnStornirajRacun.Size = new System.Drawing.Size(212, 25);
             this.btnStornirajRacun.TabIndex = 4;
             this.btnStornirajRacun.Text = "Storniraj Selektovano";
             this.btnStornirajRacun.UseVisualStyleBackColor = true;
@@ -261,7 +246,7 @@ namespace TVPProjekat2
             // 
             // btnObrisiRacun
             // 
-            this.btnObrisiRacun.Location = new System.Drawing.Point(238, 219);
+            this.btnObrisiRacun.Location = new System.Drawing.Point(238, 405);
             this.btnObrisiRacun.Name = "btnObrisiRacun";
             this.btnObrisiRacun.Size = new System.Drawing.Size(204, 23);
             this.btnObrisiRacun.TabIndex = 5;
@@ -271,7 +256,7 @@ namespace TVPProjekat2
             // 
             // btnKloniraj
             // 
-            this.btnKloniraj.Location = new System.Drawing.Point(6, 219);
+            this.btnKloniraj.Location = new System.Drawing.Point(7, 405);
             this.btnKloniraj.Name = "btnKloniraj";
             this.btnKloniraj.Size = new System.Drawing.Size(222, 23);
             this.btnKloniraj.TabIndex = 6;
@@ -284,86 +269,55 @@ namespace TVPProjekat2
             this.dataStornirani.AllowUserToAddRows = false;
             this.dataStornirani.AllowUserToDeleteRows = false;
             this.dataStornirani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataStornirani.Location = new System.Drawing.Point(6, 19);
+            this.dataStornirani.Location = new System.Drawing.Point(7, 19);
             this.dataStornirani.MultiSelect = false;
             this.dataStornirani.Name = "dataStornirani";
             this.dataStornirani.ReadOnly = true;
             this.dataStornirani.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataStornirani.Size = new System.Drawing.Size(435, 194);
+            this.dataStornirani.Size = new System.Drawing.Size(435, 378);
             this.dataStornirani.TabIndex = 7;
             // 
             // groupRacuni
             // 
-            this.groupRacuni.Controls.Add(this.btnStampaj);
+            this.groupRacuni.Controls.Add(this.btnPrikazi);
             this.groupRacuni.Controls.Add(this.dataRacuni);
-            this.groupRacuni.Controls.Add(this.btnNoviRacun);
             this.groupRacuni.Controls.Add(this.btnStornirajRacun);
-            this.groupRacuni.Location = new System.Drawing.Point(12, 28);
+            this.groupRacuni.Location = new System.Drawing.Point(12, 89);
             this.groupRacuni.Name = "groupRacuni";
-            this.groupRacuni.Size = new System.Drawing.Size(445, 498);
+            this.groupRacuni.Size = new System.Drawing.Size(445, 437);
             this.groupRacuni.TabIndex = 8;
             this.groupRacuni.TabStop = false;
             this.groupRacuni.Text = "Lista današnjih računa";
-            // 
-            // btnStampaj
-            // 
-            this.btnStampaj.Location = new System.Drawing.Point(250, 467);
-            this.btnStampaj.Name = "btnStampaj";
-            this.btnStampaj.Size = new System.Drawing.Size(189, 25);
-            this.btnStampaj.TabIndex = 12;
-            this.btnStampaj.Text = "Štampaj račun";
-            this.btnStampaj.UseVisualStyleBackColor = true;
-            this.btnStampaj.Click += new System.EventHandler(this.stampajRacun);
             // 
             // groupStonrirani
             // 
             this.groupStonrirani.Controls.Add(this.dataStornirani);
             this.groupStonrirani.Controls.Add(this.btnKloniraj);
             this.groupStonrirani.Controls.Add(this.btnObrisiRacun);
-            this.groupStonrirani.Location = new System.Drawing.Point(463, 28);
+            this.groupStonrirani.Location = new System.Drawing.Point(463, 89);
             this.groupStonrirani.Name = "groupStonrirani";
-            this.groupStonrirani.Size = new System.Drawing.Size(448, 248);
+            this.groupStonrirani.Size = new System.Drawing.Size(448, 437);
             this.groupStonrirani.TabIndex = 9;
             this.groupStonrirani.TabStop = false;
             this.groupStonrirani.Text = "Stornirani računi";
             // 
-            // groupFiltrirano
+            // btnPrikazi
             // 
-            this.groupFiltrirano.Controls.Add(this.btnPretraga);
-            this.groupFiltrirano.Controls.Add(this.dataFilter);
-            this.groupFiltrirano.Location = new System.Drawing.Point(463, 282);
-            this.groupFiltrirano.Name = "groupFiltrirano";
-            this.groupFiltrirano.Size = new System.Drawing.Size(448, 244);
-            this.groupFiltrirano.TabIndex = 10;
-            this.groupFiltrirano.TabStop = false;
-            this.groupFiltrirano.Text = "Filtrirano";
-            // 
-            // btnPretraga
-            // 
-            this.btnPretraga.Location = new System.Drawing.Point(7, 213);
-            this.btnPretraga.Name = "btnPretraga";
-            this.btnPretraga.Size = new System.Drawing.Size(435, 25);
-            this.btnPretraga.TabIndex = 11;
-            this.btnPretraga.Text = "Pretraži račune";
-            this.btnPretraga.UseVisualStyleBackColor = true;
-            this.btnPretraga.Click += new System.EventHandler(this.pretraga);
-            // 
-            // dataFilter
-            // 
-            this.dataFilter.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataFilter.Location = new System.Drawing.Point(7, 18);
-            this.dataFilter.Name = "dataFilter";
-            this.dataFilter.Size = new System.Drawing.Size(434, 189);
-            this.dataFilter.TabIndex = 0;
+            this.btnPrikazi.Location = new System.Drawing.Point(224, 405);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(215, 25);
+            this.btnPrikazi.TabIndex = 5;
+            this.btnPrikazi.Text = "Prikaži račun";
+            this.btnPrikazi.UseVisualStyleBackColor = true;
             // 
             // FormProgram
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(919, 551);
-            this.Controls.Add(this.groupFiltrirano);
             this.Controls.Add(this.groupStonrirani);
             this.Controls.Add(this.groupRacuni);
+            this.Controls.Add(this.btnNoviRacun);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -385,8 +339,6 @@ namespace TVPProjekat2
             ((System.ComponentModel.ISupportInitialize)(this.dataStornirani)).EndInit();
             this.groupRacuni.ResumeLayout(false);
             this.groupStonrirani.ResumeLayout(false);
-            this.groupFiltrirano.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataFilter)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,13 +371,9 @@ namespace TVPProjekat2
         private System.Windows.Forms.DataGridView dataStornirani;
         private System.Windows.Forms.GroupBox groupRacuni;
         private System.Windows.Forms.GroupBox groupStonrirani;
-        private System.Windows.Forms.GroupBox groupFiltrirano;
-        private System.Windows.Forms.DataGridView dataFilter;
-        private System.Windows.Forms.Button btnPretraga;
-        private System.Windows.Forms.Button btnStampaj;
-        private System.Windows.Forms.ToolStripMenuItem štampajRačunToolStripMenuItem;
         private projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_ProizvodTableAdapter;
         private System.Windows.Forms.ToolStripMenuItem listaProizvođačaToolStripMenuItem;
+        private System.Windows.Forms.Button btnPrikazi;
     }
 }
 

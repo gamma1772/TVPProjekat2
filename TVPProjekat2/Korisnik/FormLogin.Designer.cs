@@ -91,6 +91,7 @@ namespace TVPProjekat2
             this.Controls.Add(this.txtUsername);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "FormLogin";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava na sistem";
             this.ResumeLayout(false);
             this.PerformLayout();

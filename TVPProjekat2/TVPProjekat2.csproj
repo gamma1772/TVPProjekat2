@@ -142,12 +142,6 @@
     <Compile Include="Racun\FormRacuni.Designer.cs">
       <DependentUpon>FormRacuni.cs</DependentUpon>
     </Compile>
-    <Compile Include="Racun\FormStampanjeRacuna.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Racun\FormStampanjeRacuna.Designer.cs">
-      <DependentUpon>FormStampanjeRacuna.cs</DependentUpon>
-    </Compile>
     <Compile Include="Proizvod\FormStatistika.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -209,9 +203,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Racun\FormRacuni.resx">
       <DependentUpon>FormRacuni.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Racun\FormStampanjeRacuna.resx">
-      <DependentUpon>FormStampanjeRacuna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Proizvod\FormStatistika.resx">
       <DependentUpon>FormStatistika.cs</DependentUpon>

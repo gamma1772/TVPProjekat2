@@ -17,9 +17,7 @@ namespace TVPProjekat2
         private FormListaKategorija frmKategorije;
         private FormListaProizvoda frmProizvodi;
         private FormNoviRacun frmNoviRacun;
-        private FormPretraga frmPretraga;
         private FormRacuni frmRacuni;
-        private FormStampanjeRacuna frmStampanjeRacuna;
         private FormStatistika frmStatistika;
         private FormListaProizvodjaca frmProizvodjaci;
 
@@ -39,9 +37,7 @@ namespace TVPProjekat2
         public FormListaKategorija FrmKategorije { get => frmKategorije; set => frmKategorije = value; }
         public FormListaProizvoda FrmProizvodi { get => frmProizvodi; set => frmProizvodi = value; }
         public FormNoviRacun FrmNoviRacun { get => frmNoviRacun; set => frmNoviRacun = value; }
-        public FormPretraga FrmPretraga { get => frmPretraga; set => frmPretraga = value; }
         public FormRacuni FrmRacuni { get => frmRacuni; set => frmRacuni = value; }
-        public FormStampanjeRacuna FrmStampanjeRacuna { get => frmStampanjeRacuna; set => frmStampanjeRacuna = value; }
         public FormStatistika FrmStatistika { get => frmStatistika; set => frmStatistika = value; }
         public FormListaProizvodjaca FrmProizvodjaci { get => frmProizvodjaci; set => frmProizvodjaci = value; }
 
@@ -115,19 +111,6 @@ namespace TVPProjekat2
                 FrmRacuni.Focus();
             }
             
-        }
-
-        private void stampajRacun(object sender, EventArgs e)
-        {
-            if (FrmStampanjeRacuna == null)
-            {
-                FrmStampanjeRacuna = new FormStampanjeRacuna();
-                FrmStampanjeRacuna.Show();
-            }
-            else
-            {
-                FrmStampanjeRacuna.Focus();
-            }
         }
 
         private void prikaziListuProizvoda(object sender, EventArgs e)
@@ -216,20 +199,6 @@ namespace TVPProjekat2
                 azurirajTabele();
             }
             
-        }
-
-        private void pretraga(object sender, EventArgs e)
-        {
-            //CreateOrFocus(FrmPretraga, new FormPretraga(dataFilter, pds, this));
-            if (FrmPretraga == null)
-            {
-                FrmPretraga = new FormPretraga(dataFilter, pds, this);
-                FrmPretraga.Show();
-            }
-            else
-            {
-                FrmPretraga.Focus();
-            }
         }
 
         /// <summary>

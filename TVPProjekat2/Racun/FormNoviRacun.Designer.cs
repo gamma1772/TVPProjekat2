@@ -110,8 +110,9 @@ namespace TVPProjekat2
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 268);
+            this.label4.Location = new System.Drawing.Point(9, 375);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 11;
@@ -119,7 +120,9 @@ namespace TVPProjekat2
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(12, 477);
+            this.btnCreate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnCreate.AutoSize = true;
+            this.btnCreate.Location = new System.Drawing.Point(12, 695);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(106, 33);
             this.btnCreate.TabIndex = 12;
@@ -129,7 +132,9 @@ namespace TVPProjekat2
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(679, 477);
+            this.btnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnExit.AutoSize = true;
+            this.btnExit.Location = new System.Drawing.Point(1054, 695);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(106, 33);
             this.btnExit.TabIndex = 13;
@@ -139,7 +144,8 @@ namespace TVPProjekat2
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(124, 477);
+            this.btnClear.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnClear.Location = new System.Drawing.Point(124, 695);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(106, 33);
             this.btnClear.TabIndex = 14;
@@ -149,7 +155,8 @@ namespace TVPProjekat2
             // 
             // txtPretraga
             // 
-            this.txtPretraga.Location = new System.Drawing.Point(328, 32);
+            this.txtPretraga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPretraga.Location = new System.Drawing.Point(703, 32);
             this.txtPretraga.Name = "txtPretraga";
             this.txtPretraga.Size = new System.Drawing.Size(457, 20);
             this.txtPretraga.TabIndex = 15;
@@ -157,8 +164,9 @@ namespace TVPProjekat2
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 242);
+            this.label7.Location = new System.Drawing.Point(9, 349);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 20;
@@ -166,16 +174,18 @@ namespace TVPProjekat2
             // 
             // txtKolicina
             // 
-            this.txtKolicina.Location = new System.Drawing.Point(74, 239);
+            this.txtKolicina.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtKolicina.Location = new System.Drawing.Point(74, 346);
             this.txtKolicina.Name = "txtKolicina";
-            this.txtKolicina.Size = new System.Drawing.Size(193, 20);
+            this.txtKolicina.Size = new System.Drawing.Size(568, 20);
             this.txtKolicina.TabIndex = 19;
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(307, 480);
+            this.label10.Location = new System.Drawing.Point(495, 695);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 26);
             this.label10.TabIndex = 28;
@@ -183,8 +193,9 @@ namespace TVPProjekat2
             // 
             // txtIznos
             // 
+            this.txtIznos.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.txtIznos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIznos.Location = new System.Drawing.Point(400, 478);
+            this.txtIznos.Location = new System.Drawing.Point(588, 693);
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.ReadOnly = true;
             this.txtIznos.Size = new System.Drawing.Size(187, 32);
@@ -192,6 +203,8 @@ namespace TVPProjekat2
             // 
             // listProizvodi
             // 
+            this.listProizvodi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listProizvodi.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colID,
             this.colBarKod,
@@ -206,7 +219,7 @@ namespace TVPProjekat2
             this.listProizvodi.Location = new System.Drawing.Point(74, 58);
             this.listProizvodi.MultiSelect = false;
             this.listProizvodi.Name = "listProizvodi";
-            this.listProizvodi.Size = new System.Drawing.Size(711, 169);
+            this.listProizvodi.Size = new System.Drawing.Size(1086, 276);
             this.listProizvodi.TabIndex = 29;
             this.listProizvodi.UseCompatibleStateImageBehavior = false;
             this.listProizvodi.View = System.Windows.Forms.View.Details;
@@ -248,7 +261,9 @@ namespace TVPProjekat2
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(270, 233);
+            this.btnDodaj.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDodaj.AutoSize = true;
+            this.btnDodaj.Location = new System.Drawing.Point(645, 340);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(283, 30);
             this.btnDodaj.TabIndex = 31;
@@ -267,8 +282,9 @@ namespace TVPProjekat2
             // 
             // rbNaziv
             // 
+            this.rbNaziv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbNaziv.AutoSize = true;
-            this.rbNaziv.Location = new System.Drawing.Point(328, 12);
+            this.rbNaziv.Location = new System.Drawing.Point(703, 12);
             this.rbNaziv.Name = "rbNaziv";
             this.rbNaziv.Size = new System.Drawing.Size(52, 17);
             this.rbNaziv.TabIndex = 33;
@@ -277,8 +293,9 @@ namespace TVPProjekat2
             // 
             // rbProizvodjac
             // 
+            this.rbProizvodjac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbProizvodjac.AutoSize = true;
-            this.rbProizvodjac.Location = new System.Drawing.Point(386, 12);
+            this.rbProizvodjac.Location = new System.Drawing.Point(761, 12);
             this.rbProizvodjac.Name = "rbProizvodjac";
             this.rbProizvodjac.Size = new System.Drawing.Size(79, 17);
             this.rbProizvodjac.TabIndex = 34;
@@ -287,8 +304,9 @@ namespace TVPProjekat2
             // 
             // rbKategorija
             // 
+            this.rbKategorija.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbKategorija.AutoSize = true;
-            this.rbKategorija.Location = new System.Drawing.Point(471, 12);
+            this.rbKategorija.Location = new System.Drawing.Point(846, 12);
             this.rbKategorija.Name = "rbKategorija";
             this.rbKategorija.Size = new System.Drawing.Size(72, 17);
             this.rbKategorija.TabIndex = 36;
@@ -297,9 +315,10 @@ namespace TVPProjekat2
             // 
             // rbBarKod
             // 
+            this.rbBarKod.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.rbBarKod.AutoSize = true;
             this.rbBarKod.Checked = true;
-            this.rbBarKod.Location = new System.Drawing.Point(723, 12);
+            this.rbBarKod.Location = new System.Drawing.Point(1098, 12);
             this.rbBarKod.Name = "rbBarKod";
             this.rbBarKod.Size = new System.Drawing.Size(62, 17);
             this.rbBarKod.TabIndex = 37;
@@ -309,8 +328,9 @@ namespace TVPProjekat2
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(275, 35);
+            this.label5.Location = new System.Drawing.Point(650, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 38;
@@ -318,7 +338,9 @@ namespace TVPProjekat2
             // 
             // btnIzbaci
             // 
-            this.btnIzbaci.Location = new System.Drawing.Point(559, 233);
+            this.btnIzbaci.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnIzbaci.AutoSize = true;
+            this.btnIzbaci.Location = new System.Drawing.Point(934, 340);
             this.btnIzbaci.Name = "btnIzbaci";
             this.btnIzbaci.Size = new System.Drawing.Size(145, 30);
             this.btnIzbaci.TabIndex = 39;
@@ -328,6 +350,7 @@ namespace TVPProjekat2
             // 
             // listRacun
             // 
+            this.listRacun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.listRacun.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -339,10 +362,10 @@ namespace TVPProjekat2
             this.listRacun.FullRowSelect = true;
             this.listRacun.GridLines = true;
             this.listRacun.HideSelection = false;
-            this.listRacun.Location = new System.Drawing.Point(74, 269);
+            this.listRacun.Location = new System.Drawing.Point(74, 375);
             this.listRacun.Name = "listRacun";
-            this.listRacun.Size = new System.Drawing.Size(711, 202);
-            this.listRacun.TabIndex = 40;
+            this.listRacun.Size = new System.Drawing.Size(1086, 312);
+            this.listRacun.TabIndex = 42;
             this.listRacun.UseCompatibleStateImageBehavior = false;
             this.listRacun.View = System.Windows.Forms.View.Details;
             // 
@@ -383,10 +406,12 @@ namespace TVPProjekat2
             // 
             // btnOsvezi
             // 
-            this.btnOsvezi.Location = new System.Drawing.Point(710, 233);
+            this.btnOsvezi.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnOsvezi.AutoSize = true;
+            this.btnOsvezi.Location = new System.Drawing.Point(1085, 340);
             this.btnOsvezi.Name = "btnOsvezi";
             this.btnOsvezi.Size = new System.Drawing.Size(75, 30);
-            this.btnOsvezi.TabIndex = 41;
+            this.btnOsvezi.TabIndex = 40;
             this.btnOsvezi.Text = "Osveži";
             this.btnOsvezi.UseVisualStyleBackColor = true;
             this.btnOsvezi.Click += new System.EventHandler(this.osveziProizvode);
@@ -425,7 +450,7 @@ namespace TVPProjekat2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 522);
+            this.ClientSize = new System.Drawing.Size(1168, 737);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDodajNoviProizvod);
@@ -453,6 +478,8 @@ namespace TVPProjekat2
             this.Controls.Add(this.txtProdavac);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtIDRacuna);
+            this.MaximumSize = new System.Drawing.Size(1184, 776);
+            this.MinimumSize = new System.Drawing.Size(1184, 776);
             this.Name = "FormNoviRacun";
             this.Text = "Novi račun";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.odustaniClosed);

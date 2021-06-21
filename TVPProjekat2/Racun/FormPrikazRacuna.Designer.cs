@@ -46,7 +46,6 @@ namespace TVPProjekat2.Racun
             this.colKolicina = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colCena = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnIzlaz = new System.Windows.Forms.Button();
-            this.btnStampaj = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -182,21 +181,11 @@ namespace TVPProjekat2.Racun
             this.btnIzlaz.UseVisualStyleBackColor = true;
             this.btnIzlaz.Click += new System.EventHandler(this.close);
             // 
-            // btnStampaj
-            // 
-            this.btnStampaj.Location = new System.Drawing.Point(367, 439);
-            this.btnStampaj.Name = "btnStampaj";
-            this.btnStampaj.Size = new System.Drawing.Size(75, 23);
-            this.btnStampaj.TabIndex = 10;
-            this.btnStampaj.Text = "Štampaj";
-            this.btnStampaj.UseVisualStyleBackColor = true;
-            // 
             // FormPrikazRacuna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(534, 472);
-            this.Controls.Add(this.btnStampaj);
             this.Controls.Add(this.btnIzlaz);
             this.Controls.Add(this.listProizvodi);
             this.Controls.Add(this.txtCena);
@@ -234,6 +223,5 @@ namespace TVPProjekat2.Racun
         private System.Windows.Forms.ColumnHeader colKolicina;
         private System.Windows.Forms.ColumnHeader colCena;
         private System.Windows.Forms.Button btnIzlaz;
-        private System.Windows.Forms.Button btnStampaj;
     }
 }

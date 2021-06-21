@@ -27,13 +27,6 @@ namespace TVPProjekat2
 
         public void GlobalRBChange(object sender, EventArgs e)
         {
-            if (rbAll.Checked)
-            {
-
-            } else if (rbDanas.Checked)
-            {
-
-            }
 
             if (rbOpseg.Checked)
             {
@@ -59,7 +52,6 @@ namespace TVPProjekat2
         {
             this.Dispose();
             this.Close();
-            mainProgram.FrmPretraga = null;
         }
 
         private void pokreniPretragu(object sender, EventArgs e)

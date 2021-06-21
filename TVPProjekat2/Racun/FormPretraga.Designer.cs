@@ -43,20 +43,14 @@ namespace TVPProjekat2
             this.rbDatum = new System.Windows.Forms.RadioButton();
             this.dateOd = new System.Windows.Forms.DateTimePicker();
             this.rbOpseg = new System.Windows.Forms.RadioButton();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtKeyword
             // 
             this.txtKeyword.Location = new System.Drawing.Point(78, 12);
             this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(193, 20);
+            this.txtKeyword.Size = new System.Drawing.Size(546, 20);
             this.txtKeyword.TabIndex = 0;
             // 
             // label1
@@ -70,9 +64,9 @@ namespace TVPProjekat2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 141);
+            this.button1.Location = new System.Drawing.Point(15, 132);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(613, 44);
+            this.button1.Size = new System.Drawing.Size(609, 44);
             this.button1.TabIndex = 6;
             this.button1.Text = "Pretraži";
             this.button1.UseVisualStyleBackColor = true;
@@ -103,9 +97,9 @@ namespace TVPProjekat2
             this.groupBox1.Controls.Add(this.dateOd);
             this.groupBox1.Controls.Add(this.rbOpseg);
             this.groupBox1.Controls.Add(this.rbDanas);
-            this.groupBox1.Location = new System.Drawing.Point(277, 12);
+            this.groupBox1.Location = new System.Drawing.Point(15, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(348, 123);
+            this.groupBox1.Size = new System.Drawing.Size(609, 88);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datum";
@@ -113,7 +107,7 @@ namespace TVPProjekat2
             // rbAll
             // 
             this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(103, 19);
+            this.rbAll.Location = new System.Drawing.Point(6, 42);
             this.rbAll.Name = "rbAll";
             this.rbAll.Size = new System.Drawing.Size(72, 17);
             this.rbAll.TabIndex = 15;
@@ -124,7 +118,7 @@ namespace TVPProjekat2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(241, 57);
+            this.label6.Location = new System.Drawing.Point(304, 56);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 13);
             this.label6.TabIndex = 14;
@@ -133,7 +127,7 @@ namespace TVPProjekat2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(131, 57);
+            this.label5.Location = new System.Drawing.Point(194, 56);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 13);
             this.label5.TabIndex = 13;
@@ -142,7 +136,7 @@ namespace TVPProjekat2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(175, 101);
+            this.label4.Location = new System.Drawing.Point(478, 46);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 9;
@@ -153,7 +147,7 @@ namespace TVPProjekat2
             this.dateOdredjeno.CustomFormat = "dd/MM/yyyy";
             this.dateOdredjeno.Enabled = false;
             this.dateOdredjeno.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOdredjeno.Location = new System.Drawing.Point(219, 97);
+            this.dateOdredjeno.Location = new System.Drawing.Point(522, 42);
             this.dateOdredjeno.Name = "dateOdredjeno";
             this.dateOdredjeno.Size = new System.Drawing.Size(81, 20);
             this.dateOdredjeno.TabIndex = 12;
@@ -163,7 +157,7 @@ namespace TVPProjekat2
             this.dateDo.CustomFormat = "dd/MM/yyyy";
             this.dateDo.Enabled = false;
             this.dateDo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDo.Location = new System.Drawing.Point(263, 54);
+            this.dateDo.Location = new System.Drawing.Point(326, 53);
             this.dateDo.Name = "dateDo";
             this.dateDo.Size = new System.Drawing.Size(76, 20);
             this.dateDo.TabIndex = 10;
@@ -171,7 +165,7 @@ namespace TVPProjekat2
             // rbDatum
             // 
             this.rbDatum.AutoSize = true;
-            this.rbDatum.Location = new System.Drawing.Point(6, 100);
+            this.rbDatum.Location = new System.Drawing.Point(504, 19);
             this.rbDatum.Name = "rbDatum";
             this.rbDatum.Size = new System.Drawing.Size(99, 17);
             this.rbDatum.TabIndex = 9;
@@ -184,7 +178,7 @@ namespace TVPProjekat2
             this.dateOd.CustomFormat = "dd/MM/yyyy";
             this.dateOd.Enabled = false;
             this.dateOd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOd.Location = new System.Drawing.Point(159, 54);
+            this.dateOd.Location = new System.Drawing.Point(222, 53);
             this.dateOd.Name = "dateOd";
             this.dateOd.Size = new System.Drawing.Size(76, 20);
             this.dateOd.TabIndex = 11;
@@ -192,7 +186,7 @@ namespace TVPProjekat2
             // rbOpseg
             // 
             this.rbOpseg.AutoSize = true;
-            this.rbOpseg.Location = new System.Drawing.Point(6, 55);
+            this.rbOpseg.Location = new System.Drawing.Point(244, 19);
             this.rbOpseg.Name = "rbOpseg";
             this.rbOpseg.Size = new System.Drawing.Size(119, 17);
             this.rbOpseg.TabIndex = 8;
@@ -200,59 +194,11 @@ namespace TVPProjekat2
             this.rbOpseg.UseVisualStyleBackColor = true;
             this.rbOpseg.CheckedChanged += new System.EventHandler(this.GlobalRBChange);
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.comboBox2);
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.comboBox1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 35);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(259, 100);
-            this.groupBox2.TabIndex = 9;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Kriterijum";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(60, 55);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(193, 21);
-            this.comboBox2.TabIndex = 9;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Korisnik";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 31);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "Proizvod";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(60, 28);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(193, 21);
-            this.comboBox1.TabIndex = 6;
-            // 
             // FormPretraga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 200);
-            this.Controls.Add(this.groupBox2);
+            this.ClientSize = new System.Drawing.Size(636, 188);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -262,8 +208,6 @@ namespace TVPProjekat2
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClosedEvent);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,10 +229,5 @@ namespace TVPProjekat2
         private System.Windows.Forms.DateTimePicker dateOd;
         private System.Windows.Forms.RadioButton rbOpseg;
         private System.Windows.Forms.RadioButton rbAll;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
