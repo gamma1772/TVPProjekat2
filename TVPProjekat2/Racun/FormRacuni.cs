@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TVPProjekat2.projekatDataSetTableAdapters;
+using TVPProjekat2.Racun;
 
 namespace TVPProjekat2
 {
@@ -19,6 +20,10 @@ namespace TVPProjekat2
         private racun_proizvodTableAdapter racunProizvodDB;
         private proizvodTableAdapter proizvodDB;
         private FormProgram main;
+        private FormPrikazRacuna frmPrikaz;
+
+        public FormPrikazRacuna FrmPrikaz { get => frmPrikaz; set => frmPrikaz = value; }
+
         public FormRacuni(projekatDataSet dataSet, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodTableAdapter proizvodDB, FormProgram main)
         {
             InitializeComponent();
@@ -73,7 +78,15 @@ namespace TVPProjekat2
 
         private void prikazi(object sender, EventArgs e)
         {
-
+            if (FrmPrikaz == null)
+            {
+                FrmPrikaz = new FormPrikazRacuna(dataRacuni.SelectedRows[0].Cells[0].Value.ToString(), dataSet, this);
+                FrmPrikaz.Show();
+            }
+            else
+            {
+                FrmPrikaz.Focus();
+            }
         }
 
         private void obrisi(object sender, EventArgs e)

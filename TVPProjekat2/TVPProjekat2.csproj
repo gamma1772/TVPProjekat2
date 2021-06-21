@@ -130,6 +130,12 @@
     <Compile Include="FormProgram.Designer.cs">
       <DependentUpon>FormProgram.cs</DependentUpon>
     </Compile>
+    <Compile Include="Racun\FormPrikazRacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Racun\FormPrikazRacuna.Designer.cs">
+      <DependentUpon>FormPrikazRacuna.cs</DependentUpon>
+    </Compile>
     <Compile Include="Racun\FormRacuni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -197,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormProgram.resx">
       <DependentUpon>FormProgram.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Racun\FormPrikazRacuna.resx">
+      <DependentUpon>FormPrikazRacuna.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Racun\FormRacuni.resx">
       <DependentUpon>FormRacuni.cs</DependentUpon>

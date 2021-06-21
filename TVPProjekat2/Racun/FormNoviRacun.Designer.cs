@@ -201,6 +201,7 @@ namespace TVPProjekat2
             this.colKolicina,
             this.colCena});
             this.listProizvodi.FullRowSelect = true;
+            this.listProizvodi.GridLines = true;
             this.listProizvodi.HideSelection = false;
             this.listProizvodi.Location = new System.Drawing.Point(74, 58);
             this.listProizvodi.MultiSelect = false;
@@ -336,6 +337,7 @@ namespace TVPProjekat2
             this.columnHeader6,
             this.columnHeader7});
             this.listRacun.FullRowSelect = true;
+            this.listRacun.GridLines = true;
             this.listRacun.HideSelection = false;
             this.listRacun.Location = new System.Drawing.Point(74, 269);
             this.listRacun.Name = "listRacun";
