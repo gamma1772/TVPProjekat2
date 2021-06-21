@@ -4,6 +4,7 @@ using System.Data.OleDb;
 using System.Linq;
 using System.Windows.Forms;
 using TVPProjekat2.projekatDataSetTableAdapters;
+using TVPProjekat2.Proizvod;
 
 namespace TVPProjekat2
 {
@@ -16,8 +17,15 @@ namespace TVPProjekat2
         kategorijaTableAdapter kategorijaDB;
         proizvodjacTableAdapter proizvodjacDB;
 
+        private FormAktivirajProizvod frmAktiviraj;
+        private FormNoviProizvod frmNoviProizvod;
+
         private string ID;
         private double iznosRacuna = 0.00D;
+
+        public FormAktivirajProizvod FrmAktiviraj { get => frmAktiviraj; set => frmAktiviraj = value; }
+        public FormNoviProizvod FrmNoviProizvod { get => frmNoviProizvod; set => frmNoviProizvod = value; }
+
         public FormNoviRacun(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodjacTableAdapter proizvodjacDB, FormProgram frmProgram)
         {
             InitializeComponent();
@@ -34,7 +42,7 @@ namespace TVPProjekat2
             osveziListu();
         }
 
-        private void osveziListu()
+        internal void osveziListu()
         {
             var linq = from proizvod in dataSet.proizvod where proizvod.aktivno == true select proizvod;
             populateListProizvod(linq);
@@ -266,6 +274,32 @@ namespace TVPProjekat2
             else
             {
                 MessageBox.Show("Račun je prazan.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void aktivirajProizvod(object sender, EventArgs e)
+        {
+            if (FrmAktiviraj == null)
+            {
+                FrmAktiviraj = new FormAktivirajProizvod(dataSet, proizvodDB, this);
+                FrmAktiviraj.Show();
+            }
+            else
+            {
+                FrmAktiviraj.Focus();
+            }
+        }
+
+        private void dodajNoviProizvod(object sender, EventArgs e)
+        {
+            if (FrmNoviProizvod == null)
+            {
+                FrmNoviProizvod = new FormNoviProizvod(dataSet, proizvodDB, this);
+                FrmNoviProizvod.Show();
+            }
+            else
+            {
+                FrmNoviProizvod.Focus();
             }
         }
     }

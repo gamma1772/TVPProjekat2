@@ -69,6 +69,7 @@ namespace TVPProjekat2
             this.btnOsvezi = new System.Windows.Forms.Button();
             this.btnDodajNoviProizvod = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnIzmeni = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // txtIDRacuna
@@ -110,7 +111,7 @@ namespace TVPProjekat2
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(9, 245);
+            this.label4.Location = new System.Drawing.Point(9, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(39, 13);
             this.label4.TabIndex = 11;
@@ -118,7 +119,7 @@ namespace TVPProjekat2
             // 
             // btnCreate
             // 
-            this.btnCreate.Location = new System.Drawing.Point(12, 454);
+            this.btnCreate.Location = new System.Drawing.Point(12, 477);
             this.btnCreate.Name = "btnCreate";
             this.btnCreate.Size = new System.Drawing.Size(106, 33);
             this.btnCreate.TabIndex = 12;
@@ -128,7 +129,7 @@ namespace TVPProjekat2
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(679, 454);
+            this.btnExit.Location = new System.Drawing.Point(679, 477);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(106, 33);
             this.btnExit.TabIndex = 13;
@@ -138,7 +139,7 @@ namespace TVPProjekat2
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(124, 454);
+            this.btnClear.Location = new System.Drawing.Point(124, 477);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(106, 33);
             this.btnClear.TabIndex = 14;
@@ -157,7 +158,7 @@ namespace TVPProjekat2
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 219);
+            this.label7.Location = new System.Drawing.Point(9, 242);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(44, 13);
             this.label7.TabIndex = 20;
@@ -165,7 +166,7 @@ namespace TVPProjekat2
             // 
             // txtKolicina
             // 
-            this.txtKolicina.Location = new System.Drawing.Point(74, 216);
+            this.txtKolicina.Location = new System.Drawing.Point(74, 239);
             this.txtKolicina.Name = "txtKolicina";
             this.txtKolicina.Size = new System.Drawing.Size(193, 20);
             this.txtKolicina.TabIndex = 19;
@@ -174,7 +175,7 @@ namespace TVPProjekat2
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(307, 457);
+            this.label10.Location = new System.Drawing.Point(307, 480);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(87, 26);
             this.label10.TabIndex = 28;
@@ -183,7 +184,7 @@ namespace TVPProjekat2
             // txtIznos
             // 
             this.txtIznos.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIznos.Location = new System.Drawing.Point(400, 455);
+            this.txtIznos.Location = new System.Drawing.Point(400, 478);
             this.txtIznos.Name = "txtIznos";
             this.txtIznos.ReadOnly = true;
             this.txtIznos.Size = new System.Drawing.Size(187, 32);
@@ -204,7 +205,7 @@ namespace TVPProjekat2
             this.listProizvodi.Location = new System.Drawing.Point(74, 58);
             this.listProizvodi.MultiSelect = false;
             this.listProizvodi.Name = "listProizvodi";
-            this.listProizvodi.Size = new System.Drawing.Size(711, 146);
+            this.listProizvodi.Size = new System.Drawing.Size(711, 169);
             this.listProizvodi.TabIndex = 29;
             this.listProizvodi.UseCompatibleStateImageBehavior = false;
             this.listProizvodi.View = System.Windows.Forms.View.Details;
@@ -246,7 +247,7 @@ namespace TVPProjekat2
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(270, 210);
+            this.btnDodaj.Location = new System.Drawing.Point(270, 233);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(283, 30);
             this.btnDodaj.TabIndex = 31;
@@ -316,7 +317,7 @@ namespace TVPProjekat2
             // 
             // btnIzbaci
             // 
-            this.btnIzbaci.Location = new System.Drawing.Point(559, 210);
+            this.btnIzbaci.Location = new System.Drawing.Point(559, 233);
             this.btnIzbaci.Name = "btnIzbaci";
             this.btnIzbaci.Size = new System.Drawing.Size(145, 30);
             this.btnIzbaci.TabIndex = 39;
@@ -336,7 +337,7 @@ namespace TVPProjekat2
             this.columnHeader7});
             this.listRacun.FullRowSelect = true;
             this.listRacun.HideSelection = false;
-            this.listRacun.Location = new System.Drawing.Point(74, 246);
+            this.listRacun.Location = new System.Drawing.Point(74, 269);
             this.listRacun.Name = "listRacun";
             this.listRacun.Size = new System.Drawing.Size(711, 202);
             this.listRacun.TabIndex = 40;
@@ -380,7 +381,7 @@ namespace TVPProjekat2
             // 
             // btnOsvezi
             // 
-            this.btnOsvezi.Location = new System.Drawing.Point(710, 210);
+            this.btnOsvezi.Location = new System.Drawing.Point(710, 233);
             this.btnOsvezi.Name = "btnOsvezi";
             this.btnOsvezi.Size = new System.Drawing.Size(75, 30);
             this.btnOsvezi.TabIndex = 41;
@@ -396,21 +397,33 @@ namespace TVPProjekat2
             this.btnDodajNoviProizvod.TabIndex = 42;
             this.btnDodajNoviProizvod.Text = "Dodaj novi proizvod";
             this.btnDodajNoviProizvod.UseVisualStyleBackColor = true;
+            this.btnDodajNoviProizvod.Click += new System.EventHandler(this.dodajNoviProizvod);
             // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(2, 131);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(70, 50);
+            this.button1.Size = new System.Drawing.Size(70, 46);
             this.button1.TabIndex = 43;
             this.button1.Text = "Aktiviraj proizvod";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.aktivirajProizvod);
+            // 
+            // btnIzmeni
+            // 
+            this.btnIzmeni.Location = new System.Drawing.Point(2, 183);
+            this.btnIzmeni.Name = "btnIzmeni";
+            this.btnIzmeni.Size = new System.Drawing.Size(70, 44);
+            this.btnIzmeni.TabIndex = 44;
+            this.btnIzmeni.Text = "Izmeni proizvod";
+            this.btnIzmeni.UseVisualStyleBackColor = true;
             // 
             // FormNoviRacun
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 495);
+            this.ClientSize = new System.Drawing.Size(793, 522);
+            this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDodajNoviProizvod);
             this.Controls.Add(this.btnOsvezi);
@@ -487,5 +500,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.Button btnOsvezi;
         private System.Windows.Forms.Button btnDodajNoviProizvod;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnIzmeni;
     }
 }

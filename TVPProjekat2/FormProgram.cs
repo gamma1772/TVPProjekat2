@@ -134,7 +134,7 @@ namespace TVPProjekat2
         {
             if (FrmProizvodi == null)
             {
-                FrmProizvodi = new FormListaProizvoda();
+                FrmProizvodi = new FormListaProizvoda(pds, proizvodDB, proizvodjacDB, kategorijaDB, this);
                 FrmProizvodi.Show();
             }
             else

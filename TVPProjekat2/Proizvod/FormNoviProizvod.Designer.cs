@@ -61,13 +61,6 @@ namespace TVPProjekat2.Proizvod
             imeLabel.TabIndex = 3;
             imeLabel.Text = "Naziv";
             // 
-            // txtNaziv
-            // 
-            this.txtNaziv.Location = new System.Drawing.Point(15, 25);
-            this.txtNaziv.Name = "txtNaziv";
-            this.txtNaziv.Size = new System.Drawing.Size(222, 20);
-            this.txtNaziv.TabIndex = 4;
-            // 
             // proizvodjacLabel
             // 
             proizvodjacLabel.AutoSize = true;
@@ -85,13 +78,6 @@ namespace TVPProjekat2.Proizvod
             kolicinaLabel.Size = new System.Drawing.Size(44, 13);
             kolicinaLabel.TabIndex = 7;
             kolicinaLabel.Text = "Količina";
-            // 
-            // txtKolicina
-            // 
-            this.txtKolicina.Location = new System.Drawing.Point(15, 105);
-            this.txtKolicina.Name = "txtKolicina";
-            this.txtKolicina.Size = new System.Drawing.Size(101, 20);
-            this.txtKolicina.TabIndex = 8;
             // 
             // kategorijaLabel
             // 
@@ -111,13 +97,6 @@ namespace TVPProjekat2.Proizvod
             cenaLabel.TabIndex = 11;
             cenaLabel.Text = "Cena";
             // 
-            // txtCena
-            // 
-            this.txtCena.Location = new System.Drawing.Point(122, 105);
-            this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(115, 20);
-            this.txtCena.TabIndex = 12;
-            // 
             // bar_kodLabel
             // 
             bar_kodLabel.AutoSize = true;
@@ -126,6 +105,28 @@ namespace TVPProjekat2.Proizvod
             bar_kodLabel.Size = new System.Drawing.Size(44, 13);
             bar_kodLabel.TabIndex = 13;
             bar_kodLabel.Text = "Bar kod";
+            // 
+            // txtNaziv
+            // 
+            this.txtNaziv.Location = new System.Drawing.Point(15, 25);
+            this.txtNaziv.Name = "txtNaziv";
+            this.txtNaziv.Size = new System.Drawing.Size(222, 20);
+            this.txtNaziv.TabIndex = 4;
+            // 
+            // txtKolicina
+            // 
+            this.txtKolicina.Location = new System.Drawing.Point(15, 105);
+            this.txtKolicina.Name = "txtKolicina";
+            this.txtKolicina.Size = new System.Drawing.Size(101, 20);
+            this.txtKolicina.TabIndex = 8;
+            // 
+            // txtCena
+            // 
+            this.txtCena.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.txtCena.Location = new System.Drawing.Point(122, 105);
+            this.txtCena.Name = "txtCena";
+            this.txtCena.Size = new System.Drawing.Size(115, 20);
+            this.txtCena.TabIndex = 12;
             // 
             // txtBarKod
             // 
@@ -152,6 +153,7 @@ namespace TVPProjekat2.Proizvod
             this.comboProizvodjac.Name = "comboProizvodjac";
             this.comboProizvodjac.Size = new System.Drawing.Size(222, 21);
             this.comboProizvodjac.TabIndex = 17;
+            this.comboProizvodjac.Text = "Odaberi proizvođača...";
             // 
             // ComboKategorija
             // 
@@ -160,6 +162,7 @@ namespace TVPProjekat2.Proizvod
             this.ComboKategorija.Name = "ComboKategorija";
             this.ComboKategorija.Size = new System.Drawing.Size(222, 21);
             this.ComboKategorija.TabIndex = 18;
+            this.ComboKategorija.Text = "Odaberi kategoriju...";
             // 
             // btnDodaj
             // 
@@ -169,6 +172,7 @@ namespace TVPProjekat2.Proizvod
             this.btnDodaj.TabIndex = 19;
             this.btnDodaj.Text = "Dodaj";
             this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.dodajProizvod);
             // 
             // btnOtkazi
             // 
@@ -178,6 +182,7 @@ namespace TVPProjekat2.Proizvod
             this.btnOtkazi.TabIndex = 20;
             this.btnOtkazi.Text = "Otkaži";
             this.btnOtkazi.UseVisualStyleBackColor = true;
+            this.btnOtkazi.Click += new System.EventHandler(this.close);
             // 
             // FormNoviProizvod
             // 
@@ -201,6 +206,7 @@ namespace TVPProjekat2.Proizvod
             this.Controls.Add(this.checkAktivno);
             this.Name = "FormNoviProizvod";
             this.Text = "Novi proizvod";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
