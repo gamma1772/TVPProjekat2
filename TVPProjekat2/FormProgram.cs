@@ -32,9 +32,9 @@ namespace TVPProjekat2
         projekatDataSetTableAdapters.racunTableAdapter racunDB;
         projekatDataSetTableAdapters.racun_proizvodTableAdapter racun_proizvodDB;
 
-        private Thread DBThread;
-        private Task DBUpdateTask;
-        private Task DBTask;
+        //private Thread DBThread;
+        //private Task DBUpdateTask;
+        //private Task DBTask;
 
         public FormListaKategorija FrmKategorije { get => frmKategorije; set => frmKategorije = value; }
         public FormListaProizvoda FrmProizvodi { get => frmProizvodi; set => frmProizvodi = value; }
@@ -107,7 +107,7 @@ namespace TVPProjekat2
         {
             if (FrmRacuni == null)
             {
-                FrmRacuni = new FormRacuni();
+                FrmRacuni = new FormRacuni(pds, racunDB, racun_proizvodDB, this);
                 FrmRacuni.Show();
             }
             else
@@ -172,18 +172,35 @@ namespace TVPProjekat2
             //DataTable table = (DataTable)(dataRacuni.DataSource);
 
             racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
+            proizvodDB.Connection.Open();
             OleDbCommand cmd = new OleDbCommand
             {
                 Connection = racunDB.Connection
+            };
+
+            OleDbCommand cmd2 = new OleDbCommand
+            {
+                Connection = proizvodDB.Connection
             };
             foreach (DataGridViewRow item in dataRacuni.SelectedRows)
             {
                 cmd.CommandText = "UPDATE Racun SET storniran = TRUE WHERE ID = '" + item.Cells[0].Value + "'";
                 cmd.ExecuteNonQuery();
+                var linq = from racunProizvod in pds.racun_proizvod
+                           where racunProizvod.RacunID.Equals(item.Cells[0].Value.ToString()) 
+                           select racunProizvod;
+                foreach (var item2 in linq)
+                {
+                    cmd2.CommandText = "UPDATE Proizvod SET kolicina = kolicina + " + item2.Kolicina + " WHERE ID = " + item2.ProizvodID;
+                    cmd2.ExecuteNonQuery();
+                }
             }
+            
             racunDB.Update(pds);
+            proizvodDB.Update(pds);
             azurirajTabele();
             racunDB.Connection.Close();
+            proizvodDB.Connection.Close();
         }
 
         private void obrisiSelektovano(object sender, EventArgs e)
@@ -219,7 +236,7 @@ namespace TVPProjekat2
         /// Funkcija azurira tabele. Koristi linq query za proveravanje tabela, ako neki linq ne vrati ni jednu vrednost, ta tabela se prazni
         /// tako sto se DataSource postavi na null.
         /// </summary>
-        private void azurirajTabele()
+        internal void azurirajTabele()
         {
             kategorijaDB.Fill(pds.kategorija);
             proizvodDB.Fill(pds.proizvod);
@@ -276,18 +293,18 @@ namespace TVPProjekat2
         {
             toolStripStatusLabel1.Text = prijavljenKorisnik.UUID;
         }
-        private void CreateOrFocus(Form form, object type)
-        {
-            if (form == null)
-            {
-                form = (Form) type;
-                form.Show();
-            }
-            else
-            {
-                form.Focus();
-            }
-        }
+        //private void CreateOrFocus(Form form, object type)
+        //{
+        //    if (form == null)
+        //    {
+        //        form = (Form) type;
+        //        form.Show();
+        //    }
+        //    else
+        //    {
+        //        form.Focus();
+        //    }
+        //}
 
         private void prikaziListuProizvodjaca(object sender, EventArgs e)
         {

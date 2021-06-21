@@ -21,6 +21,7 @@ namespace TVPProjekat2
         private FormAktivirajProizvod frmAktiviraj;
         private FormNoviProizvod frmNoviProizvod;
         private FormIzmeniProizvod frmIzmeniProizvod;
+        private FormProgram frmProgram;
 
         private string ID;
         private double iznosRacuna = 0.00D;
@@ -44,6 +45,7 @@ namespace TVPProjekat2
             this.kategorijaDB = kategorijaDB;
             this.proizvodjacDB = proizvodjacDB;
             this.txtIznos.Text = iznosRacuna.ToString("0.00");
+            this.frmProgram = frmProgram;
             osveziListu();
         }
 
@@ -292,6 +294,9 @@ namespace TVPProjekat2
                 MessageBox.Show("Račun uspešno kreiran.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 listRacun.Items.Clear();
                 iznosRacuna = 0.00D;
+                txtIznos.Text = iznosRacuna.ToString("0.00");
+
+                frmProgram.azurirajTabele();
             }
             else
             {
@@ -327,14 +332,21 @@ namespace TVPProjekat2
 
         private void izmeniProizvod(object sender, EventArgs e)
         {
-            if (FrmIzmeniProizvod == null)
+            if (listProizvodi.SelectedItems.Count > 0)
             {
-                FrmIzmeniProizvod = new FormIzmeniProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, listProizvodi.SelectedItems, this);
-                FrmIzmeniProizvod.Show();
+                if (FrmIzmeniProizvod == null)
+                {
+                    FrmIzmeniProizvod = new FormIzmeniProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, listProizvodi.SelectedItems, this);
+                    FrmIzmeniProizvod.Show();
+                }
+                else
+                {
+                    FrmIzmeniProizvod.Focus();
+                }
             }
             else
             {
-                FrmIzmeniProizvod.Focus();
+                MessageBox.Show("Niste odabrali proizvod sa liste Proizvodi!", "Izmeni proizvod", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
