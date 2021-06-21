@@ -82,7 +82,15 @@ namespace TVPProjekat2
 
         private void obrisiProizvod(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Brisanje proizvoda će dovesti do nepravilnosti podataka već postojećih računa. Preporučuje se da se izvrši deaktiviranje proizvoda umesto brisanja.\nDa li sigurno želite da obrišete odabrani proizvod?", "Lista proizvoda", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
+            if (result == DialogResult.Yes)
+            {
+                proizvodDB.Delete(int.Parse(dataProizvodi.SelectedRows[0].Cells[0].ToString()), dataProizvodi.SelectedRows[0].Cells[1].ToString(), int.Parse(dataProizvodi.SelectedRows[0].Cells[2].ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[3].ToString()), int.Parse(dataProizvodi.SelectedRows[0].Cells[4].ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[5].ToString()), dataProizvodi.SelectedRows[0].Cells[6].ToString(), bool.Parse(dataProizvodi.SelectedRows[0].Cells[7].ToString()));
+                proizvodDB.Update(dataSet);
+                proizvodDB.Fill(dataSet.proizvod);
 
+                azurirajTabelu();
+            }
         }
 
         private void prikaziStatistiku(object sender, EventArgs e)

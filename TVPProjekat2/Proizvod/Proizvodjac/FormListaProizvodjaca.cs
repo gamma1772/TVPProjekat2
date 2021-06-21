@@ -109,5 +109,15 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         {
             close(sender, e);
         }
+
+        private void statusAktivnosti(object sender, EventArgs e)
+        {
+            proizvodjacDB.Update(dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), !bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()),
+               int.Parse(dataProizvodjaci.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), !bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()));
+            proizvodjacDB.Update(dataSet);
+            proizvodjacDB.Fill(dataSet.proizvodjac);
+
+            azurirajTabelu();
+        }
     }
 }
