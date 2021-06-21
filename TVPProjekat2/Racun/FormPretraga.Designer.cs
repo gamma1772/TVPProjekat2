@@ -43,6 +43,7 @@ namespace TVPProjekat2
             this.rbDatum = new System.Windows.Forms.RadioButton();
             this.dateOd = new System.Windows.Forms.DateTimePicker();
             this.rbOpseg = new System.Windows.Forms.RadioButton();
+            this.button2 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,9 +65,9 @@ namespace TVPProjekat2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(15, 132);
+            this.button1.Location = new System.Drawing.Point(15, 115);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(609, 44);
+            this.button1.Size = new System.Drawing.Size(300, 28);
             this.button1.TabIndex = 6;
             this.button1.Text = "Pretraži";
             this.button1.UseVisualStyleBackColor = true;
@@ -99,7 +100,7 @@ namespace TVPProjekat2
             this.groupBox1.Controls.Add(this.rbDanas);
             this.groupBox1.Location = new System.Drawing.Point(15, 38);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(609, 88);
+            this.groupBox1.Size = new System.Drawing.Size(609, 71);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datum";
@@ -107,7 +108,7 @@ namespace TVPProjekat2
             // rbAll
             // 
             this.rbAll.AutoSize = true;
-            this.rbAll.Location = new System.Drawing.Point(6, 42);
+            this.rbAll.Location = new System.Drawing.Point(6, 46);
             this.rbAll.Name = "rbAll";
             this.rbAll.Size = new System.Drawing.Size(72, 17);
             this.rbAll.TabIndex = 15;
@@ -118,7 +119,7 @@ namespace TVPProjekat2
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(304, 56);
+            this.label6.Location = new System.Drawing.Point(306, 45);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(21, 13);
             this.label6.TabIndex = 14;
@@ -127,7 +128,7 @@ namespace TVPProjekat2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(194, 56);
+            this.label5.Location = new System.Drawing.Point(196, 45);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(21, 13);
             this.label5.TabIndex = 13;
@@ -157,7 +158,7 @@ namespace TVPProjekat2
             this.dateDo.CustomFormat = "dd/MM/yyyy";
             this.dateDo.Enabled = false;
             this.dateDo.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateDo.Location = new System.Drawing.Point(326, 53);
+            this.dateDo.Location = new System.Drawing.Point(328, 42);
             this.dateDo.Name = "dateDo";
             this.dateDo.Size = new System.Drawing.Size(76, 20);
             this.dateDo.TabIndex = 10;
@@ -178,7 +179,7 @@ namespace TVPProjekat2
             this.dateOd.CustomFormat = "dd/MM/yyyy";
             this.dateOd.Enabled = false;
             this.dateOd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateOd.Location = new System.Drawing.Point(222, 53);
+            this.dateOd.Location = new System.Drawing.Point(224, 42);
             this.dateOd.Name = "dateOd";
             this.dateOd.Size = new System.Drawing.Size(76, 20);
             this.dateOd.TabIndex = 11;
@@ -194,11 +195,22 @@ namespace TVPProjekat2
             this.rbOpseg.UseVisualStyleBackColor = true;
             this.rbOpseg.CheckedChanged += new System.EventHandler(this.GlobalRBChange);
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(324, 115);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(300, 28);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Odustani";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.close);
+            // 
             // FormPretraga
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 188);
+            this.ClientSize = new System.Drawing.Size(636, 156);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
@@ -229,5 +241,6 @@ namespace TVPProjekat2
         private System.Windows.Forms.DateTimePicker dateOd;
         private System.Windows.Forms.RadioButton rbOpseg;
         private System.Windows.Forms.RadioButton rbAll;
+        private System.Windows.Forms.Button button2;
     }
 }

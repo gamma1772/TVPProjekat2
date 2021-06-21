@@ -21,8 +21,10 @@ namespace TVPProjekat2
         private proizvodTableAdapter proizvodDB;
         private FormProgram main;
         private FormPrikazRacuna frmPrikaz;
+        private FormPretraga frmPretraga;
 
         public FormPrikazRacuna FrmPrikaz { get => frmPrikaz; set => frmPrikaz = value; }
+        public FormPretraga FrmPretraga { get => frmPretraga; set => frmPretraga = value; }
 
         public FormRacuni(projekatDataSet dataSet, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodTableAdapter proizvodDB, FormProgram main)
         {
@@ -38,7 +40,15 @@ namespace TVPProjekat2
 
         private void advSearch(object sender, EventArgs e)
         {
-
+            if (FrmPretraga == null)
+            {
+                FrmPretraga = new FormPretraga(dataRacuni, dataSet, this);
+                FrmPretraga.Show();
+            }
+            else
+            {
+                FrmPretraga.Focus();
+            }
         }
 
         private void storniraj(object sender, EventArgs e)
