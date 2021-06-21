@@ -21,3 +21,6 @@ C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Kategorija.FormIzmeni
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormIzmeniProizvodjaca.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormListaProizvodjaca.resources
 C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.Proizvodjac.FormNoviProizvodjac.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.FormAktivirajProizvod.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.FormIzmeniProizvod.resources
+C:\source\TVPProjekat2\TVPProjekat2\obj\Debug\TVPProjekat2.Proizvod.FormNoviProizvod.resources

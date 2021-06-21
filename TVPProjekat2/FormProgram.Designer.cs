@@ -44,6 +44,7 @@ namespace TVPProjekat2
             this.proizvodToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pogledajListuProizvodaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.izmeniListuKategorijaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listaProizvođačaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataRacuni = new System.Windows.Forms.DataGridView();
             this.racunBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.projekatDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -59,7 +60,6 @@ namespace TVPProjekat2
             this.groupFiltrirano = new System.Windows.Forms.GroupBox();
             this.btnPretraga = new System.Windows.Forms.Button();
             this.dataFilter = new System.Windows.Forms.DataGridView();
-            this.listaProizvođačaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRacuni)).BeginInit();
@@ -202,6 +202,16 @@ namespace TVPProjekat2
             this.izmeniListuKategorijaToolStripMenuItem.Text = "Lista kategorija";
             this.izmeniListuKategorijaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuKategorija);
             // 
+            // listaProizvođačaToolStripMenuItem
+            // 
+            this.listaProizvođačaToolStripMenuItem.Name = "listaProizvođačaToolStripMenuItem";
+            this.listaProizvođačaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
+            | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.P)));
+            this.listaProizvođačaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
+            this.listaProizvođačaToolStripMenuItem.Text = "Lista proizvođača";
+            this.listaProizvođačaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuProizvodjaca);
+            // 
             // dataRacuni
             // 
             this.dataRacuni.AllowUserToAddRows = false;
@@ -334,7 +344,7 @@ namespace TVPProjekat2
             this.btnPretraga.Name = "btnPretraga";
             this.btnPretraga.Size = new System.Drawing.Size(435, 25);
             this.btnPretraga.TabIndex = 11;
-            this.btnPretraga.Text = "Pretraži današnje račune";
+            this.btnPretraga.Text = "Pretraži račune";
             this.btnPretraga.UseVisualStyleBackColor = true;
             this.btnPretraga.Click += new System.EventHandler(this.pretraga);
             // 
@@ -345,16 +355,6 @@ namespace TVPProjekat2
             this.dataFilter.Name = "dataFilter";
             this.dataFilter.Size = new System.Drawing.Size(434, 189);
             this.dataFilter.TabIndex = 0;
-            // 
-            // listaProizvođačaToolStripMenuItem
-            // 
-            this.listaProizvođačaToolStripMenuItem.Name = "listaProizvođačaToolStripMenuItem";
-            this.listaProizvođačaToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Alt) 
-            | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.P)));
-            this.listaProizvođačaToolStripMenuItem.Size = new System.Drawing.Size(261, 22);
-            this.listaProizvođačaToolStripMenuItem.Text = "Lista proizvođača";
-            this.listaProizvođačaToolStripMenuItem.Click += new System.EventHandler(this.prikaziListuProizvodjaca);
             // 
             // FormProgram
             // 

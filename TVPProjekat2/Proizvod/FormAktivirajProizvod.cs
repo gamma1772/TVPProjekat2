@@ -52,8 +52,9 @@ namespace TVPProjekat2.Proizvod
 
         private void close(object sender, EventArgs e)
         {
-            this.Close();
             this.Dispose();
+            this.Close();
+            
             main.FrmAktiviraj = null;
         }
 

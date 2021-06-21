@@ -46,6 +46,8 @@ namespace TVPProjekat2.Proizvod
             this.txtBarKod = new System.Windows.Forms.TextBox();
             this.checkAktivno = new System.Windows.Forms.CheckBox();
             this.txtID = new System.Windows.Forms.TextBox();
+            this.btnNoviProizvodjac = new System.Windows.Forms.Button();
+            this.btnNovaKategorija = new System.Windows.Forms.Button();
             imeLabel = new System.Windows.Forms.Label();
             proizvodjacLabel = new System.Windows.Forms.Label();
             kolicinaLabel = new System.Windows.Forms.Label();
@@ -55,40 +57,6 @@ namespace TVPProjekat2.Proizvod
             label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // btnOtkazi
-            // 
-            this.btnOtkazi.Location = new System.Drawing.Point(162, 279);
-            this.btnOtkazi.Name = "btnOtkazi";
-            this.btnOtkazi.Size = new System.Drawing.Size(75, 23);
-            this.btnOtkazi.TabIndex = 35;
-            this.btnOtkazi.Text = "Otkaži";
-            this.btnOtkazi.UseVisualStyleBackColor = true;
-            // 
-            // btnDodaj
-            // 
-            this.btnDodaj.Location = new System.Drawing.Point(15, 279);
-            this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
-            this.btnDodaj.TabIndex = 34;
-            this.btnDodaj.Text = "Dodaj";
-            this.btnDodaj.UseVisualStyleBackColor = true;
-            // 
-            // ComboKategorija
-            // 
-            this.ComboKategorija.FormattingEnabled = true;
-            this.ComboKategorija.Location = new System.Drawing.Point(15, 183);
-            this.ComboKategorija.Name = "ComboKategorija";
-            this.ComboKategorija.Size = new System.Drawing.Size(222, 21);
-            this.ComboKategorija.TabIndex = 33;
-            // 
-            // comboProizvodjac
-            // 
-            this.comboProizvodjac.FormattingEnabled = true;
-            this.comboProizvodjac.Location = new System.Drawing.Point(15, 104);
-            this.comboProizvodjac.Name = "comboProizvodjac";
-            this.comboProizvodjac.Size = new System.Drawing.Size(222, 21);
-            this.comboProizvodjac.TabIndex = 32;
-            // 
             // imeLabel
             // 
             imeLabel.AutoSize = true;
@@ -97,13 +65,6 @@ namespace TVPProjekat2.Proizvod
             imeLabel.Size = new System.Drawing.Size(34, 13);
             imeLabel.TabIndex = 21;
             imeLabel.Text = "Naziv";
-            // 
-            // txtNaziv
-            // 
-            this.txtNaziv.Location = new System.Drawing.Point(15, 64);
-            this.txtNaziv.Name = "txtNaziv";
-            this.txtNaziv.Size = new System.Drawing.Size(222, 20);
-            this.txtNaziv.TabIndex = 22;
             // 
             // proizvodjacLabel
             // 
@@ -123,13 +84,6 @@ namespace TVPProjekat2.Proizvod
             kolicinaLabel.TabIndex = 24;
             kolicinaLabel.Text = "Količina";
             // 
-            // txtKolicina
-            // 
-            this.txtKolicina.Location = new System.Drawing.Point(15, 144);
-            this.txtKolicina.Name = "txtKolicina";
-            this.txtKolicina.Size = new System.Drawing.Size(101, 20);
-            this.txtKolicina.TabIndex = 25;
-            // 
             // kategorijaLabel
             // 
             kategorijaLabel.AutoSize = true;
@@ -148,13 +102,6 @@ namespace TVPProjekat2.Proizvod
             cenaLabel.TabIndex = 27;
             cenaLabel.Text = "Cena";
             // 
-            // txtCena
-            // 
-            this.txtCena.Location = new System.Drawing.Point(122, 144);
-            this.txtCena.Name = "txtCena";
-            this.txtCena.Size = new System.Drawing.Size(115, 20);
-            this.txtCena.TabIndex = 28;
-            // 
             // bar_kodLabel
             // 
             bar_kodLabel.AutoSize = true;
@@ -163,6 +110,72 @@ namespace TVPProjekat2.Proizvod
             bar_kodLabel.Size = new System.Drawing.Size(44, 13);
             bar_kodLabel.TabIndex = 29;
             bar_kodLabel.Text = "Bar kod";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new System.Drawing.Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(18, 13);
+            label1.TabIndex = 36;
+            label1.Text = "ID";
+            // 
+            // btnOtkazi
+            // 
+            this.btnOtkazi.Location = new System.Drawing.Point(162, 279);
+            this.btnOtkazi.Name = "btnOtkazi";
+            this.btnOtkazi.Size = new System.Drawing.Size(75, 23);
+            this.btnOtkazi.TabIndex = 35;
+            this.btnOtkazi.Text = "Otkaži";
+            this.btnOtkazi.UseVisualStyleBackColor = true;
+            this.btnOtkazi.Click += new System.EventHandler(this.close);
+            // 
+            // btnDodaj
+            // 
+            this.btnDodaj.Location = new System.Drawing.Point(15, 279);
+            this.btnDodaj.Name = "btnDodaj";
+            this.btnDodaj.Size = new System.Drawing.Size(75, 23);
+            this.btnDodaj.TabIndex = 34;
+            this.btnDodaj.Text = "Izmeni";
+            this.btnDodaj.UseVisualStyleBackColor = true;
+            this.btnDodaj.Click += new System.EventHandler(this.izmeniProizvod);
+            // 
+            // ComboKategorija
+            // 
+            this.ComboKategorija.FormattingEnabled = true;
+            this.ComboKategorija.Location = new System.Drawing.Point(15, 183);
+            this.ComboKategorija.Name = "ComboKategorija";
+            this.ComboKategorija.Size = new System.Drawing.Size(136, 21);
+            this.ComboKategorija.TabIndex = 33;
+            // 
+            // comboProizvodjac
+            // 
+            this.comboProizvodjac.FormattingEnabled = true;
+            this.comboProizvodjac.Location = new System.Drawing.Point(15, 104);
+            this.comboProizvodjac.Name = "comboProizvodjac";
+            this.comboProizvodjac.Size = new System.Drawing.Size(136, 21);
+            this.comboProizvodjac.TabIndex = 32;
+            // 
+            // txtNaziv
+            // 
+            this.txtNaziv.Location = new System.Drawing.Point(15, 64);
+            this.txtNaziv.Name = "txtNaziv";
+            this.txtNaziv.Size = new System.Drawing.Size(222, 20);
+            this.txtNaziv.TabIndex = 22;
+            // 
+            // txtKolicina
+            // 
+            this.txtKolicina.Location = new System.Drawing.Point(15, 144);
+            this.txtKolicina.Name = "txtKolicina";
+            this.txtKolicina.Size = new System.Drawing.Size(101, 20);
+            this.txtKolicina.TabIndex = 25;
+            // 
+            // txtCena
+            // 
+            this.txtCena.Location = new System.Drawing.Point(122, 144);
+            this.txtCena.Name = "txtCena";
+            this.txtCena.Size = new System.Drawing.Size(115, 20);
+            this.txtCena.TabIndex = 28;
             // 
             // txtBarKod
             // 
@@ -182,15 +195,6 @@ namespace TVPProjekat2.Proizvod
             this.checkAktivno.Text = "Aktivno";
             this.checkAktivno.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(18, 13);
-            label1.TabIndex = 36;
-            label1.Text = "ID";
-            // 
             // txtID
             // 
             this.txtID.Enabled = false;
@@ -199,11 +203,33 @@ namespace TVPProjekat2.Proizvod
             this.txtID.Size = new System.Drawing.Size(222, 20);
             this.txtID.TabIndex = 37;
             // 
+            // btnNoviProizvodjac
+            // 
+            this.btnNoviProizvodjac.Location = new System.Drawing.Point(157, 95);
+            this.btnNoviProizvodjac.Name = "btnNoviProizvodjac";
+            this.btnNoviProizvodjac.Size = new System.Drawing.Size(80, 36);
+            this.btnNoviProizvodjac.TabIndex = 38;
+            this.btnNoviProizvodjac.Text = "Novi proizvođač";
+            this.btnNoviProizvodjac.UseVisualStyleBackColor = true;
+            this.btnNoviProizvodjac.Click += new System.EventHandler(this.noviProizvodjac);
+            // 
+            // btnNovaKategorija
+            // 
+            this.btnNovaKategorija.Location = new System.Drawing.Point(157, 174);
+            this.btnNovaKategorija.Name = "btnNovaKategorija";
+            this.btnNovaKategorija.Size = new System.Drawing.Size(80, 36);
+            this.btnNovaKategorija.TabIndex = 39;
+            this.btnNovaKategorija.Text = "Nova kategorija...";
+            this.btnNovaKategorija.UseVisualStyleBackColor = true;
+            this.btnNovaKategorija.Click += new System.EventHandler(this.novaKategorija);
+            // 
             // FormIzmeniProizvod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(253, 315);
+            this.Controls.Add(this.btnNovaKategorija);
+            this.Controls.Add(this.btnNoviProizvodjac);
             this.Controls.Add(label1);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.btnOtkazi);
@@ -223,6 +249,7 @@ namespace TVPProjekat2.Proizvod
             this.Controls.Add(this.checkAktivno);
             this.Name = "FormIzmeniProizvod";
             this.Text = "Izmeni proizvod";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +267,7 @@ namespace TVPProjekat2.Proizvod
         private System.Windows.Forms.TextBox txtBarKod;
         private System.Windows.Forms.CheckBox checkAktivno;
         private System.Windows.Forms.TextBox txtID;
+        private System.Windows.Forms.Button btnNoviProizvodjac;
+        private System.Windows.Forms.Button btnNovaKategorija;
     }
 }

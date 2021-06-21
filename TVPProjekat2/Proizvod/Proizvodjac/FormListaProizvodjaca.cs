@@ -71,7 +71,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
                 DialogResult result = MessageBox.Show("Da li želite da obrišete odabranog proizvođača?", "Lista proizvođača", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    proizvodjacDB.Delete(int.Parse(dataProizvodjaci.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString());
+                    proizvodjacDB.Delete(int.Parse(dataProizvodjaci.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()));
 
                     proizvodjacDB.Update(dataSet);
                     proizvodjacDB.Fill(dataSet.proizvodjac);

@@ -40,7 +40,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(361, 41);
+            this.btnIzmeni.Location = new System.Drawing.Point(467, 41);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
             this.btnIzmeni.TabIndex = 9;
@@ -50,7 +50,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(361, 406);
+            this.btnZatvori.Location = new System.Drawing.Point(467, 406);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(169, 23);
             this.btnZatvori.TabIndex = 8;
@@ -60,7 +60,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(361, 99);
+            this.btnObrisi.Location = new System.Drawing.Point(467, 99);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 7;
@@ -70,7 +70,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(361, 12);
+            this.btnDodaj.Location = new System.Drawing.Point(467, 12);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(169, 23);
             this.btnDodaj.TabIndex = 6;
@@ -94,12 +94,12 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.dataProizvodjaci.ShowCellToolTips = false;
             this.dataProizvodjaci.ShowEditingIcon = false;
             this.dataProizvodjaci.ShowRowErrors = false;
-            this.dataProizvodjaci.Size = new System.Drawing.Size(343, 417);
+            this.dataProizvodjaci.Size = new System.Drawing.Size(449, 417);
             this.dataProizvodjaci.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(361, 70);
+            this.button1.Location = new System.Drawing.Point(467, 70);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 23);
             this.button1.TabIndex = 11;
@@ -110,7 +110,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(541, 441);
+            this.ClientSize = new System.Drawing.Size(643, 441);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.btnZatvori);

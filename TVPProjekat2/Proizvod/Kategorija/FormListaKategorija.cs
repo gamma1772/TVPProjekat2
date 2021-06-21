@@ -73,7 +73,7 @@ namespace TVPProjekat2
                 DialogResult result = MessageBox.Show("Da li želite da obrišete odabranu kategoriju?", "Lista kategorija", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (result == DialogResult.Yes)
                 {
-                    kategorijaDB.Delete(int.Parse(dataKategorije.SelectedRows[0].Cells[0].Value.ToString()), dataKategorije.SelectedRows[0].Cells[1].Value.ToString());
+                    kategorijaDB.Delete(int.Parse(dataKategorije.SelectedRows[0].Cells[0].Value.ToString()), dataKategorije.SelectedRows[0].Cells[1].Value.ToString(), bool.Parse(dataKategorije.SelectedRows[0].Cells[2].Value.ToString()));
 
                     kategorijaDB.Update(dataSet);
                     kategorijaDB.Fill(dataSet.kategorija);
@@ -110,6 +110,14 @@ namespace TVPProjekat2
         private void FormListaKategorija_FormClosed(object sender, FormClosedEventArgs e)
         {
             close(sender, e);
+        }
+
+        private void statusAktivnosti(object sender, EventArgs e)
+        {
+            kategorijaDB.Update(dataKategorije.SelectedRows[0].Cells[1].Value.ToString(), !bool.Parse(dataKategorije.SelectedRows[0].Cells[2].Value.ToString()), int.Parse(dataKategorije.SelectedRows[0].Cells[0].Value.ToString()), dataKategorije.SelectedRows[0].Cells[1].Value.ToString(), bool.Parse(dataKategorije.SelectedRows[0].Cells[2].Value.ToString()));
+            kategorijaDB.Update(dataSet);
+            kategorijaDB.Fill(dataSet.kategorija);
+            azurirajTabelu();
         }
     }
 }

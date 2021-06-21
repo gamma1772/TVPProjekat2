@@ -44,6 +44,8 @@ namespace TVPProjekat2.Proizvod
             this.ComboKategorija = new System.Windows.Forms.ComboBox();
             this.btnDodaj = new System.Windows.Forms.Button();
             this.btnOtkazi = new System.Windows.Forms.Button();
+            this.btnNovakategorija = new System.Windows.Forms.Button();
+            this.btnNoviProizvodjac = new System.Windows.Forms.Button();
             imeLabel = new System.Windows.Forms.Label();
             proizvodjacLabel = new System.Windows.Forms.Label();
             kolicinaLabel = new System.Windows.Forms.Label();
@@ -151,7 +153,7 @@ namespace TVPProjekat2.Proizvod
             this.comboProizvodjac.FormattingEnabled = true;
             this.comboProizvodjac.Location = new System.Drawing.Point(15, 65);
             this.comboProizvodjac.Name = "comboProizvodjac";
-            this.comboProizvodjac.Size = new System.Drawing.Size(222, 21);
+            this.comboProizvodjac.Size = new System.Drawing.Size(136, 21);
             this.comboProizvodjac.TabIndex = 17;
             this.comboProizvodjac.Text = "Odaberi proizvođača...";
             // 
@@ -160,7 +162,7 @@ namespace TVPProjekat2.Proizvod
             this.ComboKategorija.FormattingEnabled = true;
             this.ComboKategorija.Location = new System.Drawing.Point(15, 144);
             this.ComboKategorija.Name = "ComboKategorija";
-            this.ComboKategorija.Size = new System.Drawing.Size(222, 21);
+            this.ComboKategorija.Size = new System.Drawing.Size(136, 21);
             this.ComboKategorija.TabIndex = 18;
             this.ComboKategorija.Text = "Odaberi kategoriju...";
             // 
@@ -184,11 +186,33 @@ namespace TVPProjekat2.Proizvod
             this.btnOtkazi.UseVisualStyleBackColor = true;
             this.btnOtkazi.Click += new System.EventHandler(this.close);
             // 
+            // btnNovakategorija
+            // 
+            this.btnNovakategorija.Location = new System.Drawing.Point(157, 135);
+            this.btnNovakategorija.Name = "btnNovakategorija";
+            this.btnNovakategorija.Size = new System.Drawing.Size(80, 36);
+            this.btnNovakategorija.TabIndex = 41;
+            this.btnNovakategorija.Text = "Nova kategorija...";
+            this.btnNovakategorija.UseVisualStyleBackColor = true;
+            this.btnNovakategorija.Click += new System.EventHandler(this.novaKategorija);
+            // 
+            // btnNoviProizvodjac
+            // 
+            this.btnNoviProizvodjac.Location = new System.Drawing.Point(157, 56);
+            this.btnNoviProizvodjac.Name = "btnNoviProizvodjac";
+            this.btnNoviProizvodjac.Size = new System.Drawing.Size(80, 36);
+            this.btnNoviProizvodjac.TabIndex = 40;
+            this.btnNoviProizvodjac.Text = "Novi proizvođač";
+            this.btnNoviProizvodjac.UseVisualStyleBackColor = true;
+            this.btnNoviProizvodjac.Click += new System.EventHandler(this.noviProizvodjac);
+            // 
             // FormNoviProizvod
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(249, 273);
+            this.Controls.Add(this.btnNovakategorija);
+            this.Controls.Add(this.btnNoviProizvodjac);
             this.Controls.Add(this.btnOtkazi);
             this.Controls.Add(this.btnDodaj);
             this.Controls.Add(this.ComboKategorija);
@@ -223,5 +247,7 @@ namespace TVPProjekat2.Proizvod
         private System.Windows.Forms.ComboBox ComboKategorija;
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.Button btnOtkazi;
+        private System.Windows.Forms.Button btnNovakategorija;
+        private System.Windows.Forms.Button btnNoviProizvodjac;
     }
 }

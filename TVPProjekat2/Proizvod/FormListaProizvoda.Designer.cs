@@ -41,7 +41,7 @@ namespace TVPProjekat2
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(620, 411);
+            this.btnZatvori.Location = new System.Drawing.Point(863, 411);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(169, 23);
             this.btnZatvori.TabIndex = 7;
@@ -51,7 +51,7 @@ namespace TVPProjekat2
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(620, 133);
+            this.btnObrisi.Location = new System.Drawing.Point(863, 133);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 6;
@@ -61,7 +61,7 @@ namespace TVPProjekat2
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(620, 17);
+            this.btnDodaj.Location = new System.Drawing.Point(863, 17);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(169, 23);
             this.btnDodaj.TabIndex = 5;
@@ -71,15 +71,21 @@ namespace TVPProjekat2
             // 
             // dataProizvodi
             // 
+            this.dataProizvodi.AllowUserToAddRows = false;
+            this.dataProizvodi.AllowUserToDeleteRows = false;
+            this.dataProizvodi.AllowUserToResizeRows = false;
             this.dataProizvodi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataProizvodi.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataProizvodi.Location = new System.Drawing.Point(11, 17);
+            this.dataProizvodi.MultiSelect = false;
             this.dataProizvodi.Name = "dataProizvodi";
-            this.dataProizvodi.Size = new System.Drawing.Size(602, 417);
+            this.dataProizvodi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataProizvodi.Size = new System.Drawing.Size(846, 417);
             this.dataProizvodi.TabIndex = 4;
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(620, 46);
+            this.btnIzmeni.Location = new System.Drawing.Point(863, 46);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
             this.btnIzmeni.TabIndex = 8;
@@ -89,7 +95,7 @@ namespace TVPProjekat2
             // 
             // btnStatistika
             // 
-            this.btnStatistika.Location = new System.Drawing.Point(620, 75);
+            this.btnStatistika.Location = new System.Drawing.Point(863, 75);
             this.btnStatistika.Name = "btnStatistika";
             this.btnStatistika.Size = new System.Drawing.Size(169, 23);
             this.btnStatistika.TabIndex = 9;
@@ -99,7 +105,7 @@ namespace TVPProjekat2
             // 
             // btnAktiv
             // 
-            this.btnAktiv.Location = new System.Drawing.Point(620, 104);
+            this.btnAktiv.Location = new System.Drawing.Point(863, 104);
             this.btnAktiv.Name = "btnAktiv";
             this.btnAktiv.Size = new System.Drawing.Size(169, 23);
             this.btnAktiv.TabIndex = 10;
@@ -111,7 +117,7 @@ namespace TVPProjekat2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(799, 444);
+            this.ClientSize = new System.Drawing.Size(1037, 444);
             this.Controls.Add(this.btnAktiv);
             this.Controls.Add(this.btnStatistika);
             this.Controls.Add(this.btnIzmeni);

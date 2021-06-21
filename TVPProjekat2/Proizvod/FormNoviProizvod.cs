@@ -8,6 +8,8 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVPProjekat2.Kategorija;
+using TVPProjekat2.Proizvod.Proizvodjac;
 using TVPProjekat2.projekatDataSetTableAdapters;
 
 namespace TVPProjekat2.Proizvod
@@ -16,6 +18,8 @@ namespace TVPProjekat2.Proizvod
     {
         private projekatDataSet dataSet;
         private proizvodTableAdapter proizvodDB;
+        private kategorijaTableAdapter kategorijaDB;
+        private proizvodjacTableAdapter proizvodjacDB;
         private FormListaProizvoda frmListaProizvoda;
         private FormNoviRacun frmNoviRacun;
 
@@ -23,22 +27,33 @@ namespace TVPProjekat2.Proizvod
         private Regex regexBarKod = new Regex("[0-9]{2,13}");
         private Regex regexCena = new Regex("[0-9]+[.]{1}[0-9]{0,2}");
         private Regex regexDigit = new Regex("[0-9]+");
-        public FormNoviProizvod(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, FormListaProizvoda main)
+
+        private FormNovaKategorija frmNovaKategorija;
+        private FormNoviProizvodjac formNoviProizvodjac;
+
+        public FormNovaKategorija FrmNovaKategorija { get => frmNovaKategorija; set => frmNovaKategorija = value; }
+        public FormNoviProizvodjac FrmNoviProizvodjac { get => formNoviProizvodjac; set => formNoviProizvodjac = value; }
+
+        public FormNoviProizvod(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, proizvodjacTableAdapter proizvodjacDB, FormListaProizvoda main)
         {
             InitializeComponent();
             this.dataSet = dataSet;
             this.proizvodDB = proizvodDB;
+            this.kategorijaDB = kategorijaDB;
+            this.proizvodjacDB = proizvodjacDB;
             this.frmListaProizvoda = main;
             this.frmNoviRacun = null;
 
             popuniListe();
         }
 
-        public FormNoviProizvod(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, FormNoviRacun main)
+        public FormNoviProizvod(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, proizvodjacTableAdapter proizvodjacDB, FormNoviRacun main)
         {
             InitializeComponent();
             this.dataSet = dataSet;
             this.proizvodDB = proizvodDB;
+            this.kategorijaDB = kategorijaDB;
+            this.proizvodjacDB = proizvodjacDB;
             this.frmListaProizvoda = null;
             this.frmNoviRacun = main;
 
@@ -63,6 +78,8 @@ namespace TVPProjekat2.Proizvod
                     {
                         frmListaProizvoda.azurirajTabelu();
                     }
+
+                    close(sender, e);
                 }
                 else
                 {
@@ -79,6 +96,7 @@ namespace TVPProjekat2.Proizvod
         {
             this.Dispose();
             this.Close();
+
             if (frmListaProizvoda == null)
             {
                 frmNoviRacun.FrmNoviProizvod = null;
@@ -94,18 +112,44 @@ namespace TVPProjekat2.Proizvod
             close(sender, e);
         }
 
-        private void popuniListe()
+        internal void popuniListe()
         {
             var linqProizvodjac = from proizvodjac in dataSet.proizvodjac where proizvodjac.aktivno == true select proizvodjac.naziv;
             var linqKategorija = from kategorija in dataSet.kategorija where kategorija.aktivno == true select kategorija.ime;
 
             if (linqProizvodjac.Any())
             {
-                comboProizvodjac.DataSource = linqProizvodjac;
+                comboProizvodjac.DataSource = linqProizvodjac.ToList();
             }
             if (linqKategorija.Any())
             {
-                ComboKategorija.DataSource = linqKategorija;
+                ComboKategorija.DataSource = linqKategorija.ToList();
+            }
+        }
+
+        private void noviProizvodjac(object sender, EventArgs e)
+        {
+            if (FrmNoviProizvodjac == null)
+            {
+                FrmNoviProizvodjac = new FormNoviProizvodjac(dataSet, proizvodjacDB, this);
+                FrmNoviProizvodjac.Show();
+            }
+            else
+            {
+                FrmNoviProizvodjac.Focus();
+            }
+        }
+
+        private void novaKategorija(object sender, EventArgs e)
+        {
+            if (FrmNovaKategorija == null)
+            {
+                FrmNovaKategorija = new FormNovaKategorija(dataSet, kategorijaDB, this);
+                FrmNovaKategorija.Show();
+            }
+            else
+            {
+                FrmNovaKategorija.Focus();
             }
         }
     }

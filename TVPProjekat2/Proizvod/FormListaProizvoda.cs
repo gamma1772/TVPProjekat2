@@ -58,7 +58,7 @@ namespace TVPProjekat2
         {
             if (FrmNovi == null)
             {
-                FrmNovi = new FormNoviProizvod(dataSet, proizvodDB, this);
+                FrmNovi = new FormNoviProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, this);
                 FrmNovi.Show();
             }
             else
@@ -71,7 +71,7 @@ namespace TVPProjekat2
         {
             if (FrmIzmeni == null)
             {
-                FrmIzmeni = new FormIzmeniProizvod(dataSet, proizvodDB, this);
+                FrmIzmeni = new FormIzmeniProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, dataProizvodi.SelectedRows, this);
                 FrmIzmeni.Show();
             }
             else
@@ -92,8 +92,8 @@ namespace TVPProjekat2
 
         private void close(object sender, EventArgs e)
         {
-            this.Close();
             this.Dispose();
+            this.Close();
 
             this.main.FrmProizvodi = null;
         }
@@ -107,6 +107,10 @@ namespace TVPProjekat2
         {
             proizvodDB.Update(dataProizvodi.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(dataProizvodi.SelectedRows[0].Cells[2].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[3].Value.ToString()), int.Parse(dataProizvodi.SelectedRows[0].Cells[4].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[5].Value.ToString()), dataProizvodi.SelectedRows[0].Cells[6].Value.ToString(), !bool.Parse(dataProizvodi.SelectedRows[0].Cells[7].Value.ToString()),
                 int.Parse(dataProizvodi.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodi.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(dataProizvodi.SelectedRows[0].Cells[2].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[3].Value.ToString()), int.Parse(dataProizvodi.SelectedRows[0].Cells[4].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[5].Value.ToString()), dataProizvodi.SelectedRows[0].Cells[6].Value.ToString(), bool.Parse(dataProizvodi.SelectedRows[0].Cells[7].Value.ToString()));
+            proizvodDB.Update(dataSet);
+            proizvodDB.Fill(dataSet.proizvod);
+
+            azurirajTabelu();
         }
     }
 }

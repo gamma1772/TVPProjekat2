@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TVPProjekat2.projekatDataSetTableAdapters;
 using TVPProjekat2.Proizvod;
+using System.Text.RegularExpressions;
 
 namespace TVPProjekat2
 {
@@ -19,12 +20,16 @@ namespace TVPProjekat2
 
         private FormAktivirajProizvod frmAktiviraj;
         private FormNoviProizvod frmNoviProizvod;
+        private FormIzmeniProizvod frmIzmeniProizvod;
 
         private string ID;
         private double iznosRacuna = 0.00D;
 
+        Regex regex = new Regex("[0-9]+");
+
         public FormAktivirajProizvod FrmAktiviraj { get => frmAktiviraj; set => frmAktiviraj = value; }
         public FormNoviProizvod FrmNoviProizvod { get => frmNoviProizvod; set => frmNoviProizvod = value; }
+        public FormIzmeniProizvod FrmIzmeniProizvod { get => frmIzmeniProizvod; set => frmIzmeniProizvod = value; }
 
         public FormNoviRacun(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodjacTableAdapter proizvodjacDB, FormProgram frmProgram)
         {
@@ -79,13 +84,22 @@ namespace TVPProjekat2
             listProizvodi.Items.Clear();
             if (linq.Any())
             {
+                string kategorijaString = "";
+                string proizvodjacString = "";
                 foreach (var item in linq)
                 {
-                    var linqKategorija = from kategorija in dataSet.kategorija where kategorija.ID == item.kategorija select kategorija;
-                    var linqProizvodjac = from proizvodjac in dataSet.proizvodjac where proizvodjac.ID == item.proizvodjac select proizvodjac;
+                    var linqKategorija = from kategorija in dataSet.kategorija where kategorija.ID == item.kategorija select kategorija.ime;
+                    var linqProizvodjac = from proizvodjac in dataSet.proizvodjac where proizvodjac.ID == item.proizvodjac select proizvodjac.naziv;
 
-                    string kategorijaString = linqKategorija.ElementAt(0).ime;
-                    string proizvodjacString = linqProizvodjac.ElementAt(0).naziv;
+                    if (linqKategorija.Any())
+                    {
+                        kategorijaString = linqKategorija.ElementAt(0);
+
+                    }
+                    if (linqProizvodjac.Any())
+                    {
+                        proizvodjacString = linqProizvodjac.ElementAt(0);
+                    }
                     string[] vals = { item.ID.ToString(), item.bar_kod.ToString(), item.ime.ToString(), proizvodjacString, kategorijaString, item.kolicina.ToString(), item.cena.ToString("0.00") };
                     ListViewItem proizvod = new ListViewItem(vals);
                     listProizvodi.Items.Add(proizvod);
@@ -117,25 +131,33 @@ namespace TVPProjekat2
         {
             if (!string.IsNullOrEmpty(txtKolicina.Text))
             {
-                bool digits = true;
-                foreach (char c in txtKolicina.Text.ToArray())
-                {
-                    if (!Char.IsDigit(c))
-                    {
-                        digits = false;
-                    }
-                }
-
-                if (digits)
+                if (regex.IsMatch(txtKolicina.Text))
                 {
                     foreach (ListViewItem item in listProizvodi.SelectedItems)
                     {
                         ListViewItem clone = (ListViewItem)item.Clone();
+                        bool found = false;
                         if (int.Parse(item.SubItems[5].Text) > 0)
                         {
-
-                            clone.SubItems[5].Text = txtKolicina.Text;
-                            listRacun.Items.Add(clone);
+                            if (listRacun.Items.Count > 0)
+                            {
+                                foreach (ListViewItem item2 in listRacun.Items)
+                                {
+                                    if (item.SubItems[0].Text.Equals(item2.SubItems[0].Text))
+                                    {
+                                        found = true;
+                                        item2.SubItems[5].Text = (int.Parse(item2.SubItems[5].Text) + int.Parse(txtKolicina.Text)).ToString();
+                                        break;
+                                    }
+                                }
+                            }
+                            if (!found)
+                            {
+                                clone.SubItems[5].Text = txtKolicina.Text;
+                                listRacun.Items.Add(clone);
+                            }
+                            
+                            
 
                             var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
                             var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
@@ -150,7 +172,7 @@ namespace TVPProjekat2
                         }
                         else
                         {
-                            MessageBox.Show("Proizvod više nije na stanju.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            MessageBox.Show("Uneli ste preveliki broj ili proizvod nije na stanju.", "Račun", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
@@ -294,12 +316,25 @@ namespace TVPProjekat2
         {
             if (FrmNoviProizvod == null)
             {
-                FrmNoviProizvod = new FormNoviProizvod(dataSet, proizvodDB, this);
+                FrmNoviProizvod = new FormNoviProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, this);
                 FrmNoviProizvod.Show();
             }
             else
             {
                 FrmNoviProizvod.Focus();
+            }
+        }
+
+        private void izmeniProizvod(object sender, EventArgs e)
+        {
+            if (FrmIzmeniProizvod == null)
+            {
+                FrmIzmeniProizvod = new FormIzmeniProizvod(dataSet, proizvodDB, kategorijaDB, proizvodjacDB, listProizvodi.SelectedItems, this);
+                FrmIzmeniProizvod.Show();
+            }
+            else
+            {
+                FrmIzmeniProizvod.Focus();
             }
         }
     }

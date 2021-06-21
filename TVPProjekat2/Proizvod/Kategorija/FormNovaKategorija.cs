@@ -8,6 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TVPProjekat2.Proizvod;
 using TVPProjekat2.projekatDataSetTableAdapters;
 
 namespace TVPProjekat2.Kategorija
@@ -16,7 +17,10 @@ namespace TVPProjekat2.Kategorija
     {
         private projekatDataSet dataSet;
         private kategorijaTableAdapter kategorijaDB;
+
         private FormListaKategorija frmKategorije;
+        private FormIzmeniProizvod frmIzmeniProizvod;
+        private FormNoviProizvod frmNoviProizvod;
 
         private Regex regex = new Regex("[A-Za-z0-9\\s]{2,255}");
         public FormNovaKategorija( projekatDataSet dataSet, kategorijaTableAdapter kategorijaDB, FormListaKategorija frmKategorije)
@@ -25,6 +29,22 @@ namespace TVPProjekat2.Kategorija
             this.dataSet = dataSet;
             this.kategorijaDB = kategorijaDB;
             this.frmKategorije = frmKategorije;
+        }
+
+        public FormNovaKategorija(projekatDataSet dataSet, kategorijaTableAdapter kategorijaDB, FormIzmeniProizvod form)
+        {
+            InitializeComponent();
+            this.dataSet = dataSet;
+            this.kategorijaDB = kategorijaDB;
+            this.frmIzmeniProizvod = form;
+        }
+
+        public FormNovaKategorija(projekatDataSet dataSet, kategorijaTableAdapter kategorijaDB, FormNoviProizvod form)
+        {
+            InitializeComponent();
+            this.dataSet = dataSet;
+            this.kategorijaDB = kategorijaDB;
+            this.frmNoviProizvod = form;
         }
 
         private void dodajKategoriju(object sender, EventArgs e)
@@ -39,7 +59,18 @@ namespace TVPProjekat2.Kategorija
                     kategorijaDB.Fill(dataSet.kategorija);
 
                     MessageBox.Show("Uspešno dodata nova kategorija.", "Nova kategorija", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmKategorije.azurirajTabelu();
+                    if (frmKategorije != null)
+                    {
+                        frmKategorije.azurirajTabelu();
+                    }
+                    if (frmNoviProizvod != null)
+                    {
+                        frmNoviProizvod.popuniListe();
+                    }
+                    if (frmIzmeniProizvod != null)
+                    {
+                        frmIzmeniProizvod.popuniListe();
+                    }
                     otkazi(sender, e);
                 }
                 else
@@ -59,7 +90,18 @@ namespace TVPProjekat2.Kategorija
         {
             this.Dispose();
             this.Close();
-            frmKategorije.FrmNovaKategorija = null;
+            if (frmKategorije != null)
+            {
+                frmKategorije.FrmNovaKategorija = null;
+            }
+            if (frmNoviProizvod != null)
+            {
+                frmNoviProizvod.FrmNovaKategorija = null;
+            }
+            if (frmIzmeniProizvod != null)
+            {
+                frmIzmeniProizvod.FrmNovaKategorija = null;
+            }
         }
 
         private void formClosed(object sender, FormClosedEventArgs e)

@@ -18,6 +18,9 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         private proizvodjacTableAdapter proizvodjacDB;
         private FormListaProizvodjaca frmProizvodjaci;
 
+        private FormNoviProizvod frmNoviProizvod;
+        private FormIzmeniProizvod frmIzmeniProizvod;
+
         private Regex regex = new Regex("[A-Za-z0-9\\s]{2,255}");
         private Regex regexNoDigit = new Regex("[A-Za-z\\s]{2,255}");
         public FormNoviProizvodjac(projekatDataSet dataSet, proizvodjacTableAdapter proizvodjacDB, FormListaProizvodjaca frmProizvodjaci)
@@ -26,6 +29,22 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.dataSet = dataSet;
             this.proizvodjacDB = proizvodjacDB;
             this.frmProizvodjaci = frmProizvodjaci;
+        }
+
+        public FormNoviProizvodjac(projekatDataSet dataSet, proizvodjacTableAdapter proizvodjacDB, FormNoviProizvod form)
+        {
+            InitializeComponent();
+            this.dataSet = dataSet;
+            this.proizvodjacDB = proizvodjacDB;
+            this.frmNoviProizvod = form;
+        }
+
+        public FormNoviProizvodjac(projekatDataSet dataSet, proizvodjacTableAdapter proizvodjacDB, FormIzmeniProizvod form)
+        {
+            InitializeComponent();
+            this.dataSet = dataSet;
+            this.proizvodjacDB = proizvodjacDB;
+            this.frmIzmeniProizvod = form;
         }
 
         private void dodajProizvodjaca(object sender, EventArgs e)
@@ -40,7 +59,18 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
                     proizvodjacDB.Fill(dataSet.proizvodjac);
 
                     MessageBox.Show("Uspešno dodat novi proizvođač.", "Novi proizvođač", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    frmProizvodjaci.azurirajTabelu();
+                    if (frmProizvodjaci != null)
+                    {
+                        frmProizvodjaci.azurirajTabelu();
+                    }
+                    if (frmNoviProizvod != null)
+                    {
+                        frmNoviProizvod.popuniListe();
+                    }
+                    if (frmIzmeniProizvod != null)
+                    {
+                        frmIzmeniProizvod.popuniListe();
+                    }
                     otkazi(sender, e);
                 }
                 else
@@ -60,7 +90,18 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         {
             this.Dispose();
             this.Close();
-            frmProizvodjaci.FrmNovi = null;
+            if (frmProizvodjaci != null)
+            {
+                frmProizvodjaci.FrmNovi = null;
+            }
+            if (frmNoviProizvod != null)
+            {
+                frmNoviProizvod.FrmNoviProizvodjac = null;
+            }
+            if (frmIzmeniProizvod != null)
+            {
+                frmIzmeniProizvod.FrmNoviProizvodjac = null;
+            }
         }
 
         private void formClosed(object sender, FormClosedEventArgs e)

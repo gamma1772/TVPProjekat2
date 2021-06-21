@@ -417,6 +417,7 @@ namespace TVPProjekat2
             this.btnIzmeni.TabIndex = 44;
             this.btnIzmeni.Text = "Izmeni proizvod";
             this.btnIzmeni.UseVisualStyleBackColor = true;
+            this.btnIzmeni.Click += new System.EventHandler(this.izmeniProizvod);
             // 
             // FormNoviRacun
             // 

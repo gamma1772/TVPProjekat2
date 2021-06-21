@@ -54,12 +54,12 @@ namespace TVPProjekat2
             this.dataKategorije.ShowCellToolTips = false;
             this.dataKategorije.ShowEditingIcon = false;
             this.dataKategorije.ShowRowErrors = false;
-            this.dataKategorije.Size = new System.Drawing.Size(253, 417);
+            this.dataKategorije.Size = new System.Drawing.Size(347, 417);
             this.dataKategorije.TabIndex = 0;
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(272, 13);
+            this.btnDodaj.Location = new System.Drawing.Point(366, 13);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(169, 23);
             this.btnDodaj.TabIndex = 1;
@@ -69,7 +69,7 @@ namespace TVPProjekat2
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(272, 100);
+            this.btnObrisi.Location = new System.Drawing.Point(366, 100);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 2;
@@ -79,7 +79,7 @@ namespace TVPProjekat2
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(272, 407);
+            this.btnZatvori.Location = new System.Drawing.Point(366, 407);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(169, 23);
             this.btnZatvori.TabIndex = 3;
@@ -89,7 +89,7 @@ namespace TVPProjekat2
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(272, 42);
+            this.btnIzmeni.Location = new System.Drawing.Point(366, 42);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
             this.btnIzmeni.TabIndex = 4;
@@ -99,18 +99,19 @@ namespace TVPProjekat2
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(272, 71);
+            this.button1.Location = new System.Drawing.Point(366, 71);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 23);
             this.button1.TabIndex = 11;
             this.button1.Text = "Aktiviraj / Deaktiviraj";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.statusAktivnosti);
             // 
             // FormListaKategorija
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(446, 442);
+            this.ClientSize = new System.Drawing.Size(545, 442);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.btnZatvori);
