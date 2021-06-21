@@ -107,7 +107,7 @@ namespace TVPProjekat2
         {
             if (FrmRacuni == null)
             {
-                FrmRacuni = new FormRacuni(pds, racunDB, racun_proizvodDB, this);
+                FrmRacuni = new FormRacuni(pds, racunDB, racun_proizvodDB, proizvodDB, this);
                 FrmRacuni.Show();
             }
             else

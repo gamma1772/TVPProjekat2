@@ -42,7 +42,7 @@ namespace TVPProjekat2
             // 
             // btnZatvori
             // 
-            this.btnZatvori.Location = new System.Drawing.Point(464, 426);
+            this.btnZatvori.Location = new System.Drawing.Point(547, 426);
             this.btnZatvori.Name = "btnZatvori";
             this.btnZatvori.Size = new System.Drawing.Size(169, 23);
             this.btnZatvori.TabIndex = 7;
@@ -52,7 +52,7 @@ namespace TVPProjekat2
             // 
             // btnObrisiRacun
             // 
-            this.btnObrisiRacun.Location = new System.Drawing.Point(464, 121);
+            this.btnObrisiRacun.Location = new System.Drawing.Point(547, 121);
             this.btnObrisiRacun.Name = "btnObrisiRacun";
             this.btnObrisiRacun.Size = new System.Drawing.Size(169, 23);
             this.btnObrisiRacun.TabIndex = 6;
@@ -70,12 +70,12 @@ namespace TVPProjekat2
             this.dataRacuni.Location = new System.Drawing.Point(12, 61);
             this.dataRacuni.Name = "dataRacuni";
             this.dataRacuni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataRacuni.Size = new System.Drawing.Size(446, 388);
+            this.dataRacuni.Size = new System.Drawing.Size(529, 388);
             this.dataRacuni.TabIndex = 4;
             // 
             // btnPrikaziRacun
             // 
-            this.btnPrikaziRacun.Location = new System.Drawing.Point(464, 92);
+            this.btnPrikaziRacun.Location = new System.Drawing.Point(547, 92);
             this.btnPrikaziRacun.Name = "btnPrikaziRacun";
             this.btnPrikaziRacun.Size = new System.Drawing.Size(169, 23);
             this.btnPrikaziRacun.TabIndex = 9;
@@ -87,7 +87,7 @@ namespace TVPProjekat2
             // 
             this.txtPretraga.Location = new System.Drawing.Point(12, 34);
             this.txtPretraga.Name = "txtPretraga";
-            this.txtPretraga.Size = new System.Drawing.Size(446, 20);
+            this.txtPretraga.Size = new System.Drawing.Size(529, 20);
             this.txtPretraga.TabIndex = 10;
             this.txtPretraga.TextChanged += new System.EventHandler(this.brzaPretraga);
             // 
@@ -102,7 +102,7 @@ namespace TVPProjekat2
             // 
             // btnPretraga
             // 
-            this.btnPretraga.Location = new System.Drawing.Point(464, 34);
+            this.btnPretraga.Location = new System.Drawing.Point(547, 34);
             this.btnPretraga.Name = "btnPretraga";
             this.btnPretraga.Size = new System.Drawing.Size(169, 23);
             this.btnPretraga.TabIndex = 12;
@@ -112,7 +112,7 @@ namespace TVPProjekat2
             // 
             // btnStorniraj
             // 
-            this.btnStorniraj.Location = new System.Drawing.Point(464, 63);
+            this.btnStorniraj.Location = new System.Drawing.Point(547, 63);
             this.btnStorniraj.Name = "btnStorniraj";
             this.btnStorniraj.Size = new System.Drawing.Size(169, 23);
             this.btnStorniraj.TabIndex = 13;
@@ -124,7 +124,7 @@ namespace TVPProjekat2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(643, 460);
+            this.ClientSize = new System.Drawing.Size(723, 460);
             this.Controls.Add(this.btnStorniraj);
             this.Controls.Add(this.btnPretraga);
             this.Controls.Add(this.label1);
