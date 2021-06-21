@@ -84,7 +84,7 @@ namespace TVPProjekat2
         {
             if (FrmStatistika == null)
             {
-                FrmStatistika = new FormStatistika();
+                FrmStatistika = new FormStatistika(pds, this);
                 FrmStatistika.Show();
             }
             else
