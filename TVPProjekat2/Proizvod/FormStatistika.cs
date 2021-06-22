@@ -14,13 +14,16 @@ namespace TVPProjekat2
     public partial class FormStatistika : Form
     {
         private int brDana, odabranMesec;
-        private string[] horizontal;
+        private static string[] meseci = { "Januar", "Februar", "Mart", "April", "Maj", "Jun", "Jul", "Avgust", "Septembar", "Oktobar", "Novembar", "Decembar" };
         private projekatDataSet dataSet;
+
+        private static Brush[] cetkice = { Brushes.Red, Brushes.Blue, Brushes.BlueViolet, Brushes.Orange, Brushes.CadetBlue, Brushes.DarkGreen, Brushes.Green, Brushes.DarkMagenta, Brushes.Purple, Brushes.DarkGoldenrod, Brushes.DarkCyan, Brushes.DarkOrchid};
 
         private float kolicina = 0;
         private float mesecnaKolicina = 0;
         private float[] godisnjiPresek;
         private float godisnjaKolicina = 0;
+        float kolicinaDanas = 0;
         FormProgram main;
         public FormStatistika(projekatDataSet dataSet, FormProgram main)
         {
@@ -65,12 +68,17 @@ namespace TVPProjekat2
             {
                 if (kolicina != 0)
                 {
+                    Font f = new Font(FontFamily.GenericSansSerif, 12F, FontStyle.Bold);
                     for (int i = 0; i < 12; i++)
                     {
-                        e.Graphics.FillPie(brush(), new Rectangle(150, 35, 200, 200), pocetniUgao, (godisnjiPresek[i] * 360) / kolicina);
+                        Brush brush1 = cetkice[i];
+                        if (godisnjiPresek[i] == 0) { continue; }
+                        e.Graphics.DrawString(meseci[i], f, brush1, 375, 10 + i*15, StringFormat.GenericTypographic);
+                        e.Graphics.FillPie(brush1, new Rectangle(150, 35, 200, 200), pocetniUgao, (godisnjiPresek[i] * 360) / kolicina);
+                        e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                         pocetniUgao += (godisnjiPresek[i] * 360) / kolicina;
                     }
-                    e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
+                    
                 }
                 else
                 {
@@ -137,39 +145,22 @@ namespace TVPProjekat2
             {
                 case 0:
                     brDana = 365;
-                    horizontal = new string[] { "Jan", "Feb", "Mar", "Apr", "Maj", "Jun", "Jul", "Avg", "Sep", "Okt", "Nov", "Dec" };
                     break;
 
                 case 1: case 3: case 5: case 7: case 8: case 10: case 12: //Jan Mar Maj Jul Avg Okt Dec: 31 dan
                     brDana = 31;
-                    horizontal = new string[brDana];
-                    for (int i = 0; i < brDana; i++)
-                    {
-                        horizontal[i] = (i + 1).ToString();
-                    }
                     break;
 
                 case 2: //Feb: 38 dana
                     brDana = 28;
-                    horizontal = new string[brDana];
-                    for (int i = 0; i < brDana; i++)
-                    {
-                        horizontal[i] = (i + 1).ToString();
-                    }
                     break;
 
                 case 4: case 6: case 9: case 11: //Apr Jun Sep Nov: 30 dana
                     brDana = 30;
-                    horizontal = new string[brDana];
-                    for (int i = 0; i < brDana; i++)
-                    {
-                        horizontal[i] = (i + 1).ToString();
-                    }
                     break;
 
                 default:
                     brDana = 1;
-                    horizontal = new string[] { "Ukupna prodaja" };
                     break;
             }
             update();
@@ -184,6 +175,7 @@ namespace TVPProjekat2
             {
                 var linqMesec = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Month == odabranMesec && r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
                 mesecnaKolicina = (float)linqMesec.Sum();
+                txtMesec.Text = mesecnaKolicina.ToString("0.00");
             }
             else
             {
@@ -193,12 +185,17 @@ namespace TVPProjekat2
                     var linqGodisnjiPresek = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Month == i + 1 && r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
                     godisnjiPresek[i] = (float) linqGodisnjiPresek.Sum();
                 }
+                txtMesec.Text = "--";
             }
             var linqGodisnji = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
             godisnjaKolicina = (float) linqGodisnji.Sum();
 
             txtGodisnje.Text = godisnjaKolicina.ToString("0.00");
             txtUkupno.Text = kolicina.ToString("0.00");
+
+            var linqDanas = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Day == DateTime.Now.Day && r.datum_izdavanja.Month == DateTime.Now.Month && r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
+            kolicinaDanas = (float) linqDanas.Sum();
+            txtDanas.Text = kolicinaDanas.ToString("0.00");
         }
     }
 }

@@ -70,6 +70,7 @@ namespace TVPProjekat2
             // 
             // groupPrikaz
             // 
+            this.groupPrikaz.BackColor = System.Drawing.SystemColors.Control;
             this.groupPrikaz.Location = new System.Drawing.Point(12, 59);
             this.groupPrikaz.Name = "groupPrikaz";
             this.groupPrikaz.Size = new System.Drawing.Size(530, 243);
