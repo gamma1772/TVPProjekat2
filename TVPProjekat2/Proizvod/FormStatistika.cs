@@ -68,7 +68,7 @@ namespace TVPProjekat2
             {
                 if (kolicina != 0)
                 {
-                    Font f = new Font(FontFamily.GenericSansSerif, 12F, FontStyle.Bold);
+                    Font f = new Font(FontFamily.GenericSansSerif, 12.5F, FontStyle.Bold);
                     for (int i = 0; i < 12; i++)
                     {
                         Brush brush1 = cetkice[i];
