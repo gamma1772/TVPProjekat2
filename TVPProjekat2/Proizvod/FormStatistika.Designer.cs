@@ -33,16 +33,18 @@ namespace TVPProjekat2
             this.label1 = new System.Windows.Forms.Label();
             this.groupPrikaz = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.rbProcentualno = new System.Windows.Forms.RadioButton();
+            this.rbStatistika = new System.Windows.Forms.RadioButton();
+            this.txtUkupno = new System.Windows.Forms.TextBox();
+            this.txtGodisnje = new System.Windows.Forms.TextBox();
+            this.txtDanas = new System.Windows.Forms.TextBox();
+            this.txtMesec = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.btnExport = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
             this.comboMesec = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
@@ -77,10 +79,12 @@ namespace TVPProjekat2
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox4);
-            this.groupBox2.Controls.Add(this.textBox3);
-            this.groupBox2.Controls.Add(this.textBox2);
-            this.groupBox2.Controls.Add(this.textBox1);
+            this.groupBox2.Controls.Add(this.rbProcentualno);
+            this.groupBox2.Controls.Add(this.rbStatistika);
+            this.groupBox2.Controls.Add(this.txtUkupno);
+            this.groupBox2.Controls.Add(this.txtGodisnje);
+            this.groupBox2.Controls.Add(this.txtDanas);
+            this.groupBox2.Controls.Add(this.txtMesec);
             this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -92,50 +96,61 @@ namespace TVPProjekat2
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Tekstualni izveštaj";
             // 
-            // button1
+            // rbProcentualno
             // 
-            this.button1.Location = new System.Drawing.Point(12, 308);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(102, 34);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Eksportuj";
-            this.button1.UseVisualStyleBackColor = true;
+            this.rbProcentualno.AutoSize = true;
+            this.rbProcentualno.Location = new System.Drawing.Point(7, 211);
+            this.rbProcentualno.Name = "rbProcentualno";
+            this.rbProcentualno.Size = new System.Drawing.Size(115, 17);
+            this.rbProcentualno.TabIndex = 9;
+            this.rbProcentualno.Text = "Procentualni prikaz";
+            this.rbProcentualno.UseVisualStyleBackColor = true;
+            this.rbProcentualno.CheckedChanged += new System.EventHandler(this.checkChanged);
             // 
-            // button2
+            // rbStatistika
             // 
-            this.button2.Location = new System.Drawing.Point(615, 308);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(102, 34);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "U redu";
-            this.button2.UseVisualStyleBackColor = true;
+            this.rbStatistika.AutoSize = true;
+            this.rbStatistika.Checked = true;
+            this.rbStatistika.Location = new System.Drawing.Point(7, 188);
+            this.rbStatistika.Name = "rbStatistika";
+            this.rbStatistika.Size = new System.Drawing.Size(101, 17);
+            this.rbStatistika.TabIndex = 8;
+            this.rbStatistika.TabStop = true;
+            this.rbStatistika.Text = "Statistički prikaz";
+            this.rbStatistika.UseVisualStyleBackColor = true;
+            this.rbStatistika.CheckedChanged += new System.EventHandler(this.checkChanged);
             // 
-            // label2
+            // txtUkupno
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 16);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(95, 13);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Prodato za mesec:";
+            this.txtUkupno.Location = new System.Drawing.Point(6, 150);
+            this.txtUkupno.Name = "txtUkupno";
+            this.txtUkupno.ReadOnly = true;
+            this.txtUkupno.Size = new System.Drawing.Size(157, 20);
+            this.txtUkupno.TabIndex = 7;
             // 
-            // label3
+            // txtGodisnje
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 134);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 1;
-            this.label3.Text = "Ukupno prodato";
+            this.txtGodisnje.Location = new System.Drawing.Point(6, 111);
+            this.txtGodisnje.Name = "txtGodisnje";
+            this.txtGodisnje.ReadOnly = true;
+            this.txtGodisnje.Size = new System.Drawing.Size(157, 20);
+            this.txtGodisnje.TabIndex = 6;
             // 
-            // label4
+            // txtDanas
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 56);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 13);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Prodato danas:";
+            this.txtDanas.Location = new System.Drawing.Point(6, 72);
+            this.txtDanas.Name = "txtDanas";
+            this.txtDanas.ReadOnly = true;
+            this.txtDanas.Size = new System.Drawing.Size(157, 20);
+            this.txtDanas.TabIndex = 5;
+            // 
+            // txtMesec
+            // 
+            this.txtMesec.Location = new System.Drawing.Point(6, 33);
+            this.txtMesec.Name = "txtMesec";
+            this.txtMesec.ReadOnly = true;
+            this.txtMesec.Size = new System.Drawing.Size(157, 20);
+            this.txtMesec.TabIndex = 4;
             // 
             // label5
             // 
@@ -146,37 +161,51 @@ namespace TVPProjekat2
             this.label5.TabIndex = 3;
             this.label5.Text = "Godišnja prodaja:";
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Location = new System.Drawing.Point(6, 33);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(157, 20);
-            this.textBox1.TabIndex = 4;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(3, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(79, 13);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Prodato danas:";
             // 
-            // textBox2
+            // label3
             // 
-            this.textBox2.Location = new System.Drawing.Point(6, 72);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(157, 20);
-            this.textBox2.TabIndex = 5;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 134);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 1;
+            this.label3.Text = "Ukupno prodato";
             // 
-            // textBox3
+            // label2
             // 
-            this.textBox3.Location = new System.Drawing.Point(6, 111);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(157, 20);
-            this.textBox3.TabIndex = 6;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 16);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(95, 13);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Prodato za mesec:";
             // 
-            // textBox4
+            // btnExport
             // 
-            this.textBox4.Location = new System.Drawing.Point(6, 150);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(157, 20);
-            this.textBox4.TabIndex = 7;
+            this.btnExport.Location = new System.Drawing.Point(12, 308);
+            this.btnExport.Name = "btnExport";
+            this.btnExport.Size = new System.Drawing.Size(102, 34);
+            this.btnExport.TabIndex = 5;
+            this.btnExport.Text = "Eksportuj";
+            this.btnExport.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(615, 308);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(102, 34);
+            this.btnClose.TabIndex = 6;
+            this.btnClose.Text = "U redu";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.close);
             // 
             // comboMesec
             // 
@@ -199,6 +228,7 @@ namespace TVPProjekat2
             this.comboMesec.Name = "comboMesec";
             this.comboMesec.Size = new System.Drawing.Size(169, 21);
             this.comboMesec.TabIndex = 7;
+            this.comboMesec.SelectedIndexChanged += new System.EventHandler(this.promeniMesec);
             // 
             // label6
             // 
@@ -216,14 +246,15 @@ namespace TVPProjekat2
             this.ClientSize = new System.Drawing.Size(726, 354);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.comboMesec);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.btnExport);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupPrikaz);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboProizvodi);
             this.Name = "FormStatistika";
             this.Text = "Statistika prodaje";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.formClosed);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
@@ -237,17 +268,19 @@ namespace TVPProjekat2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupPrikaz;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnExport;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.TextBox txtUkupno;
+        private System.Windows.Forms.TextBox txtGodisnje;
+        private System.Windows.Forms.TextBox txtDanas;
+        private System.Windows.Forms.TextBox txtMesec;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboMesec;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.RadioButton rbProcentualno;
+        private System.Windows.Forms.RadioButton rbStatistika;
     }
 }
