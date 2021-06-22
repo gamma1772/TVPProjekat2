@@ -48,7 +48,7 @@ namespace TVPProjekat2
             Korisnik k = new Korisnik();
             string username = txtUsername.Text;
             string password = txtPasswd.Text;
-            var korisnikLinq = from korisnik in pds.korisnik where korisnik.korisnicko_ime.Equals(username) && korisnik.sifra.Equals(password) select korisnik;
+            var korisnikLinq = from korisnik in pds.korisnik where korisnik.korisnicko_ime.Equals(username) && korisnik.sifra.Equals(password) && korisnik.aktivan select korisnik;
             if (korisnikLinq.Any())
             {
                 k.UUID = korisnikLinq.ElementAt(0).UUID;

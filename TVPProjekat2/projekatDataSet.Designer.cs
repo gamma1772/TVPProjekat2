@@ -795,6 +795,8 @@ namespace TVPProjekat2 {
             
             private global::System.Data.DataColumn columnbroj_telefona;
             
+            private global::System.Data.DataColumn columnaktivan;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public korisnikDataTable() {
@@ -894,6 +896,14 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn aktivanColumn {
+                get {
+                    return this.columnaktivan;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -929,7 +939,7 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public korisnikRow AddkorisnikRow(string UUID, string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona) {
+            public korisnikRow AddkorisnikRow(string UUID, string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona, bool aktivan) {
                 korisnikRow rowkorisnikRow = ((korisnikRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         UUID,
@@ -939,7 +949,8 @@ namespace TVPProjekat2 {
                         sifra,
                         datum_rodjenja,
                         adresa,
-                        broj_telefona};
+                        broj_telefona,
+                        aktivan};
                 rowkorisnikRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowkorisnikRow);
                 return rowkorisnikRow;
@@ -977,6 +988,7 @@ namespace TVPProjekat2 {
                 this.columndatum_rodjenja = base.Columns["datum_rodjenja"];
                 this.columnadresa = base.Columns["adresa"];
                 this.columnbroj_telefona = base.Columns["broj_telefona"];
+                this.columnaktivan = base.Columns["aktivan"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -998,6 +1010,8 @@ namespace TVPProjekat2 {
                 base.Columns.Add(this.columnadresa);
                 this.columnbroj_telefona = new global::System.Data.DataColumn("broj_telefona", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnbroj_telefona);
+                this.columnaktivan = new global::System.Data.DataColumn("aktivan", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaktivan);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnUUID}, true));
                 this.columnUUID.AllowDBNull = false;
@@ -2640,6 +2654,22 @@ namespace TVPProjekat2 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool aktivan {
+                get {
+                    try {
+                        return ((bool)(this[this.tablekorisnik.aktivanColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'aktivan\' in table \'korisnik\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablekorisnik.aktivanColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsimeNull() {
                 return this.IsNull(this.tablekorisnik.imeColumn);
             }
@@ -2720,6 +2750,18 @@ namespace TVPProjekat2 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setbroj_telefonaNull() {
                 this[this.tablekorisnik.broj_telefonaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsaktivanNull() {
+                return this.IsNull(this.tablekorisnik.aktivanColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetaktivanNull() {
+                this[this.tablekorisnik.aktivanColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4054,10 +4096,11 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("datum_rodjenja", "datum_rodjenja");
             tableMapping.ColumnMappings.Add("adresa", "adresa");
             tableMapping.ColumnMappings.Add("broj_telefona", "broj_telefona");
+            tableMapping.ColumnMappings.Add("aktivan", "aktivan");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `korisnik` WHERE ((`UUID` = ?) AND ((? = 1 AND `ime` IS NULL) OR (`ime` = ?)) AND ((? = 1 AND `prezime` IS NULL) OR (`prezime` = ?)) AND ((? = 1 AND `datum_rodjenja` IS NULL) OR (`datum_rodjenja` = ?)) AND ((? = 1 AND `adresa` IS NULL) OR (`adresa` = ?)) AND ((? = 1 AND `broj_telefona` IS NULL) OR (`broj_telefona` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `korisnik` WHERE ((`UUID` = ?) AND ((? = 1 AND `ime` IS NULL) OR (`ime` = ?)) AND ((? = 1 AND `prezime` IS NULL) OR (`prezime` = ?)) AND ((? = 1 AND `datum_rodjenja` IS NULL) OR (`datum_rodjenja` = ?)) AND ((? = 1 AND `adresa` IS NULL) OR (`adresa` = ?)) AND ((? = 1 AND `broj_telefona` IS NULL) OR (`broj_telefona` = ?)) AND ((? = 1 AND `aktivan` IS NULL) OR (`aktivan` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UUID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UUID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ime", global::System.Data.DataRowVersion.Original, true, null));
@@ -4070,10 +4113,13 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_adresa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "adresa", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_broj_telefona", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_broj_telefona", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_aktivan", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_aktivan", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO `korisnik` (`UUID`, `ime`, `prezime`, `korisnicko_ime`, `sifra`, `dat" +
-                "um_rodjenja`, `adresa`, `broj_telefona`) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+                "um_rodjenja`, `adresa`, `broj_telefona`, `aktivan`) VALUES (?, ?, ?, ?, ?, ?, ?," +
+                " ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UUID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UUID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ime", global::System.Data.DataRowVersion.Current, false, null));
@@ -4083,9 +4129,10 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("datum_rodjenja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_rodjenja", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("adresa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "adresa", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("broj_telefona", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("aktivan", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `korisnik` SET `UUID` = ?, `ime` = ?, `prezime` = ?, `korisnicko_ime` = ?, `sifra` = ?, `datum_rodjenja` = ?, `adresa` = ?, `broj_telefona` = ? WHERE ((`UUID` = ?) AND ((? = 1 AND `ime` IS NULL) OR (`ime` = ?)) AND ((? = 1 AND `prezime` IS NULL) OR (`prezime` = ?)) AND ((? = 1 AND `datum_rodjenja` IS NULL) OR (`datum_rodjenja` = ?)) AND ((? = 1 AND `adresa` IS NULL) OR (`adresa` = ?)) AND ((? = 1 AND `broj_telefona` IS NULL) OR (`broj_telefona` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `korisnik` SET `UUID` = ?, `ime` = ?, `prezime` = ?, `korisnicko_ime` = ?, `sifra` = ?, `datum_rodjenja` = ?, `adresa` = ?, `broj_telefona` = ?, `aktivan` = ? WHERE ((`UUID` = ?) AND ((? = 1 AND `ime` IS NULL) OR (`ime` = ?)) AND ((? = 1 AND `prezime` IS NULL) OR (`prezime` = ?)) AND ((? = 1 AND `datum_rodjenja` IS NULL) OR (`datum_rodjenja` = ?)) AND ((? = 1 AND `adresa` IS NULL) OR (`adresa` = ?)) AND ((? = 1 AND `broj_telefona` IS NULL) OR (`broj_telefona` = ?)) AND ((? = 1 AND `aktivan` IS NULL) OR (`aktivan` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("UUID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UUID", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("ime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ime", global::System.Data.DataRowVersion.Current, false, null));
@@ -4095,6 +4142,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("datum_rodjenja", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "datum_rodjenja", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("adresa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "adresa", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("broj_telefona", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("aktivan", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_UUID", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "UUID", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_ime", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ime", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_ime", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "ime", global::System.Data.DataRowVersion.Original, false, null));
@@ -4106,6 +4154,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_adresa", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "adresa", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_broj_telefona", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_broj_telefona", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "broj_telefona", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_aktivan", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_aktivan", global::System.Data.OleDb.OleDbType.Boolean, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "aktivan", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4122,7 +4172,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT UUID, ime, prezime, korisnicko_ime, sifra, datum_rodjenja, adresa, broj_te" +
-                "lefona FROM korisnik";
+                "lefona, aktivan FROM korisnik";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -4183,7 +4233,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(string Original_UUID, string Original_ime, string Original_prezime, System.DateTime Original_datum_rodjenja, string Original_adresa, string Original_broj_telefona) {
+        public virtual int Delete(string Original_UUID, string Original_ime, string Original_prezime, System.DateTime Original_datum_rodjenja, string Original_adresa, string Original_broj_telefona, bool Original_aktivan) {
             if ((Original_UUID == null)) {
                 throw new global::System.ArgumentNullException("Original_UUID");
             }
@@ -4222,6 +4272,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
                 this.Adapter.DeleteCommand.Parameters[9].Value = ((object)(0));
                 this.Adapter.DeleteCommand.Parameters[10].Value = ((string)(Original_broj_telefona));
             }
+            this.Adapter.DeleteCommand.Parameters[11].Value = ((object)(0));
+            this.Adapter.DeleteCommand.Parameters[12].Value = ((bool)(Original_aktivan));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4242,7 +4294,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string UUID, string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona) {
+        public virtual int Insert(string UUID, string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona, bool aktivan) {
             if ((UUID == null)) {
                 throw new global::System.ArgumentNullException("UUID");
             }
@@ -4286,6 +4338,7 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = ((string)(broj_telefona));
             }
+            this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(aktivan));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4306,7 +4359,23 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string UUID, string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona, string Original_UUID, string Original_ime, string Original_prezime, System.DateTime Original_datum_rodjenja, string Original_adresa, string Original_broj_telefona) {
+        public virtual int Update(
+                    string UUID, 
+                    string ime, 
+                    string prezime, 
+                    string korisnicko_ime, 
+                    string sifra, 
+                    System.DateTime datum_rodjenja, 
+                    string adresa, 
+                    string broj_telefona, 
+                    bool aktivan, 
+                    string Original_UUID, 
+                    string Original_ime, 
+                    string Original_prezime, 
+                    System.DateTime Original_datum_rodjenja, 
+                    string Original_adresa, 
+                    string Original_broj_telefona, 
+                    bool Original_aktivan) {
             if ((UUID == null)) {
                 throw new global::System.ArgumentNullException("UUID");
             }
@@ -4350,44 +4419,47 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(broj_telefona));
             }
+            this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(aktivan));
             if ((Original_UUID == null)) {
                 throw new global::System.ArgumentNullException("Original_UUID");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_UUID));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_UUID));
             }
             if ((Original_ime == null)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((string)(Original_ime));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((string)(Original_ime));
             }
             if ((Original_prezime == null)) {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[11].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[12].Value = ((string)(Original_prezime));
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_prezime));
             }
-            this.Adapter.UpdateCommand.Parameters[13].Value = ((object)(0));
-            this.Adapter.UpdateCommand.Parameters[14].Value = ((System.DateTime)(Original_datum_rodjenja));
+            this.Adapter.UpdateCommand.Parameters[14].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[15].Value = ((System.DateTime)(Original_datum_rodjenja));
             if ((Original_adresa == null)) {
                 throw new global::System.ArgumentNullException("Original_adresa");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[15].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[16].Value = ((string)(Original_adresa));
+                this.Adapter.UpdateCommand.Parameters[16].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[17].Value = ((string)(Original_adresa));
             }
             if ((Original_broj_telefona == null)) {
                 throw new global::System.ArgumentNullException("Original_broj_telefona");
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[17].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[18].Value = ((string)(Original_broj_telefona));
+                this.Adapter.UpdateCommand.Parameters[18].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[19].Value = ((string)(Original_broj_telefona));
             }
+            this.Adapter.UpdateCommand.Parameters[20].Value = ((object)(0));
+            this.Adapter.UpdateCommand.Parameters[21].Value = ((bool)(Original_aktivan));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -4408,8 +4480,8 @@ namespace TVPProjekat2.projekatDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona, string Original_UUID, string Original_ime, string Original_prezime, System.DateTime Original_datum_rodjenja, string Original_adresa, string Original_broj_telefona) {
-            return this.Update(Original_UUID, ime, prezime, korisnicko_ime, sifra, datum_rodjenja, adresa, broj_telefona, Original_UUID, Original_ime, Original_prezime, Original_datum_rodjenja, Original_adresa, Original_broj_telefona);
+        public virtual int Update(string ime, string prezime, string korisnicko_ime, string sifra, System.DateTime datum_rodjenja, string adresa, string broj_telefona, bool aktivan, string Original_UUID, string Original_ime, string Original_prezime, System.DateTime Original_datum_rodjenja, string Original_adresa, string Original_broj_telefona, bool Original_aktivan) {
+            return this.Update(Original_UUID, ime, prezime, korisnicko_ime, sifra, datum_rodjenja, adresa, broj_telefona, aktivan, Original_UUID, Original_ime, Original_prezime, Original_datum_rodjenja, Original_adresa, Original_broj_telefona, Original_aktivan);
         }
     }
     

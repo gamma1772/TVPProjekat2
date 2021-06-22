@@ -1,0 +1,12 @@
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\bin\Debug\TVPProjekat2_KorisnikManager.exe.config
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\bin\Debug\TVPProjekat2_KorisnikManager.exe
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\bin\Debug\TVPProjekat2_KorisnikManager.pdb
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.csproj.AssemblyReference.cache
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.FormDodaj.resources
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.FormIzmeni.resources
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.FormProgram.resources
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.Properties.Resources.resources
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.csproj.GenerateResource.cache
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.csproj.CoreCompileInputs.cache
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.exe
+C:\source\TVPProjekat2\TVPProjekat2_KorisnikManager\obj\Debug\TVPProjekat2_KorisnikManager.pdb
