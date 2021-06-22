@@ -16,8 +16,11 @@ namespace TVPProjekat2
         private int brDana, odabranMesec;
         private string[] horizontal;
         private projekatDataSet dataSet;
+
         private float kolicina = 0;
         private float mesecnaKolicina = 0;
+        private float[] godisnjiPresek;
+        private float godisnjaKolicina = 0;
         FormProgram main;
         public FormStatistika(projekatDataSet dataSet, FormProgram main)
         {
@@ -51,6 +54,23 @@ namespace TVPProjekat2
                 {
                     e.Graphics.FillPie(Brushes.Red, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                     e.Graphics.FillPie(Brushes.Blue, new Rectangle(150, 35, 200, 200), pocetniUgao, (mesecnaKolicina * 360) / kolicina);
+                    e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
+                }
+                else
+                {
+                    e.Graphics.DrawString("Nema podataka", DefaultFont, Brushes.Red, 150, 35);
+                }
+            }
+            else
+            {
+                if (kolicina != 0)
+                {
+                    for (int i = 0; i < 12; i++)
+                    {
+                        e.Graphics.FillPie(brush(), new Rectangle(150, 35, 200, 200), pocetniUgao, (godisnjiPresek[i] * 360) / kolicina);
+                        pocetniUgao += (godisnjiPresek[i] * 360) / kolicina;
+                    }
+                    e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                 }
                 else
                 {
@@ -165,7 +185,19 @@ namespace TVPProjekat2
                 var linqMesec = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Month == odabranMesec && r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
                 mesecnaKolicina = (float)linqMesec.Sum();
             }
+            else
+            {
+                godisnjiPresek = new float[12];
+                for (int i = 0; i < 12; i++)
+                {
+                    var linqGodisnjiPresek = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Month == i + 1 && r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
+                    godisnjiPresek[i] = (float) linqGodisnjiPresek.Sum();
+                }
+            }
+            var linqGodisnji = (from rp in dataSet.racun_proizvod where (from r in dataSet.racun where r.datum_izdavanja.Year == DateTime.Now.Year select r.ID).Contains(rp.RacunID) && (from p in dataSet.proizvod where p.ime.ToLower().Equals(comboProizvodi.SelectedItem.ToString().ToLower()) select p.ID).Contains(rp.ProizvodID) select rp.Kolicina);
+            godisnjaKolicina = (float) linqGodisnji.Sum();
 
+            txtGodisnje.Text = godisnjaKolicina.ToString("0.00");
             txtUkupno.Text = kolicina.ToString("0.00");
         }
     }
