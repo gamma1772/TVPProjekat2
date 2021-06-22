@@ -37,9 +37,16 @@ namespace TVPProjekat2.Proizvod
             // 
             // dataDeaktivni
             // 
+            this.dataDeaktivni.AllowUserToAddRows = false;
+            this.dataDeaktivni.AllowUserToDeleteRows = false;
+            this.dataDeaktivni.AllowUserToOrderColumns = true;
+            this.dataDeaktivni.AllowUserToResizeRows = false;
             this.dataDeaktivni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataDeaktivni.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataDeaktivni.Location = new System.Drawing.Point(12, 13);
+            this.dataDeaktivni.MultiSelect = false;
             this.dataDeaktivni.Name = "dataDeaktivni";
+            this.dataDeaktivni.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataDeaktivni.Size = new System.Drawing.Size(776, 395);
             this.dataDeaktivni.TabIndex = 0;
             // 

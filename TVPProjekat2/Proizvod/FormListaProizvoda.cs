@@ -54,6 +54,22 @@ namespace TVPProjekat2
             dataProizvodi.Refresh();
         }
 
+        private void azurirajTabelu(EnumerableRowCollection<projekatDataSet.proizvodRow> linq)
+        {
+            if (linq.Any())
+            {
+                dataProizvodi.DataSource = linq.CopyToDataTable();
+
+            }
+            else
+            {
+                dataProizvodi.DataSource = null;
+            }
+
+            dataProizvodi.Update();
+            dataProizvodi.Refresh();
+        }
+
         private void dodajProizvod(object sender, EventArgs e)
         {
             if (FrmNovi == null)
@@ -85,7 +101,7 @@ namespace TVPProjekat2
             DialogResult result = MessageBox.Show("Brisanje proizvoda će dovesti do nepravilnosti podataka već postojećih računa. Preporučuje se da se izvrši deaktiviranje proizvoda umesto brisanja.\nDa li sigurno želite da obrišete odabrani proizvod?", "Lista proizvoda", MessageBoxButtons.YesNo, MessageBoxIcon.Stop);
             if (result == DialogResult.Yes)
             {
-                proizvodDB.Delete(int.Parse(dataProizvodi.SelectedRows[0].Cells[0].ToString()), dataProizvodi.SelectedRows[0].Cells[1].ToString(), int.Parse(dataProizvodi.SelectedRows[0].Cells[2].ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[3].ToString()), int.Parse(dataProizvodi.SelectedRows[0].Cells[4].ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[5].ToString()), dataProizvodi.SelectedRows[0].Cells[6].ToString(), bool.Parse(dataProizvodi.SelectedRows[0].Cells[7].ToString()));
+                proizvodDB.Delete(int.Parse(dataProizvodi.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodi.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(dataProizvodi.SelectedRows[0].Cells[2].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[3].Value.ToString()), int.Parse(dataProizvodi.SelectedRows[0].Cells[4].Value.ToString()), double.Parse(dataProizvodi.SelectedRows[0].Cells[5].Value.ToString()), dataProizvodi.SelectedRows[0].Cells[6].Value.ToString(), bool.Parse(dataProizvodi.SelectedRows[0].Cells[7].Value.ToString()));
                 proizvodDB.Update(dataSet);
                 proizvodDB.Fill(dataSet.proizvod);
 
@@ -95,7 +111,22 @@ namespace TVPProjekat2
 
         private void prikaziStatistiku(object sender, EventArgs e)
         {
-
+            if (FrmStatistika == null)
+            {
+                if (dataProizvodi.SelectedRows.Count > 0)
+                {
+                    FrmStatistika = new FormStatistika(dataProizvodi.SelectedRows[0].Cells[1].Value.ToString(), dataSet, this);
+                    FrmStatistika.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Niste odabrali proizvod!", "Lista proizvoda", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                FrmStatistika.Focus();
+            }
         }
 
         private void close(object sender, EventArgs e)
@@ -119,6 +150,21 @@ namespace TVPProjekat2
             proizvodDB.Fill(dataSet.proizvod);
 
             azurirajTabelu();
+        }
+
+        private void pretraga(object sender, EventArgs e)
+        {
+            if (txtPretraga.Text != null)
+            {
+                var linq = from p in dataSet.proizvod
+                           where p.ID.ToString().Contains(txtPretraga.Text) ||
+                             p.ime.ToLower().Contains(txtPretraga.Text.ToLower()) ||
+                             p.bar_kod.Contains(txtPretraga.Text) ||
+                             (from m in dataSet.proizvodjac where p.proizvodjac.Equals(m.ID) select m.naziv.ToLower()).Contains(txtPretraga.Text.ToLower()) ||
+                             (from k in dataSet.kategorija where p.kategorija.Equals(k.ID) select k.ime.ToLower()).Contains(txtPretraga.Text.ToLower())
+                           select p;
+                azurirajTabelu(linq);
+            }
         }
     }
 }

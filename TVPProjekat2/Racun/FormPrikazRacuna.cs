@@ -17,12 +17,23 @@ namespace TVPProjekat2.Racun
         string racunID;
         projekatDataSet dataSet;
         FormRacuni main;
-        public FormPrikazRacuna(string racunID, projekatDataSet dataSet, Form main)
+        FormProgram program;
+        public FormPrikazRacuna(string racunID, projekatDataSet dataSet, FormRacuni main)
         {
             InitializeComponent();
             this.racunID = racunID;
             this.dataSet = dataSet;
-            this.main = (FormRacuni) main;
+            this.main = main;
+
+            popuniFormu();
+        }
+
+        public FormPrikazRacuna(string racunID, projekatDataSet dataSet, FormProgram program)
+        {
+            InitializeComponent();
+            this.racunID = racunID;
+            this.dataSet = dataSet;
+            this.program = program;
 
             popuniFormu();
         }
@@ -61,7 +72,14 @@ namespace TVPProjekat2.Racun
             this.Dispose();
             this.Close();
 
-            main.FrmPrikaz = null;
+            if (main != null)
+            {
+                main.FrmPrikaz = null;
+            }
+            else
+            {
+                program.FrmPrikaziRacun = null;
+            }
         }
 
         private void formClosed(object sender, FormClosedEventArgs e)

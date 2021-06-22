@@ -34,6 +34,10 @@ namespace TVPProjekat2.Proizvod
             {
                 dataDeaktivni.DataSource = linq.CopyToDataTable();
             }
+            else
+            {
+                dataDeaktivni.DataSource = null;
+            }
 
             dataDeaktivni.Update();
             dataDeaktivni.Refresh();
@@ -43,10 +47,12 @@ namespace TVPProjekat2.Proizvod
         {
             proizvodDB.Update(dataDeaktivni.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(dataDeaktivni.SelectedRows[0].Cells[2].Value.ToString()), double.Parse(dataDeaktivni.SelectedRows[0].Cells[3].Value.ToString()), int.Parse(dataDeaktivni.SelectedRows[0].Cells[4].Value.ToString()), double.Parse(dataDeaktivni.SelectedRows[0].Cells[5].Value.ToString()), dataDeaktivni.SelectedRows[0].Cells[6].Value.ToString(), true, 
                 int.Parse(dataDeaktivni.SelectedRows[0].Cells[0].Value.ToString()), dataDeaktivni.SelectedRows[0].Cells[1].Value.ToString(), int.Parse(dataDeaktivni.SelectedRows[0].Cells[2].Value.ToString()), double.Parse(dataDeaktivni.SelectedRows[0].Cells[3].Value.ToString()), int.Parse(dataDeaktivni.SelectedRows[0].Cells[4].Value.ToString()), double.Parse(dataDeaktivni.SelectedRows[0].Cells[5].Value.ToString()), dataDeaktivni.SelectedRows[0].Cells[6].Value.ToString(), bool.Parse(dataDeaktivni.SelectedRows[0].Cells[7].Value.ToString()));
+            
             proizvodDB.Update(dataSet);
             proizvodDB.Fill(dataSet.proizvod);
 
             azurirajTabelu();
+
             main.osveziListu();
         }
 

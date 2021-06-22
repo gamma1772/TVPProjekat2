@@ -79,9 +79,13 @@ namespace TVPProjekat2
             }
 
             racunDB.Update(dataSet);
+            racunDB.Fill(dataSet.racun);
+
             proizvodDB.Update(dataSet);
-            dataRacuni.Update();
-            dataRacuni.Refresh();
+            proizvodDB.Fill(dataSet.proizvod);
+
+            azurirajTabelu(from racun in dataSet.racun select racun);
+
             racunDB.Connection.Close();
             proizvodDB.Connection.Close();
         }
@@ -181,12 +185,14 @@ namespace TVPProjekat2
 
         internal void azurirajTabelu(EnumerableRowCollection<projekatDataSet.racunRow> linq)
         {
-            dataRacuni.DataSource = null;
             if (linq.Any())
             {
                 dataRacuni.DataSource = linq.CopyToDataTable();
             }
-
+            else
+            {
+                dataRacuni.DataSource = null;
+            }
             dataRacuni.Update();
             dataRacuni.Refresh();
         }

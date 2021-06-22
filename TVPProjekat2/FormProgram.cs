@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TVPProjekat2.Proizvod.Proizvodjac;
+using TVPProjekat2.Racun;
 
 namespace TVPProjekat2
 {
@@ -20,7 +21,7 @@ namespace TVPProjekat2
         private FormRacuni frmRacuni;
         private FormStatistika frmStatistika;
         private FormListaProizvodjaca frmProizvodjaci;
-
+        private FormPrikazRacuna frmPrikaziRacun;
         internal Korisnik prijavljenKorisnik;
         private FormLogin frmLogin;
         projekatDataSet pds;
@@ -40,6 +41,7 @@ namespace TVPProjekat2
         public FormRacuni FrmRacuni { get => frmRacuni; set => frmRacuni = value; }
         public FormStatistika FrmStatistika { get => frmStatistika; set => frmStatistika = value; }
         public FormListaProizvodjaca FrmProizvodjaci { get => frmProizvodjaci; set => frmProizvodjaci = value; }
+        public FormPrikazRacuna FrmPrikaziRacun { get => frmPrikaziRacun; set => frmPrikaziRacun = value; }
 
         public FormProgram(projekatDataSet pds, FormLogin formLogin)
         {
@@ -140,11 +142,6 @@ namespace TVPProjekat2
             }
         }
 
-        private void izmeniRacun(object sender, EventArgs e)
-        {
-            azurirajTabele();
-        }
-
         /// <summary>
         /// Stornira racune koji su selektovani u DataGridView za racune (dataRacun) klikom na dugme.
         /// </summary>
@@ -188,17 +185,55 @@ namespace TVPProjekat2
 
         private void obrisiSelektovano(object sender, EventArgs e)
         {
+            //if (dataStornirani.SelectedRows.Count > 0)
+            //{
+            //    var linq = from racun in pds.racun where racun.ID == dataStornirani.SelectedRows[0].Cells[0].Value.ToString() select racun;
+            //    if (linq.Any())
+            //    {
+            //        racunDB.Delete(linq.ElementAt(0).ID, linq.ElementAt(0).korisnik, linq.ElementAt(0).datum_izdavanja, linq.ElementAt(0).cena, linq.ElementAt(0).storniran);
+            //        racunDB.Update(pds);
+            //    }
+            //    azurirajTabele();
+            //}
             if (dataStornirani.SelectedRows.Count > 0)
             {
-                var linq = from racun in pds.racun where racun.ID == dataStornirani.SelectedRows[0].Cells[0].Value.ToString() select racun;
-                if (linq.Any())
+                racunDB.Connection.Open(); //Konekcija se otvara jer je potrebno koristiti OleDbCommand()
+                racun_proizvodDB.Connection.Open();
+
+                OleDbCommand cmdRacun = new OleDbCommand
                 {
-                    racunDB.Delete(linq.ElementAt(0).ID, linq.ElementAt(0).korisnik, linq.ElementAt(0).datum_izdavanja, linq.ElementAt(0).cena, linq.ElementAt(0).storniran);
-                    racunDB.Update(pds);
+                    Connection = racunDB.Connection
+                };
+
+                OleDbCommand cmdRacunProizvod = new OleDbCommand
+                {
+                    Connection = racun_proizvodDB.Connection
+                };
+                foreach (DataGridViewRow item in dataStornirani.SelectedRows)
+                {
+                    var linq = from racunProizvod in pds.racun_proizvod
+                               where racunProizvod.RacunID.Equals(item.Cells[0].Value.ToString())
+                               select racunProizvod;
+                    foreach (var item2 in linq)
+                    {
+                        cmdRacunProizvod.CommandText = "DELETE FROM racun_proizvod WHERE RacunID = '" + item2.RacunID + "' AND ProizvodID = " + item2.ProizvodID;
+                        cmdRacunProizvod.ExecuteNonQuery();
+                    }
+
+                    cmdRacun.CommandText = "DELETE FROM Racun WHERE ID = '" + item.Cells[0].Value.ToString() + "'";
+                    cmdRacun.ExecuteNonQuery();
                 }
+
+                racunDB.Connection.Close();
+                racun_proizvodDB.Connection.Close();
+
+                azurirajDB();
                 azurirajTabele();
             }
-            
+            else
+            {
+                MessageBox.Show("Niste selektovali račun.", "Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         /// <summary>
@@ -233,7 +268,7 @@ namespace TVPProjekat2
             if (storniraniLinq.Any())
             {
                 dataStornirani.DataSource = storniraniLinq.CopyToDataTable();
-                dataStornirani.Columns["storniran"].Visible = false;
+                
                 dataStornirani.Update();
                 dataStornirani.Refresh();
             }
@@ -285,6 +320,39 @@ namespace TVPProjekat2
             else
             {
                 FrmProizvodjaci.Focus();
+            }
+        }
+
+        private void klonirajRacun(object sender, EventArgs e)
+        {
+            if (dataStornirani.SelectedRows.Count > 0)
+            {
+                FrmNoviRacun = new FormNoviRacun(pds, proizvodDB, kategorijaDB, racunDB, racun_proizvodDB, proizvodjacDB, dataStornirani.SelectedRows[0], this);
+                FrmNoviRacun.Show();
+            }
+            else
+            {
+                MessageBox.Show("Niste selektovali račun.", "Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void prikaziRacun(object sender, EventArgs e)
+        {
+            if (dataRacuni.SelectedRows.Count > 0)
+            {
+                if (FrmPrikaziRacun == null)
+                {
+                    FrmPrikaziRacun = new FormPrikazRacuna(dataRacuni.SelectedRows[0].Cells[0].Value.ToString(), pds, this);
+                    FrmPrikaziRacun.Show();
+                }
+                else
+                {
+                    FrmPrikaziRacun.Focus();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Niste selektovali račun.", "Program", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

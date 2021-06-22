@@ -66,6 +66,9 @@ namespace TVPProjekat2
 
                 frm.Show();
                 this.Hide();
+
+                txtUsername.Clear();
+                txtPasswd.Clear();
             }
             else
             {

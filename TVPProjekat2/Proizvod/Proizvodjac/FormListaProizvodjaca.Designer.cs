@@ -35,12 +35,14 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.btnDodaj = new System.Windows.Forms.Button();
             this.dataProizvodjaci = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtPretraga = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataProizvodjaci)).BeginInit();
             this.SuspendLayout();
             // 
             // btnIzmeni
             // 
-            this.btnIzmeni.Location = new System.Drawing.Point(467, 41);
+            this.btnIzmeni.Location = new System.Drawing.Point(467, 54);
             this.btnIzmeni.Name = "btnIzmeni";
             this.btnIzmeni.Size = new System.Drawing.Size(169, 23);
             this.btnIzmeni.TabIndex = 9;
@@ -60,7 +62,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnObrisi
             // 
-            this.btnObrisi.Location = new System.Drawing.Point(467, 99);
+            this.btnObrisi.Location = new System.Drawing.Point(467, 112);
             this.btnObrisi.Name = "btnObrisi";
             this.btnObrisi.Size = new System.Drawing.Size(169, 23);
             this.btnObrisi.TabIndex = 7;
@@ -70,7 +72,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             // 
             // btnDodaj
             // 
-            this.btnDodaj.Location = new System.Drawing.Point(467, 12);
+            this.btnDodaj.Location = new System.Drawing.Point(467, 25);
             this.btnDodaj.Name = "btnDodaj";
             this.btnDodaj.Size = new System.Drawing.Size(169, 23);
             this.btnDodaj.TabIndex = 6;
@@ -85,7 +87,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.dataProizvodjaci.AllowUserToResizeRows = false;
             this.dataProizvodjaci.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataProizvodjaci.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dataProizvodjaci.Location = new System.Drawing.Point(12, 12);
+            this.dataProizvodjaci.Location = new System.Drawing.Point(12, 51);
             this.dataProizvodjaci.MultiSelect = false;
             this.dataProizvodjaci.Name = "dataProizvodjaci";
             this.dataProizvodjaci.ReadOnly = true;
@@ -94,12 +96,12 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.dataProizvodjaci.ShowCellToolTips = false;
             this.dataProizvodjaci.ShowEditingIcon = false;
             this.dataProizvodjaci.ShowRowErrors = false;
-            this.dataProizvodjaci.Size = new System.Drawing.Size(449, 417);
+            this.dataProizvodjaci.Size = new System.Drawing.Size(449, 378);
             this.dataProizvodjaci.TabIndex = 5;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(467, 70);
+            this.button1.Location = new System.Drawing.Point(467, 83);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(169, 23);
             this.button1.TabIndex = 11;
@@ -107,11 +109,30 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.statusAktivnosti);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(163, 13);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Brza pretraga (ID, Naziv, Država)";
+            // 
+            // txtPretraga
+            // 
+            this.txtPretraga.Location = new System.Drawing.Point(13, 25);
+            this.txtPretraga.Name = "txtPretraga";
+            this.txtPretraga.Size = new System.Drawing.Size(448, 20);
+            this.txtPretraga.TabIndex = 14;
+            this.txtPretraga.TextChanged += new System.EventHandler(this.pretraga);
+            // 
             // FormListaProizvodjaca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(643, 441);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtPretraga);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIzmeni);
             this.Controls.Add(this.btnZatvori);
@@ -123,6 +144,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormListaProizvodjaca_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataProizvodjaci)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -134,5 +156,7 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         private System.Windows.Forms.Button btnDodaj;
         private System.Windows.Forms.DataGridView dataProizvodjaci;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtPretraga;
     }
 }

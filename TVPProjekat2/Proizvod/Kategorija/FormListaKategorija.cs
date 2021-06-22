@@ -100,6 +100,22 @@ namespace TVPProjekat2
             dataKategorije.Refresh();
         }
 
+        private void azurirajTabelu(EnumerableRowCollection<projekatDataSet.kategorijaRow> linq)
+        {
+            if (linq.Any())
+            {
+                dataKategorije.DataSource = linq.CopyToDataTable();
+
+            }
+            else
+            {
+                dataKategorije.DataSource = null;
+            }
+
+            dataKategorije.Update();
+            dataKategorije.Refresh();
+        }
+
         private void close(object sender, EventArgs e)
         {
             this.Dispose();
@@ -118,6 +134,18 @@ namespace TVPProjekat2
             kategorijaDB.Update(dataSet);
             kategorijaDB.Fill(dataSet.kategorija);
             azurirajTabelu();
+        }
+
+        private void pretraga(object sender, EventArgs e)
+        {
+            if (txtPretraga.Text != null)
+            {
+                var linq = from k in dataSet.kategorija
+                           where k.ID.ToString().Contains(txtPretraga.Text) ||
+                             k.ime.ToLower().Contains(txtPretraga.Text.ToLower())
+                           select k;
+                azurirajTabelu(linq);
+            }
         }
     }
 }

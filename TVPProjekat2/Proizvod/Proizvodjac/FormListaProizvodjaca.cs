@@ -98,11 +98,28 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
             dataProizvodjaci.Refresh();
         }
 
+        private void azurirajTabelu(EnumerableRowCollection<projekatDataSet.proizvodjacRow> linq)
+        {
+            
+            if (linq.Any())
+            {
+                dataProizvodjaci.DataSource = linq.CopyToDataTable();
+
+            }
+            else
+            {
+                dataProizvodjaci.DataSource = null;
+            }
+
+            dataProizvodjaci.Update();
+            dataProizvodjaci.Refresh();
+        }
+
         private void close(object sender, EventArgs e)
         {
             this.Dispose();
             this.Close();
-            main.FrmKategorije = null;
+            main.FrmProizvodjaci = null;
         }
 
         private void FormListaProizvodjaca_FormClosed(object sender, FormClosedEventArgs e)
@@ -113,11 +130,24 @@ namespace TVPProjekat2.Proizvod.Proizvodjac
         private void statusAktivnosti(object sender, EventArgs e)
         {
             proizvodjacDB.Update(dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), !bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()),
-               int.Parse(dataProizvodjaci.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), !bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()));
+               int.Parse(dataProizvodjaci.SelectedRows[0].Cells[0].Value.ToString()), dataProizvodjaci.SelectedRows[0].Cells[1].Value.ToString(), dataProizvodjaci.SelectedRows[0].Cells[2].Value.ToString(), bool.Parse(dataProizvodjaci.SelectedRows[0].Cells[3].Value.ToString()));
             proizvodjacDB.Update(dataSet);
             proizvodjacDB.Fill(dataSet.proizvodjac);
 
             azurirajTabelu();
+        }
+
+        private void pretraga(object sender, EventArgs e)
+        {
+            if (txtPretraga.Text != null)
+            {
+                var linq = from p in dataSet.proizvodjac
+                           where p.ID.ToString().Contains(txtPretraga.Text) ||
+                             p.naziv.ToLower().Contains(txtPretraga.Text.ToLower()) ||
+                             p.drzava.Contains(txtPretraga.Text)
+                           select p;
+                azurirajTabelu(linq);
+            }
         }
     }
 }

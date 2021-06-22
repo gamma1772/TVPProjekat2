@@ -49,6 +49,25 @@ namespace TVPProjekat2
             osveziListu();
         }
 
+        public FormNoviRacun(projekatDataSet dataSet, proizvodTableAdapter proizvodDB, kategorijaTableAdapter kategorijaDB, racunTableAdapter racunDB, racun_proizvodTableAdapter racunProizvodDB, proizvodjacTableAdapter proizvodjacDB, DataGridViewRow row, FormProgram frmProgram)
+        {
+            InitializeComponent();
+            ID = generateID();
+            this.txtIDRacuna.Text = ID;
+            this.txtProdavac.Text = frmProgram.prijavljenKorisnik.UUID;
+            this.dataSet = dataSet;
+            this.racunDB = racunDB;
+            this.racunProizvodDB = racunProizvodDB;
+            this.proizvodDB = proizvodDB;
+            this.kategorijaDB = kategorijaDB;
+            this.proizvodjacDB = proizvodjacDB;
+            this.txtIznos.Text = iznosRacuna.ToString("0.00");
+            this.frmProgram = frmProgram;
+            osveziListu();
+
+            autoFill(row);
+        }
+
         internal void osveziListu()
         {
             var linq = from proizvod in dataSet.proizvod where proizvod.aktivno == true select proizvod;
@@ -235,6 +254,25 @@ namespace TVPProjekat2
 
         private void odustani(object sender, EventArgs e)
         {
+            if (listRacun.Items.Count > 0)
+            {
+                foreach (ListViewItem item in listRacun.Items)
+                {
+                    var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
+                    var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
+                    var linq3 = from proizvod in dataSet.proizvod where int.Parse(item.SubItems[0].Text) == proizvod.ID select proizvod.kolicina;
+
+                    proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), (short?)(short.Parse(item.SubItems[5].Text) + short.Parse(linq3.ElementAt(0).ToString())), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true,
+                        int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true);
+                    proizvodDB.Update(dataSet);
+                    proizvodDB.Fill(dataSet.proizvod);
+
+                    iznosRacuna -= double.Parse(item.SubItems[6].Text) * int.Parse(item.SubItems[5].Text);
+
+                    listRacun.Items.Remove(item);
+                }
+            }
+
             this.Dispose();
             this.Close();
         }
@@ -347,6 +385,48 @@ namespace TVPProjekat2
             else
             {
                 MessageBox.Show("Niste odabrali proizvod sa liste Proizvodi!", "Izmeni proizvod", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void autoFill(DataGridViewRow row)
+        {
+            var linq = from racun in dataSet.racun where racun.ID.Equals(row.Cells[0].Value.ToString()) select racun;
+            txtIznos.Text = linq.ElementAt(0).cena.ToString("0.00");
+
+            var linqRP = from rp in dataSet.racun_proizvod where rp.RacunID.Equals(row.Cells[0].Value.ToString()) select rp.ProizvodID;
+            foreach (var item0 in linqRP)
+            {
+                var linqProizvod = from proizvod in dataSet.proizvod where item0.Equals(proizvod.ID) select proizvod;
+                foreach (var item in linqProizvod)
+                {
+                    var linqKategorija = from kategorija in dataSet.kategorija where kategorija.ID == item.kategorija select kategorija.ime;
+                    var linqProizvodjac = from proizvodjac in dataSet.proizvodjac where proizvodjac.ID == item.proizvodjac select proizvodjac.naziv;
+
+                    var linq4 = from racun_proizvod in dataSet.racun_proizvod where racun_proizvod.RacunID.Equals(row.Cells[0].Value.ToString()) && item.ID.Equals(racun_proizvod.ProizvodID) select racun_proizvod.Kolicina;
+
+                    string[] vals = { item.ID.ToString(), item.bar_kod.ToString(), item.ime.ToString(), linqProizvodjac.ElementAt(0), linqKategorija.ElementAt(0), linq4.ElementAt(0).ToString(), item.cena.ToString("0.00") };
+                    ListViewItem proizvod = new ListViewItem(vals);
+                    listRacun.Items.Add(proizvod);
+                }
+            }
+            syncClone();
+
+        }
+
+        private void syncClone()
+        {
+            foreach (ListViewItem item in listRacun.Items)
+            {
+                var linq = from kategorija in dataSet.kategorija where item.SubItems[4].Text == kategorija.ime select kategorija.ID;
+                var linq2 = from proizvodjac in dataSet.proizvodjac where item.SubItems[3].Text == proizvodjac.naziv select proizvodjac.ID;
+                var linq3 = from proizvod in dataSet.proizvod where int.Parse(item.SubItems[0].Text) == proizvod.ID select proizvod.kolicina;
+
+                proizvodDB.Update(item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()) - (short?)(short.Parse(item.SubItems[5].Text)), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true,
+                    int.Parse(item.SubItems[0].Text), item.SubItems[2].Text, linq2.ElementAt(0), short.Parse(linq3.ElementAt(0).ToString()), linq.ElementAt(0), double.Parse(item.SubItems[6].Text), item.SubItems[1].Text, true);
+                proizvodDB.Update(dataSet);
+                proizvodDB.Fill(dataSet.proizvod);
+
+                iznosRacuna += double.Parse(item.SubItems[6].Text) * int.Parse(item.SubItems[5].Text);
             }
         }
     }

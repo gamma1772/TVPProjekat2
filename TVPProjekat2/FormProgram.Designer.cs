@@ -54,8 +54,8 @@ namespace TVPProjekat2
             this.btnKloniraj = new System.Windows.Forms.Button();
             this.dataStornirani = new System.Windows.Forms.DataGridView();
             this.groupRacuni = new System.Windows.Forms.GroupBox();
-            this.groupStonrirani = new System.Windows.Forms.GroupBox();
             this.btnPrikazi = new System.Windows.Forms.Button();
+            this.groupStonrirani = new System.Windows.Forms.GroupBox();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataRacuni)).BeginInit();
@@ -200,7 +200,9 @@ namespace TVPProjekat2
             // 
             this.dataRacuni.AllowUserToAddRows = false;
             this.dataRacuni.AllowUserToDeleteRows = false;
+            this.dataRacuni.AllowUserToResizeRows = false;
             this.dataRacuni.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataRacuni.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataRacuni.Location = new System.Drawing.Point(6, 19);
             this.dataRacuni.Name = "dataRacuni";
             this.dataRacuni.ReadOnly = true;
@@ -262,13 +264,15 @@ namespace TVPProjekat2
             this.btnKloniraj.TabIndex = 6;
             this.btnKloniraj.Text = "Kloniraj račun";
             this.btnKloniraj.UseVisualStyleBackColor = true;
-            this.btnKloniraj.Click += new System.EventHandler(this.izmeniRacun);
+            this.btnKloniraj.Click += new System.EventHandler(this.klonirajRacun);
             // 
             // dataStornirani
             // 
             this.dataStornirani.AllowUserToAddRows = false;
             this.dataStornirani.AllowUserToDeleteRows = false;
+            this.dataStornirani.AllowUserToResizeRows = false;
             this.dataStornirani.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataStornirani.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dataStornirani.Location = new System.Drawing.Point(7, 19);
             this.dataStornirani.MultiSelect = false;
             this.dataStornirani.Name = "dataStornirani";
@@ -289,6 +293,16 @@ namespace TVPProjekat2
             this.groupRacuni.TabStop = false;
             this.groupRacuni.Text = "Lista današnjih računa";
             // 
+            // btnPrikazi
+            // 
+            this.btnPrikazi.Location = new System.Drawing.Point(224, 405);
+            this.btnPrikazi.Name = "btnPrikazi";
+            this.btnPrikazi.Size = new System.Drawing.Size(215, 25);
+            this.btnPrikazi.TabIndex = 5;
+            this.btnPrikazi.Text = "Prikaži račun";
+            this.btnPrikazi.UseVisualStyleBackColor = true;
+            this.btnPrikazi.Click += new System.EventHandler(this.prikaziRacun);
+            // 
             // groupStonrirani
             // 
             this.groupStonrirani.Controls.Add(this.dataStornirani);
@@ -300,15 +314,6 @@ namespace TVPProjekat2
             this.groupStonrirani.TabIndex = 9;
             this.groupStonrirani.TabStop = false;
             this.groupStonrirani.Text = "Stornirani računi";
-            // 
-            // btnPrikazi
-            // 
-            this.btnPrikazi.Location = new System.Drawing.Point(224, 405);
-            this.btnPrikazi.Name = "btnPrikazi";
-            this.btnPrikazi.Size = new System.Drawing.Size(215, 25);
-            this.btnPrikazi.TabIndex = 5;
-            this.btnPrikazi.Text = "Prikaži račun";
-            this.btnPrikazi.UseVisualStyleBackColor = true;
             // 
             // FormProgram
             // 
