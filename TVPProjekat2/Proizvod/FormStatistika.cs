@@ -55,9 +55,9 @@ namespace TVPProjekat2
             {
                 if (mesecnaKolicina != 0 && kolicina != 0)
                 {
+                    e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                     e.Graphics.FillPie(Brushes.Red, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                     e.Graphics.FillPie(Brushes.Blue, new Rectangle(150, 35, 200, 200), pocetniUgao, (mesecnaKolicina * 360) / kolicina);
-                    e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
                 }
                 else
                 {
@@ -74,8 +74,9 @@ namespace TVPProjekat2
                         Brush brush1 = cetkice[i];
                         if (godisnjiPresek[i] == 0) { continue; }
                         e.Graphics.DrawString(meseci[i], f, brush1, 375, 10 + i*15, StringFormat.GenericTypographic);
-                        e.Graphics.FillPie(brush1, new Rectangle(150, 35, 200, 200), pocetniUgao, (godisnjiPresek[i] * 360) / kolicina);
                         e.Graphics.DrawPie(Pens.Black, new Rectangle(150, 35, 200, 200), pocetniUgao, 360);
+                        e.Graphics.FillPie(brush1, new Rectangle(150, 35, 200, 200), pocetniUgao, (godisnjiPresek[i] * 360) / kolicina);
+                        
                         pocetniUgao += (godisnjiPresek[i] * 360) / kolicina;
                     }
                     
